@@ -22,27 +22,6 @@ h1 {
   margin-bottom: 50px;
 }
 
-h2 { font-size: 3rem; 
-  padding: 0px 20px 0px 20px;
-}
-
-p { 
-  padding-top: 0.5rem; 
-  padding-bottom: 0.5rem;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-p.more {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-}
-
-p small, p small a {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.33);
-}
-
 a { 
   text-decoration: none; 
   font-style: italic; 
@@ -50,7 +29,31 @@ a {
   font-weight: normal;
 }
 
-p.more a {
+/* Game controls */
+
+#welcome, #message, #controls {
+  margin: 50px 0px 50px 0px;
+}
+
+#message #gameover:empty { visibilty: hidden; }
+#message #reasons:empty { visibilty: hidden; }
+
+#message #gameover {
+  font-size: 5rem;
+  color: #9a001a;
+  text-align: center
+}
+
+#message #reasons {
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+}
+
+#controls #level:empty { visibility: hidden; }
+#controls #points:empty { visibility: hidden; }
+
+#welcome #start, #controls #points, #controls #level {
   padding: 5px 20px 5px 20px;
   font-style: normal;
   font-weight: lighter;
@@ -61,16 +64,22 @@ p.more a {
   border-radius: 5px;
 }
 
-
 /* Spielbrett */
 
 #snakegame {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 50px auto 50px auto;
 }
 
 #snakegame td {
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   background: rgba(255, 255, 255, 0.25);
+}
+
+.mouse {
+  background-color: grey !important;
+}
+
+.snake {
+  background-color: green !important;
 }

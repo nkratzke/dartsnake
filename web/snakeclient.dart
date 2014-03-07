@@ -1,5 +1,3 @@
-import 'package:snakedart/dartsnake.dart' as dartsnake;
+import 'package:snakedart/dartsnake.dart';
 
-main() {
-  dartsnake.eventHandling();
-}
+main() => new SnakeGameController();

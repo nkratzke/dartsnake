@@ -1,106 +1,313 @@
 part of dartsnake;
 
+/**
+ * Defines a [Snake] of the [SnakeGame].
+ * A [Snake] ...
+ */
 class Snake {
-  final SnakeGame _field;
+  final SnakeGame _game;
   var _body = [];
 
   int _dr;
   int _dc;
 
-  Snake.on(this._field) {
-    final s = _field.size;
-    _body = [{ 'row' : s / 2, 'col' : s / 2 }];
+  Snake.on(this._game) {
+    final s = _game.size;
+    _body = [
+      { 'row' : s ~/ 2,     'col' : s ~/ 2 },
+      { 'row' : s ~/ 2 + 1, 'col' : s ~/ 2 }
+    ];
+    headUp();
   }
 
   void move() {
-    _body.insert(0, { 'row' : head['row'] + _dr, 'col' : head['col'] + _dc });
-    _body.remove(tail);
+
+    final newrow = head['row'] + _dr;
+    final newcol = head['col'] + _dc;
+
+    // Check if mice are present on next field
+    final mice = _game.mice.where((m) => m.row == newrow && m.col == newcol);
+
+    _body.insert(0, { 'row' : newrow, 'col' : newcol });
+
+    if (mice.isEmpty)
+      _body.remove(tail);
+    else {
+      // if so, eat the first one
+      _game.mice.removeAt(0);
+      _game.increaseMiceCounter(1);
+      _game.addMouse();
+    }
   }
 
+  /**
+   * Tells this snake to move upward for following [move]s.
+   */
   void headUp()    { _dr = -1; _dc =  0; }
+
+  /**
+   * Tells this snake to move downward for following [move]s.
+   */
   void headDown()  { _dr =  1; _dc =  0; }
+
+  /**
+   * Tells this snake to move left for following [move]s.
+   */
   void headLeft()  { _dr =  0; _dc = -1; }
+
+  /**
+   * Tells this snake to move right for following [move]s.
+   */
   void headRight() { _dr =  0; _dc =  1; }
 
-  int get length => _body.length;
-  Map get head => _body.first;
-  Map get tail => _body.last;
-  List<Map> get body => _body;
+  /**
+   * Indicates whether this snake is tangled.
+   * A snake is tangled when two or more body elements of a snake share the
+   * same position on the field.
+   */
+  bool get tangled {
+    final tangledcheck = _body.map((s) => "${s['row']},${s['col']}").toSet();
+    return tangledcheck.length != length;
+  }
 
+  /**
+   * Indicates whether this snake is on field.
+   */
+  bool get onField {
+    return head['row'] >= 0 &&
+           head['row'] < _game.size &&
+           head['col'] >= 0 &&
+           head['col'] < _game.size;
+  }
+
+  /**
+   * Indicates wether this snake is not on the field.
+   */
+  bool get notOnField => !onField;
+
+  /**
+   * Returns the length of this snake (amount of body elements).
+   */
+  int get length => _body.length;
+
+  /**
+   * Returns the head of this snake (first element of body elements).
+   */
+  Map get head => _body.first;
+
+  /**
+   * Returns the tail of this snake (last element of body elements).
+   */
+  Map get tail => _body.last;
+
+  /**
+   * Returns the body of this snake as a list of body element position mappings.
+   */
+  List<Map<String, int>> get body => _body;
 }
 
+/**
+ * Defines a [Mouse] of the [SnakeGame].
+ * A [Mouse] has a position (row, column) on the [SnakeGame] field.
+ * And a [Mouse] might have a movement direction.
+ */
 class Mouse {
-  final SnakeGame _field;
+
+  // Reference to a [SnakeGame].
+  final SnakeGame _game;
+
+  // Row position of this mouse.
   int _row;
+
+  // Column position of this mouse.
   int _col;
+
+  // Row direction of this mouse (might be -1, 0, +1)
   int _dr;
+
+  // Column direction of this mouse (might be -1, 0, +1)
   int _dc;
 
-  Mouse.staticOn(this._field, this._row, this._col) {
+  /**
+   *  Constructor to create a non moving mouse for a [SnakeGame].
+   */
+  Mouse.staticOn(this._game, this._row, this._col) {
     _dr = 0;
     _dc = 0;
   }
 
-  Mouse.movingOn(this._field, this._row, this._col) {
+  /**
+   * Constructor to create a random moving mouse for a [SnakeGame].
+   */
+  Mouse.movingOn(this._game, this._row, this._col) {
     final r = new Random();
     _dr = -1 + r.nextInt(2);
     _dc = -1 + r.nextInt(2);
   }
 
+  /**
+   * Returns the actual row of this mouse.
+   */
   int get row => _row;
+
+  /**
+   * Returns the actual column of this mouse.
+   */
   int get col => _col;
-  Map get pos => {'row' : _row, 'col' : _col };
 
-  void headUp()    { _dr = -1; _dc =  0; }
-  void headDown()  { _dr =  1; _dc =  0; }
-  void headLeft()  { _dr =  0; _dc = -1; }
-  void headRight() { _dr =  0; _dc =  1; }
+  /**
+   * Returns the actual position of this mouse as a map with keys 'row' and 'col'.
+   */
+  Map<String, int> get pos => {'row' : _row, 'col' : _col };
 
+  /**
+   * Moves this mouse
+   */
   void move() {
     if (_dr < 0 && row == 0) _dr *= -1;
     if (_dc < 0 && col == 0) _dc *= -1;
-    if (_dr > 0 && row == _field.size - 1) _dr *= -1;
-    if (_dc > 0 && col == _field.size - 1) _dr *= -1;
+    if (_dr > 0 && row == _game.size - 1) _dr *= -1;
+    if (_dc > 0 && col == _game.size - 1) _dr *= -1;
     _row += _dr;
     _col += _dc;
   }
 }
 
+/**
+ * Defines the Snake Game.
+ */
 class SnakeGame {
 
+  // The snake of the game.
   Snake _snake;
+
+  // List of mice.
   var _mice = [];
+
+  // The field size of the game (nxn field)
   final int _size;
 
+  // The gamestate of the game (one of #running, #stopped).
+  Symbol _gamestate;
+
+  // Holds how many mice the snake has already eaten.
+  var _miceCounter = 0;
+
+  /**
+   * Indicates whether game is stopped.
+   */
+  bool get stopped => _gamestate == #stopped;
+
+  /**
+   * Indicates whether game is running.
+   */
+  bool get running => _gamestate == #running;
+
+  /**
+   * Starts the game.
+   */
+  void start() { _gamestate = #running; }
+
+  /**
+   * Stops the game.
+   */
+  void stop() { _gamestate = #stopped; }
+
+  /**
+   * Constructor to create a new game with
+   * - a centered snake heading up ([headUp])
+   * - and one static random placed mouse on the field.
+   */
   SnakeGame(this._size) {
+    start();
     _snake = new Snake.on(this);
-    _mice.add(new Mouse.staticOn(this, 3, 3));
+    addMouse();
+    stop();
   }
 
-  void nextStep() {
-    snake.move();
-    if (!gameOver) mice.forEach((mouse) => mouse.move());
-  }
+  /**
+   * Returns whether the game is over.
+   * Game is over, when snake has left the field or is tangled.
+   */
+  bool get gameOver => snake.notOnField || snake.tangled;
 
-  bool get gameOver {
-    return snake.head['row'] < 0 ||
-           snake.head['row'] >= size ||
-           snake.head['col'] < 0 ||
-           snake.head['col'] >= size;
-  }
-
+  /**
+   * Returns the snake.
+   */
   Snake get snake => _snake;
+
+  /**
+   * Returns a list of mice.
+   */
   List<Mouse> get mice => _mice;
+
+  /**
+   * Returns the game field as a list of lists.
+   * Each element of the field has exactly one out of three valid states.
+   * "empty", "mouse" or "snake"
+   */
   List<List<String>> get field {
     var _field = new Iterable.generate(_size, (row) {
-      return new Iterable.generate(_size, (col) => "empty");
-    });
+      return new Iterable.generate(_size, (col) => "empty").toList();
+    }).toList();
     mice.forEach((m) => _field[m.row][m.col] = "mouse");
-    snake.body.forEach((s) => _field[s['row']][s['col']] = "snake");
+    snake.body.forEach((s) {
+      final r = s['row'];
+      final c = s['col'];
+      if (r < 0) return;
+      if (c < 0) return;
+      _field[r][c] = "snake";
+    });
     return _field;
   }
 
+  /**
+   * Increases the mice counter by the amount of [n].
+   * Operation is only executed if game state is [running].
+   */
+  void increaseMiceCounter(int n) { if (running) _miceCounter += n; }
+  int get miceCounter => _miceCounter;
+
+  /**
+   * Moves the snake according to its internal [headUp], [headDown], [headLeft],
+   * [headRight] state.
+   * Operation is only executed if game state is [running].
+   */
+  void moveSnake() { if (running) snake.move(); }
+
+  /**
+   * Moves each [Mouse] of the mice list according to their internal
+   * movement direction.
+   * Operation is only executed if game state is [running].
+   */
+  void moveMice() { if (running) mice.forEach((m) => m.move()); }
+
+  /**
+   * Adds a new [Mouse] to the game.
+   * Operation is not executed if game state is [stopped].
+   */
+  void addMouse() {
+    if (stopped) return;
+    Random r = new Random();
+    final row = r.nextInt(_size);
+    final col = r.nextInt(_size);
+    _mice.add(new Mouse.staticOn(this, row, col));
+  }
+
+  /**
+   * Returns the size of the game. The game is played on a nxn-field.
+   */
   int get size => _size;
 
+  /**
+   * Returns the actual level of the game.
+   * Right now this is constant level 1. But further levels
+   * might be added in future versions of the game.
+   */
+  int get level => 1;
+
+  /**
+   * Returns a textual representation of the game state.
+   */
   String toString() => field.map((row) => row.join(" ")).join("\n");
 }
