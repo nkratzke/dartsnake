@@ -2,15 +2,38 @@ part of dartsnake;
 
 /**
  * Defines a [Snake] of the [SnakeGame].
- * A [Snake] ...
+ * A [Snake] has a body (a list of continous body elements).
+ * Each body element has a position (row, column) on the [SnakeGame] field.
+ * A [Snake] has a movement direction (up, down, left, right).
  */
 class Snake {
+
+  /**
+   * References the game.
+   */
   final SnakeGame _game;
+
+  /**
+   * List of body elements of this snake.
+   */
   var _body = [];
 
+  /**
+   * Actual vertical row movement of this snake. Can be -1, 0, 1.
+   */
   int _dr;
+
+  /**
+   * Horizontal vertical column movement of this snake. Can be -1, 0, 1.
+   */
   int _dc;
 
+  /**
+   * Constructor to create a [Snake] object for a [SnakeGame].
+   * Created snake has a body of two elements length.
+   * Snake is positioned in the middle of [SnakeGame] field.
+   * Snake is created with upward movement.
+   */
   Snake.on(this._game) {
     final s = _game.size;
     _body = [
@@ -20,6 +43,17 @@ class Snake {
     headUp();
   }
 
+  /**
+   * Moves the snake according to the movement status (up, down, left, right)
+   * of this snake.
+   * A [Snake] may eat a [Mouse] while this operation
+   * if a [Mouse] object is on the field
+   * a snake is moving on. In this case the [Mouse] will be eaten (removed from [SnakeGame] state).
+   * If there are more than one [Mouse] on this field only the first
+   * [Mouse] will be eaten by the [Snake].
+   * If a [Snake] eats a [Mouse] this snake gets one body element longer.
+   * If a [Mouse] is eaten by this [Snake] a new [Mouse] with random position is generated.
+   */
   void move() {
 
     final newrow = head['row'] + _dr;
@@ -174,7 +208,9 @@ class Mouse {
 }
 
 /**
- * Defines the Snake Game.
+ * Defines a [SnakeGame]. A [SnakeGame] consists of n x n field.
+ * On this field there moves a user controlled [Snake] of increasing length.
+ * Aim of the [Snake] is to eat as many mice ([Mouse]) as possible.
  */
 class SnakeGame {
 
@@ -243,20 +279,20 @@ class SnakeGame {
 
   /**
    * Returns the game field as a list of lists.
-   * Each element of the field has exactly one out of three valid states.
-   * "empty", "mouse" or "snake"
+   * Each element of the field has exactly one out of three valid states (Symbols).
+   * #empty, #mouse or #snake
    */
-  List<List<String>> get field {
+  List<List<Symbol>> get field {
     var _field = new Iterable.generate(_size, (row) {
-      return new Iterable.generate(_size, (col) => "empty").toList();
+      return new Iterable.generate(_size, (col) => #empty).toList();
     }).toList();
-    mice.forEach((m) => _field[m.row][m.col] = "mouse");
+    mice.forEach((m) => _field[m.row][m.col] = #mouse);
     snake.body.forEach((s) {
       final r = s['row'];
       final c = s['col'];
       if (r < 0) return;
       if (c < 0) return;
-      _field[r][c] = "snake";
+      _field[r][c] = #snake;
     });
     return _field;
   }
