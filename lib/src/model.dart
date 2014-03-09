@@ -290,8 +290,8 @@ class SnakeGame {
     snake.body.forEach((s) {
       final r = s['row'];
       final c = s['col'];
-      if (r < 0) return;
-      if (c < 0) return;
+      if (r < 0 || r >= _size) return;
+      if (c < 0 || c >= _size) return;
       _field[r][c] = #snake;
     });
     return _field;

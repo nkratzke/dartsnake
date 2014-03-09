@@ -82,7 +82,7 @@ class SnakeGameController {
    */
   void _moveMice() {
     if (game.gameOver) { game.stop(); view.update(game); return; }
-    game._moveMice();
+    game.moveMice();
     view.update(game);
   }
 
@@ -91,7 +91,7 @@ class SnakeGameController {
    */
   void _moveSnake() {
     if (game.gameOver) { game.stop(); view.update(game); return; }
-    game._moveSnake();
+    game.moveSnake();
     if (game.gameOver) return;
     view.update(game);
   }

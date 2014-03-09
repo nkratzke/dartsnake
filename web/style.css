@@ -4,7 +4,6 @@
   margin: 0px;
   padding: 0px;
   color: rgba(255, 255, 255, 0.66);
-  background-color: #204783;
 }
 
 .container {
@@ -65,15 +64,20 @@ a {
 }
 
 /* Spielbrett */
+body {
+  background-color: #204783;
+}
 
 #snakegame {
   margin: 50px auto 50px auto;
+  background-image: url('img/snake.png');
+  background-size: cover;
 }
 
 #snakegame td {
   width: 20px;
   height: 20px;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .mouse {

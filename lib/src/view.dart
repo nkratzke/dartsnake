@@ -7,6 +7,18 @@ part of dartsnake;
 class SnakeView {
 
   /**
+   * Element with id '#title' of the DOM tree.
+   * Shown only if game is not running.
+   */
+  final title = querySelector("#title");
+
+  /**
+   * Element with id '#welcome' of the DOM tree.
+   * Shown only if game is not running.
+   */
+  final welcome = querySelector("#welcome");
+
+  /**
    * Element with id '#snakegame' of the DOM tree.
    * Used to visualize the field of a [SnakeGame] as a HTML table.
    */
@@ -46,7 +58,8 @@ class SnakeView {
    */
   void update(SnakeGame model) {
 
-    startButton.style.visibility = model.stopped ? "visible" : "hidden";
+    welcome.style.display = model.stopped ? "block" : "none";
+    title.style.display = model.stopped? "block" : "none";
 
     points.innerHtml = "Points: ${model.miceCounter}";
     gameover.innerHtml = model.gameOver ? "Game Over" : "";
@@ -64,11 +77,9 @@ class SnakeView {
         final td = game.querySelector("#field_${row}_${col}");
         if (td != null) {
           td.classes.clear();
-          switch (field[row][col]) {
-            case #mouse: td.classes.add('mouse'); break;
-            case #snake: td.classes.add('mouse'); break;
-            case #empty: td.classes.add('empty'); break;
-          }
+          if (field[row][col]== #mouse) td.classes.add('mouse');
+          else if (field[row][col] == #snake) td.classes.add('snake');
+          else if (field[row][col] == #empty) td.classes.add('empty');
         }
       }
     }
