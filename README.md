@@ -3,7 +3,7 @@ Dartsnake Dart
 
 
 
-Dartsnake is the Dart implementation of the famous Snake game.
+Dartsnake is the Dart implementation of the famous Snake game. You can play a live version [here][].
 
 It can be deployed as a [docker][docker] container like this:
 
@@ -21,6 +21,7 @@ To learn more about how to dockerize Dart applications check out the following l
 
 If docker is used on a non linux system like Mac OS X it is likely that docker uses [VirtualBox][virtualbox] under the hood. In theses cases you must configure port forwarding in virtual box. So if you are exposing port 8080 in your docker container mapping it to port 8888 for the outside world you must forward host port 8888 to docker-vm port 8888 in virtualbox. How to do this is explained [here][virtualbox-portforward].
 
+[dartsnake-live]: http://www.nkode.io/static/dartsnake
 [docker]: https://www.docker.io/
 [dockerizedart]: http://www.nkode.io/2014/03/05/dockerize-dart.html
 [containerdart]: https://github.com/nkratzke/containerdart
