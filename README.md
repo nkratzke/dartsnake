@@ -8,8 +8,8 @@ Dartsnake is the Dart implementation of the famous Snake game. You can play a li
 It can be deployed as a [docker][docker] container like this:
 
 ```Shell
-docker build -t snakedart github.com/nkratzke/snakedart
-docker run -p 8080:3000 -d snakedart
+docker build -t dartsnake github.com/nkratzke/dartsnake
+docker run -p 8080:3000 -d dartsnake
 ```
 
 To learn more about how to dockerize Dart applications check out the following links:
