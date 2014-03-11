@@ -3,7 +3,7 @@ Dartsnake Dart
 
 
 
-Dartsnake is the Dart implementation of the famous Snake game. You can play a live version [here][].
+Dartsnake is the Dart implementation of the famous Snake game. You can play a live version [here][dartsnake-live].
 
 It can be deployed as a [docker][docker] container like this:
 
