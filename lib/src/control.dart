@@ -91,8 +91,19 @@ class SnakeGameController {
    */
   void _moveSnake() {
     if (game.gameOver) { game.stop(); view.update(game); return; }
+    final mice = game.miceCounter;
     game.moveSnake();
+    if (game.miceCounter > mice) { _increaseSnakeSpeed(); }
     if (game.gameOver) return;
     view.update(game);
+  }
+
+  /**
+   * Increases Snake speed by 1% for every eaten mouse.
+   */
+  void _increaseSnakeSpeed() {
+    snakeTrigger.cancel();
+    final newSpeed = snakeSpeed * pow(0.99, game.miceCounter);
+    snakeTrigger = new Timer.periodic(newSpeed, (_) => _moveSnake());
   }
 }

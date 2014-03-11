@@ -302,6 +302,10 @@ class SnakeGame {
    * Operation is only executed if game state is [running].
    */
   void increaseMiceCounter(int n) { if (running) _miceCounter += n; }
+
+  /**
+   * Returns the how many mice has been eaten by this snake so far.
+   */
   int get miceCounter => _miceCounter;
 
   /**

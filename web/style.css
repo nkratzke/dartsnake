@@ -15,9 +15,9 @@
 }
 
 h1 { 
-  font-size: 5rem; 
-  padding: 100px 20px 100px 20px;
-  background-color: #9a001a;
+  font-size: 2rem; 
+  padding: 25px;
+  background-color: rgba(0, 0, 0, 0.5);
   margin-bottom: 50px;
 }
 
@@ -40,10 +40,12 @@ a {
 #message #gameover {
   font-size: 5rem;
   color: #9a001a;
+  background: rgba(255, 255, 255, 0.5);
   text-align: center
 }
 
 #message #reasons {
+  background: rgba(255, 255, 255, 0.5);
   font-size: 2rem;
   color: white;
   text-align: center;
@@ -55,35 +57,36 @@ a {
 #welcome #start, #controls #points, #controls #level {
   padding: 5px 20px 5px 20px;
   font-style: normal;
-  font-weight: lighter;
   font-size: 2rem;
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  background: rgba(255, 255, 255, 0.5);
+  border: 3px solid white;
   border-radius: 5px;
 }
 
 /* Spielbrett */
 body {
-  background-color: #204783;
+  background-image: url('img/background.jpg');
+  background-position: center center;
 }
 
 #snakegame {
   margin: 50px auto 50px auto;
-  background-image: url('img/snake.png');
-  background-size: cover;
 }
 
 #snakegame td {
-  width: 20px;
-  height: 20px;
-  background: rgba(0, 0, 0, 0.3);
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .mouse {
-  background-color: grey !important;
+  background-color: red !important;
+  border-radius: 10px;
 }
 
 .snake {
-  background-color: green !important;
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  border-radius: 10px;
 }

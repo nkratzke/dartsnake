@@ -59,7 +59,7 @@ class SnakeView {
   void update(SnakeGame model) {
 
     welcome.style.display = model.stopped ? "block" : "none";
-    title.style.display = model.stopped? "block" : "none";
+    // title.style.display = model.stopped? "block" : "none";
 
     points.innerHtml = "Points: ${model.miceCounter}";
     gameover.innerHtml = model.gameOver ? "Game Over" : "";
