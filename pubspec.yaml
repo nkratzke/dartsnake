@@ -2,7 +2,7 @@ name: snakedart
 version: 0.0.1
 author: Nane Kratzke <nane@nkode.io>
 description: Dockerized Dart implementation of the famous Snake Game.
-homepage: https://github.com/nkratzke/sbakedart
+homepage: https://github.com/nkratzke/dartsnake
 dependencies:
   browser: any
   start: any
