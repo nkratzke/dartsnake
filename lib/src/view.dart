@@ -48,6 +48,11 @@ class SnakeView {
   HtmlElement get startButton => querySelector('#start');
 
   /**
+   * Contains all TD Elements of the field.
+   */
+  List<List<HtmlElement>> fields;
+
+  /**
    * Updates the view according to the [model] state.
    *
    * - [startButton] is shown according to the stopped/running state of the [model].
@@ -74,10 +79,10 @@ class SnakeView {
     final field = model.field;
     for (int row = 0; row < field.length; row++) {
       for (int col = 0; col < field[row].length; col++) {
-        final td = game.querySelector("#field_${row}_${col}");
+        final td = fields[row][col];
         if (td != null) {
           td.classes.clear();
-          if (field[row][col]== #mouse) td.classes.add('mouse');
+          if (field[row][col] == #mouse) td.classes.add('mouse');
           else if (field[row][col] == #snake) td.classes.add('snake');
           else if (field[row][col] == #empty) td.classes.add('empty');
         }
@@ -103,5 +108,17 @@ class SnakeView {
       table += "</tr>";
     }
     game.innerHtml = table;
+
+    // Saves all generated TD elements in field to
+    // avoid time intensive querySelector calls in update().
+    // Thanks to Johannes Gosch, SoSe 2015.
+    fields = new List<List<HtmlElement>>(field.length);
+    for (int row = 0; row < field.length; row++) {
+      fields[row] = [];
+      for (int col = 0; col < field[row].length; col++) {
+        fields[row].add(game.querySelector("#field_${row}_${col}"));
+      }
+    }
+
   }
 }

@@ -10,7 +10,13 @@ const snakeSpeed = const Duration(milliseconds: 250);
  * Constant to define the speed of a [Mouse].
  * A [miceSpeed] of 1000ms means 1 movement per second.
  */
-const miceSpeed = const Duration(milliseconds: 1000);
+const miceSpeed = const Duration(milliseconds: 750);
+
+/**
+ * Constant to define the acceleration of a [Mouse].
+ * A [acceleration] of 0.01 means 1% speed increase for every eaten mouse.
+ */
+const acceleration = 0.05;
 
 /**
  * A [SnakeGameController] object registers several handlers
@@ -103,7 +109,7 @@ class SnakeGameController {
    */
   void _increaseSnakeSpeed() {
     snakeTrigger.cancel();
-    final newSpeed = snakeSpeed * pow(0.99, game.miceCounter);
+    final newSpeed = snakeSpeed * pow(1.0 - acceleration, game.miceCounter);
     snakeTrigger = new Timer.periodic(newSpeed, (_) => _moveSnake());
   }
 }
