@@ -51,6 +51,29 @@ a {
   text-align: center;
 }
 
+#score input {
+  color: white;
+  border: 2px solid white;
+  background: rgba(255, 255, 255, 0.5);
+  appearance: none;
+  box-shadow: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+#score input::-webkit-input-placeholder { color: lightgray; font-style: italic; }
+#score input::-moz-placeholder { color: lightgray; font-style: italic; }
+
+#score input[type=button] {
+  color: white;
+  border: 2px solid white;
+  background: red;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
 #controls #level:empty { visibility: hidden; }
 #controls #points:empty { visibility: hidden; }
 

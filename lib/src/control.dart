@@ -14,7 +14,7 @@ const miceSpeed = const Duration(milliseconds: 750);
 
 /**
  * Constant to define the acceleration of a [Mouse].
- * A [acceleration] of 0.01 means 1% speed increase for every eaten mouse.
+ * An [acceleration] of 0.01 means 1% speed increase for every eaten mouse.
  */
 const acceleration = 0.05;
 
@@ -105,7 +105,7 @@ class SnakeGameController {
   }
 
   /**
-   * Increases Snake speed by 1% for every eaten mouse.
+   * Increases Snake speed for every eaten mouse.
    */
   void _increaseSnakeSpeed() {
     snakeTrigger.cancel();
