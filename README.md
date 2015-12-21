@@ -19,7 +19,7 @@ To learn more about how to dockerize Dart applications check out the following l
 
 ### Remarks regarding docker (on non linux systems)
 
-If docker is used on a non linux system like Mac OS X it is likely that docker uses [VirtualBox][virtualbox] under the hood. In theses cases you must configure port forwarding in virtual box. So if you are exposing port 3000 in your docker container mapping it to port 8080 for the outside world you must forward host port 8080 to docker-vm port 8080 in virtualbox. How to do this is explained [here][virtualbox-portforward].
+If docker is used on a non linux system like Mac OS X it is likely that docker uses [VirtualBox][virtualbox] under the hood. In theses cases you must configure port forwarding in virtual box. So, if you are exposing port 3000 in your docker container to port 8080 for the outside world, you must forward host port 8080 to docker-vm port 8080 in virtualbox. How to do this is explained [here][virtualbox-portforward].
 
 [dartsnake-live]: http://www.nkode.io/static/dartsnake
 [docker]: https://www.docker.io/
