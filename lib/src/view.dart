@@ -7,6 +7,19 @@ part of dartsnake;
 class SnakeView {
 
   /**
+   * Element with id '#warningoverlay' of the DOM tree.
+   * Used to display general warnings
+   * (e.g. connection to gamekey service could not be established).
+   */
+  final warningoverlay = querySelector("#warningoverlay");
+
+  /**
+   * Element with id '#overlay' of the DOM tree.
+   * Used to display overlay forms.
+   */
+  final overlay = querySelector("#overlay");
+
+  /**
    * Element with id '#title' of the DOM tree.
    * Shown only if game is not running.
    */

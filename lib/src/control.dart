@@ -19,6 +19,26 @@ const miceSpeed = const Duration(milliseconds: 750);
 const acceleration = 0.05;
 
 /**
+ * Constant of the gamekey service.
+ */
+const gamekeyHost = '127.0.0.1';
+
+/**
+ * Constant of the gamekey service (port).
+ */
+const gamekeyPort = 8080;
+
+/**
+ * Constant of the game ID used to authenticate against the gamekey service.
+ */
+const gameId = 'cbcdfdad-accb-414d-b165-4f9512b7041b';
+
+/**
+ * Constant of the game secret used to authenticate against the gamekey service.
+ */
+const gameSecret = '10a1c9b5888eee11';
+
+/**
  * A [SnakeGameController] object registers several handlers
  * to grab interactions of a user with a [SnakeGame] and translate
  * them into valid [SnakeGame] actions.
@@ -43,6 +63,11 @@ class SnakeGameController {
   final view = new SnakeView();
 
   /**
+   * Referencing the gamekey API used to store game states.
+   */
+  final gamekey = new GameKey(gamekeyHost, gamekeyPort, gameId, gameSecret);
+
+  /**
    * Periodic trigger controlling snake movement.
    */
   Timer snakeTrigger;
@@ -58,6 +83,23 @@ class SnakeGameController {
    * for the user to interact with a [SnakeGame].
    */
   SnakeGameController() {
+
+    // Check if gamekey service is reachable. Display warning if not.
+    gamekey.listGames().then((games) {
+      if (games == null) {
+        view.warningoverlay.innerHtml =
+          "Could not connect to gamekey service. "
+          "Highscore will not working properly. ";
+      }
+    });
+
+    gamekey.listUsers().then((users) {
+      if (users == null) {
+        view.warningoverlay.innerHtml =
+          "Could not connect to gamekey service. "
+          "Highscore will not working properly. ";
+      }
+    });
 
     // New game is started by user
     view.startButton.onClick.listen((_) {
@@ -87,7 +129,11 @@ class SnakeGameController {
    * Moves all mice.
    */
   void _moveMice() {
-    if (game.gameOver) { game.stop(); view.update(game); return; }
+    if (game.gameOver) {
+      game.stop();
+      view.update(game);
+      return;
+    }
     game.moveMice();
     view.update(game);
   }
@@ -96,7 +142,11 @@ class SnakeGameController {
    * Moves the snake.
    */
   void _moveSnake() {
-    if (game.gameOver) { game.stop(); view.update(game); return; }
+    if (game.gameOver) {
+      game.stop();
+      view.update(game);
+      return;
+    }
     final mice = game.miceCounter;
     game.moveSnake();
     if (game.miceCounter > mice) { _increaseSnakeSpeed(); }
