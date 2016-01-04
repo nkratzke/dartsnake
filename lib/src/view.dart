@@ -132,6 +132,33 @@ class SnakeView {
         fields[row].add(game.querySelector("#field_${row}_${col}"));
       }
     }
-
   }
+
+  /**
+   * Shows the highscore form and save option for the user.
+   */
+  void showHighscore(SnakeGame model) {
+
+    if (overlay.innerHtml != "") return;
+
+    final score = model.miceCounter;
+
+    overlay.innerHtml =
+      "<div id='highscore'>"
+      "   <h1>Highscore</h1>"
+      "   You got $score points."
+      "</div>"
+      "<form id='highscoreform'>"
+      "<input type='text' id='user' placeholder='user'>"
+      "<input type='password' id='pwd' placeholder='password'>"
+      "<button type='button' id='save'>Save</button>"
+      "<button type='button' id='close'>Close</button>"
+      "</form>";
+  }
+
+  /**
+   * Closes a form (e.g. highscore form).
+   */
+  void closeForm() => overlay.innerHtml = "";
+
 }

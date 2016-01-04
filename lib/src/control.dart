@@ -93,20 +93,12 @@ class SnakeGameController {
       }
     });
 
-    gamekey.listUsers().then((users) {
-      if (users == null) {
-        view.warningoverlay.innerHtml =
-          "Could not connect to gamekey service. "
-          "Highscore will not working properly. ";
-      }
-    });
+    view.generateField(game);
 
     // New game is started by user
     view.startButton.onClick.listen((_) {
       if (snakeTrigger != null) snakeTrigger.cancel();
       if (miceTrigger != null) miceTrigger.cancel();
-      game = new SnakeGame(gamesize);
-      view.generateField(game);
       snakeTrigger = new Timer.periodic(snakeSpeed, (_) => _moveSnake());
       miceTrigger = new Timer.periodic(miceSpeed, (_) => _moveMice());
       game.start();
@@ -126,14 +118,28 @@ class SnakeGameController {
   }
 
   /**
+   * Handles Game Over.
+   */
+  void _gameOver() {
+    game.stop();
+    view.update(game);
+    view.showHighscore(game);
+
+    document.querySelector('#close').onClick.listen((_) {
+      view.closeForm();
+      game = new SnakeGame(gamesize);
+      view.update(game);
+    });
+
+    snakeTrigger.cancel();
+    miceTrigger.cancel();
+  }
+
+  /**
    * Moves all mice.
    */
   void _moveMice() {
-    if (game.gameOver) {
-      game.stop();
-      view.update(game);
-      return;
-    }
+    if (game.gameOver) { _gameOver(); return; }
     game.moveMice();
     view.update(game);
   }
@@ -142,11 +148,8 @@ class SnakeGameController {
    * Moves the snake.
    */
   void _moveSnake() {
-    if (game.gameOver) {
-      game.stop();
-      view.update(game);
-      return;
-    }
+    if (game.gameOver) { _gameOver(); return; }
+
     final mice = game.miceCounter;
     game.moveSnake();
     if (game.miceCounter > mice) { _increaseSnakeSpeed(); }

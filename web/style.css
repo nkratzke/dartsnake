@@ -13,7 +13,6 @@
 }
 
 #warningoverlay {
-  z-index: 1000;
   color: white;
   text-align: center;
   font-size: 12px;
@@ -26,9 +25,9 @@
   top: 0px;
   left: 0px;
   width: 100%;
-  z-index: 100;
-  background-color: rgba(0,0,0,0.75);
+  background-color: rgba(0,0,0,0.90);
   height: 100%;
+  text-align: center;
 }
 
 .container {
@@ -76,26 +75,33 @@ a {
   text-align: center;
 }
 
-#score input {
+#highscoreform {
+  margin: 40px;
+}
+
+#highscoreform input {
   color: white;
-  border: 2px solid white;
+  border: 1px solid white;
   background: rgba(255, 255, 255, 0.5);
   appearance: none;
   box-shadow: none;
   border-radius: 5px;
   padding: 5px;
-  margin-bottom: 20px;
+  margin: 10px;
 }
 
-#score input::-webkit-input-placeholder { color: lightgray; font-style: italic; }
-#score input::-moz-placeholder { color: lightgray; font-style: italic; }
+#highscoreform input::-webkit-input-placeholder { color: lightgray; font-style: italic; }
+#highscoreform input::-moz-placeholder { color: lightgray; font-style: italic; }
 
-#score input[type=button] {
+#highscoreform button {
   color: white;
-  border: 2px solid white;
+  border: 1px solid white;
   background: red;
+  padding: 5px;
+  border-radius: 5px;
   padding-left: 10px;
   padding-right: 10px;
+  margin: 10px;
 }
 
 
