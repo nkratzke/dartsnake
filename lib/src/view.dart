@@ -148,6 +148,7 @@ class SnakeView {
       "   <h1>Highscore</h1>"
       "   You got $score points."
       "</div>"
+      "<div id='highscorewarning'></div>"
       "<form id='highscoreform'>"
       "<input type='text' id='user' placeholder='user'>"
       "<input type='password' id='pwd' placeholder='password'>"
@@ -159,6 +160,22 @@ class SnakeView {
   /**
    * Closes a form (e.g. highscore form).
    */
-  void closeForm() => overlay.innerHtml = "";
+  closeForm() => overlay.innerHtml = "";
 
+  /**
+   * Gets the user input from the highscore form.
+   */
+  String get user => (document.querySelector('#user') as InputElement).value;
+
+  /**
+   * Gets the password input from the highscore form.
+   */
+  String get password => (document.querySelector('#pwd') as InputElement).value;
+
+  /**
+   * Sets a warning text in the highscore form.
+   */
+  void warn(String message) {
+    document.querySelector('#highscorewarning').innerHtml = message;
+  }
 }

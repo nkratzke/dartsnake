@@ -123,16 +123,47 @@ class SnakeGameController {
   void _gameOver() {
     game.stop();
     view.update(game);
+
+    // Show highscore
     view.showHighscore(game);
 
-    document.querySelector('#close').onClick.listen((_) {
-      view.closeForm();
-      game = new SnakeGame(gamesize);
-      view.update(game);
+    // Handle save button
+    document.querySelector('#save').onClick.listen((_) async {
+
+      String user = view.user;
+      String pwd  = view.password;
+
+      if (user?.isEmpty) { view.warn("Please provide user name."); return; }
+
+      String id = await gamekey.getUserId(user);
+      if (id == null) {
+        view.warn(
+          "User $user not found. Shall we create it?"
+          "<button id='create'>Create</button>"
+          "<button id='cancel'>Cancel</button>"
+        );
+        document.querySelector('#cancel').onClick.listen((_) => _newGame());
+        document.querySelector('#create').onClick.listen((_) {
+          // TO BE DONE !!!
+        });
+      }
+      if (id != null) view.warn("User $user has id $id.");
     });
+
+    // Handle cancel button
+    document.querySelector('#close').onClick.listen((_) => _newGame());
 
     snakeTrigger.cancel();
     miceTrigger.cancel();
+  }
+
+  /**
+   * Initiates a new game.
+   */
+  void _newGame() {
+    view.closeForm();
+    game = new SnakeGame(gamesize);
+    view.update(game);
   }
 
   /**

@@ -1,7 +1,7 @@
 part of dartsnake;
 
 /**
- * Provides part of the GameKey REST API necessary for the SnakeGame.
+ * Provides parts of the GameKey REST API necessary for the SnakeGame.
  */
 class GameKey {
 
@@ -13,7 +13,6 @@ class GameKey {
 
   // Game secret
   String _secret;
-
 
   /**
    * Constructor
@@ -84,11 +83,27 @@ class GameKey {
   }
 
   /**
+   * Returns the user id of a given name.
+   * Returns null if name is not present or on error.
+   */
+  Future<String> getUserId(String name) async {
+    try {
+      final users = await listUsers();
+      if (users == null) return null;
+      final user = users.firstWhere((user) => user['name'] == name, orElse: null);
+      return user == null ? null : user['id'];
+    } catch (error, stacktrace) {
+      print ("GameKey.getUserId() caused following error: '$error'");
+      print ("$stacktrace");
+      return null;
+    }
+  }
+
+  /**
    *
    */
   Future<List<Map>> listUsers() async {
     try {
-      final pending = new Completer();
       final answer = await HttpRequest.request("${this._uri.resolve("/users")}", method: 'GET');
       return JSON.decode(answer.responseText);
     } catch (error, stacktrace) {
@@ -103,13 +118,38 @@ class GameKey {
    */
   Future<List<Map>> listGames() async {
     try {
-      final pending = new Completer();
       final answer = await HttpRequest.request("${this._uri.resolve("/games")}", method: 'GET');
       return JSON.decode(answer.responseText);
     } catch (error, stacktrace) {
       print ("GameKey.listGames() caused following error: '$error'");
       print ("$stacktrace");
       return null;
+    }
+  }
+
+  /**
+   *
+   */
+  Future<List<Map<String, String>>> getStates() async {
+    try {
+
+    } catch (error, stacktrace) {
+      print ("GameKey.getStates() caused following error: '$error'");
+      print ("$stacktrace");
+      return null;
+    }
+  }
+
+  /**
+   *
+   */
+  Future<bool> storeState(String uid, Map state) async {
+    try {
+
+    } catch (error, stacktrace) {
+      print ("GameKey.storeState() caused following error: '$error'");
+      print ("$stacktrace");
+      return false;
     }
   }
 }
