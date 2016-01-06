@@ -41,18 +41,19 @@ class GameKey {
    */
   Future<Map> registerUser(String name, String pwd) async {
     try {
-      final pending = new Completer();
-      final request = new HttpRequest();
-      request
-        ..open("POST", "${this._uri.resolve("/user")}")
-        ..setRequestHeader('content-type', 'application/x-www-form-urlencoded')
-        ..setRequestHeader('charset', 'UTF-8')
-        ..onLoadEnd.listen((_) => pending.complete(request.status != 200 ? throw request.responseText : JSON.decode(request.responseText)))
-        ..send(parameter({
-          'name'   : "$name",
-          'pwd' : "$pwd",
-        }));
-      return pending.future;
+      final answer = await HttpRequest.request(
+          "${this._uri.resolve("/user")}",
+          method: 'POST',
+          sendData: parameter({
+            'name'   : "$name",
+            'pwd' : "$pwd",
+          }),
+          requestHeaders: {
+            'content-type': 'application/x-www-form-urlencoded',
+            'charset': 'UTF-8'
+          }
+      );
+      return answer.status == 200 ? JSON.decode(answer.responseText) : throw answer.responseText;
     } catch (error, stacktrace) {
       print ("GameKey.registerUser() caused following error: '$error'");
       print ("$stacktrace");
@@ -61,20 +62,14 @@ class GameKey {
   }
 
   /**
-   *
+   * This method can be used to authenticate a user.
+   * A user must know his id and his password.
    */
   Future<Map> getUser(String id, String pwd) async {
     try {
-      final pending = new Completer();
-      final request = new HttpRequest();
-
-      final uri = this._uri.resolve("/user/$id");
-      uri.query = { 'pwd' : "$pwd" };
-      request
-        ..open("GET", "${this._uri.resolve("/user/$id")}")
-        ..onLoadEnd.listen((_) => pending.complete(request.status != 200 ? throw request.responseText : JSON.decode(request.responseText)))
-        ..send();
-      return pending.future;
+      final uri = this._uri.resolve("/user/$id").resolveUri(new Uri(queryParameters: { 'pwd' : "$pwd" }));
+      final answer = await HttpRequest.request("$uri", method: 'GET');
+      return answer.status == 200 ? JSON.decode(answer.responseText) : throw answer.responseText;
     } catch (error, stacktrace) {
       print ("GameKey.getUser() caused following error: '$error'");
       print ("$stacktrace");
@@ -145,7 +140,19 @@ class GameKey {
    */
   Future<bool> storeState(String uid, Map state) async {
     try {
-
+      final answer = await HttpRequest.request(
+          "${this._uri.resolve("/gamestate/$_gid/$uid")}",
+          method: 'POST',
+          sendData: parameter({
+            'secret' : "$_secret",
+            'state' : "${JSON.encode(state)}",
+          }),
+          requestHeaders: {
+            'content-type': 'application/x-www-form-urlencoded',
+            'charset': 'UTF-8'
+          }
+      );
+      return answer.status == 200 ? true : throw answer.responseText;
     } catch (error, stacktrace) {
       print ("GameKey.storeState() caused following error: '$error'");
       print ("$stacktrace");

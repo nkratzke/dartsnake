@@ -140,14 +140,45 @@ class SnakeGameController {
         view.warn(
           "User $user not found. Shall we create it?"
           "<button id='create'>Create</button>"
-          "<button id='cancel'>Cancel</button>"
+          "<button id='cancel' class='discard'>Cancel</button>"
         );
         document.querySelector('#cancel').onClick.listen((_) => _newGame());
-        document.querySelector('#create').onClick.listen((_) {
-          // TO BE DONE !!!
+        document.querySelector('#create').onClick.listen((_) async {
+          final usr = await gamekey.registerUser(user, pwd);
+          if (usr == null) { view.warn("Could not register user $user. User might already exist?"); return; }
+          view.warn("");
+          final stored = await gamekey.storeState(usr['id'], {
+            'version': '0.0.1',
+            'points': "${game.miceCounter}"
+          });
+          if (stored) {
+            view.warn("${game.miceCounter} mice stored for $user");
+            view.closeForm();
+            return;
+          } else {
+            view.warn("Could not save highscore. Retry?");
+            return;
+          }
         });
       }
-      if (id != null) view.warn("User $user has id $id.");
+
+      // User exists.
+      if (id != null) {
+        final user = await gamekey.getUser(id, pwd);
+        if (user == null) { view.warn("Wrong access credentials."); return; };
+        final stored = await gamekey.storeState(user['id'], {
+          'version': '0.0.1',
+          'points': "${game.miceCounter}"
+        });
+        if (stored) {
+          view.warn("${game.miceCounter} mice stored for ${user['name']}");
+          view.closeForm();
+          return;
+        } else {
+          view.warn("Could not save highscore. Retry?");
+          return;
+        }
+      }
     });
 
     // Handle cancel button

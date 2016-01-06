@@ -90,18 +90,22 @@ a {
   margin: 10px;
 }
 
-#highscoreform input::-webkit-input-placeholder { color: lightgray; font-style: italic; }
-#highscoreform input::-moz-placeholder { color: lightgray; font-style: italic; }
+input::-webkit-input-placeholder { color: lightgray; font-style: italic; }
+input::-moz-placeholder { color: lightgray; font-style: italic; }
 
-#highscoreform button {
+button {
   color: white;
   border: 1px solid white;
-  background: red;
+  background: green;
   padding: 5px;
   border-radius: 5px;
   padding-left: 10px;
   padding-right: 10px;
   margin: 10px;
+}
+
+button.discard {
+  background: red;
 }
 
 

@@ -153,7 +153,7 @@ class SnakeView {
       "<input type='text' id='user' placeholder='user'>"
       "<input type='password' id='pwd' placeholder='password'>"
       "<button type='button' id='save'>Save</button>"
-      "<button type='button' id='close'>Close</button>"
+      "<button type='button' id='close' class='discard'>Close</button>"
       "</form>";
   }
 
