@@ -62,8 +62,9 @@ class GameKey {
   }
 
   /**
-   * This method can be used to authenticate a user.
-   * A user must know his id and his password.
+   * Returns detailed user information as Map.
+   * Additionally, this method can be used to authenticate a user.
+   * A user must know his [id] and his [password].
    */
   Future<Map> getUser(String id, String pwd) async {
     try {
@@ -74,6 +75,22 @@ class GameKey {
       print ("GameKey.getUser() caused following error: '$error'");
       print ("$stacktrace");
       return null;
+    }
+  }
+
+  /**
+   * This method can be used to authenticate a game.
+   * A game must know its [id] and its [secret].
+   */
+  Future<bool> authenticate() async {
+    try {
+      final uri = this._uri.resolve("/game/$_gid").resolveUri(new Uri(queryParameters: { 'secret' : "$_secret" }));
+      final answer = await HttpRequest.request("$uri", method: 'GET');
+      return answer.status == 200 ? true : throw answer.responseText;
+    } catch (error, stacktrace) {
+      print ("GameKey.getGame() caused following error: '$error'");
+      print ("$stacktrace");
+      return false;
     }
   }
 
@@ -108,9 +125,10 @@ class GameKey {
     }
   }
 
+
   /**
    *
-   */
+   *
   Future<List<Map>> listGames() async {
     try {
       final answer = await HttpRequest.request("${this._uri.resolve("/games")}", method: 'GET');
@@ -120,14 +138,16 @@ class GameKey {
       print ("$stacktrace");
       return null;
     }
-  }
+  }*/
 
   /**
    *
    */
-  Future<List<Map<String, String>>> getStates() async {
+  Future<List<Map>> getStates() async {
     try {
-
+      final uri = this._uri.resolve("/gamestate/$_gid").resolveUri(new Uri(queryParameters: { 'secret' : "$_secret" }));
+      final answer = await HttpRequest.request("$uri", method: 'GET');
+      return JSON.decode(answer.responseText);
     } catch (error, stacktrace) {
       print ("GameKey.getStates() caused following error: '$error'");
       print ("$stacktrace");

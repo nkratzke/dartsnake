@@ -137,10 +137,11 @@ class SnakeView {
   /**
    * Shows the highscore form and save option for the user.
    */
-  void showHighscore(SnakeGame model) {
+  void showHighscore(SnakeGame model, List<Map> scores) {
 
     if (overlay.innerHtml != "") return;
 
+    final list = scores.map((entry) => "<li>${entry['name']}: ${entry['score']}</li>").join("");
     final score = model.miceCounter;
 
     overlay.innerHtml =
@@ -148,13 +149,24 @@ class SnakeView {
       "   <h1>Highscore</h1>"
       "   You got $score points."
       "</div>"
-      "<div id='highscorewarning'></div>"
-      "<form id='highscoreform'>"
-      "<input type='text' id='user' placeholder='user'>"
-      "<input type='password' id='pwd' placeholder='password'>"
-      "<button type='button' id='save'>Save</button>"
-      "<button type='button' id='close' class='discard'>Close</button>"
-      "</form>";
+      "<div id='highscorewarning'></div>";
+
+    print(scores.last['score']);
+
+    if (score > scores.last['score']) {
+      overlay.appendHtml(
+          "<form id='highscoreform'>"
+          "<input type='text' id='user' placeholder='user'>"
+          "<input type='password' id='pwd' placeholder='password'>"
+          "<button type='button' id='save'>Save</button>"
+          "<button type='button' id='close' class='discard'>Close</button>"
+          "</form>"
+      );
+    } else {
+      overlay.appendHtml("<button type='button' id='close' class='discard'>Close</button>");
+    }
+
+    overlay.appendHtml("<div id='scorelist'><ul>$list</ul></div>");
   }
 
   /**

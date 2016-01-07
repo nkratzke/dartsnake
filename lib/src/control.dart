@@ -13,6 +13,13 @@ const snakeSpeed = const Duration(milliseconds: 250);
 const miceSpeed = const Duration(milliseconds: 750);
 
 /**
+ * Constant to define the interval how often it is checked, that
+ * a [GameKey] server is reachable.
+ * A [gamekeyCheck] of 5 seconds means gamekey service is checked every 5 seconds.
+ */
+const gamekeyCheck = const Duration(seconds: 5);
+
+/**
  * Constant to define the acceleration of a [Mouse].
  * An [acceleration] of 0.01 means 1% speed increase for every eaten mouse.
  */
@@ -31,12 +38,12 @@ const gamekeyPort = 8080;
 /**
  * Constant of the game ID used to authenticate against the gamekey service.
  */
-const gameId = 'cbcdfdad-accb-414d-b165-4f9512b7041b';
+const gameId = 'd68c69d9-b221-4625-8bae-33d20dc1f322';
 
 /**
  * Constant of the game secret used to authenticate against the gamekey service.
  */
-const gameSecret = '10a1c9b5888eee11';
+const gameSecret = '31872b92a1189095';
 
 /**
  * A [SnakeGameController] object registers several handlers
@@ -78,6 +85,11 @@ class SnakeGameController {
   Timer miceTrigger;
 
   /**
+   * Periodic trigger controlling availability of gamekey service.
+   */
+  Timer gamekeyTrigger;
+
+  /**
    * Constructor to create a controller object.
    * Registers all necessary event handlers necessary
    * for the user to interact with a [SnakeGame].
@@ -85,8 +97,10 @@ class SnakeGameController {
   SnakeGameController() {
 
     // Check if gamekey service is reachable. Display warning if not.
-    gamekey.listGames().then((games) {
-      if (games == null) {
+    gamekeyTrigger = new Timer.periodic(gamekeyCheck, (_) async {
+      if (await gamekey.authenticate()) {
+        view.warningoverlay.innerHtml = "";
+      } else {
         view.warningoverlay.innerHtml =
           "Could not connect to gamekey service. "
           "Highscore will not working properly. ";
@@ -120,15 +134,27 @@ class SnakeGameController {
   /**
    * Handles Game Over.
    */
-  void _gameOver() {
+  dynamic _gameOver() async {
     game.stop();
     view.update(game);
 
-    // Show highscore
-    view.showHighscore(game);
+    // Show TOP 10 Highscore
+    var scores = [];
+    try {
+      final states = await gamekey.getStates();
+      scores = states.map((entry) => {
+        'name' : "${entry['username']}",
+        'score' : entry['state']['points']
+      }).toList();
+      scores.sort((a, b) => b['score'] - a['score']);
+    } catch (error, stacktrace) {
+      print (error);
+      print (stacktrace);
+    }
+    view.showHighscore(game, scores.take(10));
 
     // Handle save button
-    document.querySelector('#save').onClick.listen((_) async {
+    document.querySelector('#save')?.onClick?.listen((_) async {
 
       String user = view.user;
       String pwd  = view.password;
@@ -142,18 +168,19 @@ class SnakeGameController {
           "<button id='create'>Create</button>"
           "<button id='cancel' class='discard'>Cancel</button>"
         );
-        document.querySelector('#cancel').onClick.listen((_) => _newGame());
-        document.querySelector('#create').onClick.listen((_) async {
+        document.querySelector('#cancel')?.onClick?.listen((_) => _newGame());
+        document.querySelector('#create')?.onClick?.listen((_) async {
           final usr = await gamekey.registerUser(user, pwd);
           if (usr == null) { view.warn("Could not register user $user. User might already exist?"); return; }
           view.warn("");
           final stored = await gamekey.storeState(usr['id'], {
-            'version': '0.0.1',
-            'points': "${game.miceCounter}"
+            'version': '0.0.2',
+            'points': game.miceCounter
           });
           if (stored) {
             view.warn("${game.miceCounter} mice stored for $user");
             view.closeForm();
+            _newGame();
             return;
           } else {
             view.warn("Could not save highscore. Retry?");
@@ -167,12 +194,13 @@ class SnakeGameController {
         final user = await gamekey.getUser(id, pwd);
         if (user == null) { view.warn("Wrong access credentials."); return; };
         final stored = await gamekey.storeState(user['id'], {
-          'version': '0.0.1',
-          'points': "${game.miceCounter}"
+          'version': '0.0.2',
+          'points': game.miceCounter
         });
         if (stored) {
           view.warn("${game.miceCounter} mice stored for ${user['name']}");
           view.closeForm();
+          _newGame();
           return;
         } else {
           view.warn("Could not save highscore. Retry?");
@@ -182,7 +210,7 @@ class SnakeGameController {
     });
 
     // Handle cancel button
-    document.querySelector('#close').onClick.listen((_) => _newGame());
+    document.querySelector('#close')?.onClick?.listen((_) => _newGame());
 
     snakeTrigger.cancel();
     miceTrigger.cancel();
