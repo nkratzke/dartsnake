@@ -31,6 +31,12 @@ class SnakeView {
    */
   final welcome = querySelector("#welcome");
 
+  /*
+   * Element with id '#highscore' of the DOM tree.
+   * Shown only if game is not running.
+   */
+  final highscore = querySelector("#highscore");
+
   /**
    * Element with id '#snakegame' of the DOM tree.
    * Used to visualize the field of a [SnakeGame] as a HTML table.
@@ -73,11 +79,14 @@ class SnakeView {
    * - [gameover] is shown when [model] indicates game over state.
    * - Game over [reasons] ([model.snake] tangled or off field) are shown when [model] is in game over state.
    * - Field is shown according to actual field state of [model].
+   * - Highscore is presented according to [scores], per default no highscore is shown.
    */
-  void update(SnakeGame model) {
+  void update(SnakeGame model, { List<Map> scores: const [] }) {
 
     welcome.style.display = model.stopped ? "block" : "none";
     // title.style.display = model.stopped? "block" : "none";
+
+    highscore.innerHtml = model.stopped ? generateHighscore(scores) : "";
 
     points.innerHtml = "Points: ${model.miceCounter}";
     gameover.innerHtml = model.gameOver ? "Game Over" : "";
@@ -135,13 +144,20 @@ class SnakeView {
   }
 
   /**
+   * Generates HTML snippet to present the highscore.
+   */
+  String generateHighscore(List<Map> scores) {
+    final list = scores.map((entry) => "<li>${entry['name']}: ${entry['score']}</li>").join("");
+    return list.isEmpty ? "<div id='scorelist'></div>" : "<div id='scorelist'><ul>$list</ul></div>";
+  }
+
+  /**
    * Shows the highscore form and save option for the user.
    */
   void showHighscore(SnakeGame model, List<Map> scores) {
 
     if (overlay.innerHtml != "") return;
 
-    final list = scores.map((entry) => "<li>${entry['name']}: ${entry['score']}</li>").join("");
     final score = model.miceCounter;
 
     overlay.innerHtml =
@@ -151,9 +167,7 @@ class SnakeView {
       "</div>"
       "<div id='highscorewarning'></div>";
 
-    print(scores.last['score']);
-
-    if (score > scores.last['score']) {
+    if (scores.isEmpty || score > scores.last['score']) {
       overlay.appendHtml(
           "<form id='highscoreform'>"
           "<input type='text' id='user' placeholder='user'>"
@@ -166,7 +180,7 @@ class SnakeView {
       overlay.appendHtml("<button type='button' id='close' class='discard'>Close</button>");
     }
 
-    overlay.appendHtml("<div id='scorelist'><ul>$list</ul></div>");
+    overlay.appendHtml(this.generateHighscore(scores));
   }
 
   /**

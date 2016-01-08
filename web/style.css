@@ -90,6 +90,45 @@ a {
   margin: 10px;
 }
 
+#scorelist:empty {
+  display: none;
+}
+
+#scorelist {
+  padding: 20px;
+  color: white;
+  margin: 20px;
+  width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid white;
+  border-radius: 10px;
+  background: rgba(1,1,1,0.1);
+}
+
+#scorelist ul {
+  list-style-type: none;
+  list-style-position: outside;
+  margin: 0px;
+}
+
+#scorelist li {
+  font-size: 1.1em;
+  margin: 0px 5px 5px 5px;
+  padding: 5px;
+  color: white;
+  display: block;
+  border-radius: 20px;
+}
+
+#scorelist li:nth-child(even) {
+  background: rgba(1,1,1,0.25);
+}
+
+#scorelist li:nth-child(odd) {
+  background: rgba(1,1,1,0.5);
+}
+
 input::-webkit-input-placeholder { color: lightgray; font-style: italic; }
 input::-moz-placeholder { color: lightgray; font-style: italic; }
 

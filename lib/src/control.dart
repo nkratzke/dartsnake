@@ -38,12 +38,12 @@ const gamekeyPort = 8080;
 /**
  * Constant of the game ID used to authenticate against the gamekey service.
  */
-const gameId = 'd68c69d9-b221-4625-8bae-33d20dc1f322';
+const gameId = '393bb182-cbe9-43fd-9de1-1754523e5870';
 
 /**
  * Constant of the game secret used to authenticate against the gamekey service.
  */
-const gameSecret = '31872b92a1189095';
+const gameSecret = '0ecd279674df603b';
 
 /**
  * A [SnakeGameController] object registers several handlers
@@ -108,6 +108,7 @@ class SnakeGameController {
     });
 
     view.generateField(game);
+    getHighscores().then((highscore) => view.update(game, scores: highscore));
 
     // New game is started by user
     view.startButton.onClick.listen((_) {
@@ -132,13 +133,12 @@ class SnakeGameController {
   }
 
   /**
-   * Handles Game Over.
+   * Retrieves TOP 10 highscore from Gamekey service.
+   * - Returns List of max. 10 highscore entries. { 'name': STRING, 'score': INT }
+   * - Returns [] if gamekey service is not available.
+   * - Returns [] if no highscores are present.
    */
-  dynamic _gameOver() async {
-    game.stop();
-    view.update(game);
-
-    // Show TOP 10 Highscore
+  Future<List<Map>> getHighscores() async {
     var scores = [];
     try {
       final states = await gamekey.getStates();
@@ -151,7 +151,22 @@ class SnakeGameController {
       print (error);
       print (stacktrace);
     }
-    view.showHighscore(game, scores.take(10));
+    return scores.take(10);
+  }
+
+  /**
+   * Handles Game Over.
+   */
+  dynamic _gameOver() async {
+    snakeTrigger.cancel();
+    miceTrigger.cancel();
+
+    game.stop();
+    view.update(game);
+
+    // Show TOP 10 Highscore
+    final highscore = await getHighscores();
+    view.showHighscore(game, highscore);
 
     // Handle save button
     document.querySelector('#save')?.onClick?.listen((_) async {
@@ -171,7 +186,13 @@ class SnakeGameController {
         document.querySelector('#cancel')?.onClick?.listen((_) => _newGame());
         document.querySelector('#create')?.onClick?.listen((_) async {
           final usr = await gamekey.registerUser(user, pwd);
-          if (usr == null) { view.warn("Could not register user $user. User might already exist?"); return; }
+          if (usr == null) {
+            view.warn(
+              "Could not register user $user. "
+              "User might already exist or gamekey service not available."
+            );
+            return;
+          }
           view.warn("");
           final stored = await gamekey.storeState(usr['id'], {
             'version': '0.0.2',
@@ -211,18 +232,18 @@ class SnakeGameController {
 
     // Handle cancel button
     document.querySelector('#close')?.onClick?.listen((_) => _newGame());
-
-    snakeTrigger.cancel();
-    miceTrigger.cancel();
   }
 
   /**
    * Initiates a new game.
    */
-  void _newGame() {
+  dynamic _newGame() async {
     view.closeForm();
     game = new SnakeGame(gamesize);
-    view.update(game);
+
+    // Show TOP 10 Highscore
+    final highscore = await getHighscores();
+    view.update(game, scores: highscore);
   }
 
   /**

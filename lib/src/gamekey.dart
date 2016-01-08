@@ -37,7 +37,9 @@ class GameKey {
   static String parameter(Map<String, String> p) => (new Uri(queryParameters: p)).query;
 
   /**
-   *
+   * Registers a non existing user with the gamekey service.
+   * - Returns user map with stored values on success
+   * - Returns null if user could not be stored (due to several reasons, gamekey service not reachable, user already existing)
    */
   Future<Map> registerUser(String name, String pwd) async {
     try {
@@ -112,7 +114,7 @@ class GameKey {
   }
 
   /**
-   *
+   * Lists all users registered with the gamekey service.
    */
   Future<List<Map>> listUsers() async {
     try {
@@ -125,23 +127,8 @@ class GameKey {
     }
   }
 
-
   /**
-   *
-   *
-  Future<List<Map>> listGames() async {
-    try {
-      final answer = await HttpRequest.request("${this._uri.resolve("/games")}", method: 'GET');
-      return JSON.decode(answer.responseText);
-    } catch (error, stacktrace) {
-      print ("GameKey.listGames() caused following error: '$error'");
-      print ("$stacktrace");
-      return null;
-    }
-  }*/
-
-  /**
-   *
+   * Retrieves all states stored for this game.
    */
   Future<List<Map>> getStates() async {
     try {
@@ -156,7 +143,8 @@ class GameKey {
   }
 
   /**
-   *
+   * Stores an arbitrary state encoded as map for a user with identifier [uid]
+   * for this game.
    */
   Future<bool> storeState(String uid, Map state) async {
     try {
