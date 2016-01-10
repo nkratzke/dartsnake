@@ -1396,7 +1396,8 @@ Referenzimplementierung (GameKey Service, Ruby)
 \end_layout
 
 \begin_layout Standard
-Die Referenz-Storage Lösung findet sich hier: 
+Die Referenz-Storage Lösung ist bewusst in Ruby und nich in Dart implementiert
+ und findet sich hier: 
 \begin_inset ERT
 status open
 
@@ -1409,7 +1410,10 @@ url{https://bitbucket.org/nanekratzke/gamekey}
 
 \end_inset
 
-
+.
+ Ihre Aufgabe ist es (neben der Entwicklung des eigentlichen Spiels), diese
+ Referenzimplementierung in Dart mit identischer Verhaltensweise nachzuimplement
+ieren.
 \end_layout
 
 \begin_layout Standard
@@ -1432,16 +1436,36 @@ gamekey start
 
 \begin_layout Standard
 gestartet werden.
- Der Gamekey-Service kann theoretisch als In-Memory Key-Value Lösung betrieben
- werden, alle Schreiboperationen werden jedoch in der Referenzimplemntierung
- in eine 
+ Mittels 
+\end_layout
+
+\begin_layout LyX-Code
+gamekey help
+\end_layout
+
+\begin_layout LyX-Code
+gamekey help <command>
+\end_layout
+
+\begin_layout Standard
+erhalten sie weitere Nutzungshinweise.
+\end_layout
+
+\begin_layout Standard
+Der Gamekey-Service kann theoretisch als In-Memory Key-Value Lösung betrieben
+ werden.
+ Alle Schreiboperationen werden jedoch in der Referenzimplementierung in
+ eine 
 \family typewriter
 \size small
 gamekey.json
 \family default
 \size default
- Datei serialisiert.
- Diese Datei können Sie für Test und Debugging-Zwecke heranziehen.
+ Datei serialisiert (das senkt die Performance, man erhält dafür aber Persistenz
+ und Debug-Möglichkeiten).
+ Diese Datei (letztlich nur eine 1:1 JSON Serialisierung der internen Datenstruk
+tur zum Zeitpunkt der letzten Schreiboperation) können Sie für Test und
+ Debugging-Zwecke heranziehen.
 \end_layout
 
 \begin_layout Standard
@@ -2015,7 +2039,7 @@ Speichert einen GameState für ein Spiel mit der ID :gid und einem User mit
 \begin_layout Standard
 Der Gamekey Service beinhaltet ferner einen Satz an automatisierten Referenztest
 s, mit der Sie prüfen können, ob ihre Dart Implementierung des Gamekey Service
- korrekt ist.
+ korrekt ist und sich verhält wie die Referenzlösung.
  
 \end_layout
 
@@ -2024,7 +2048,8 @@ gamekey test --host http://my.gamekey.implementation:8080
 \end_layout
 
 \begin_layout Standard
-Die abgefahrenen Tests finden sich in der Datei 
+Die Tests die ihre Dartimplementierung bestehen muss, finden sich in der
+ Datei 
 \family typewriter
 \size small
 reference.rb
@@ -2034,6 +2059,7 @@ reference.rb
  Nicht erfolgreiche Testfälle werden mit Identifier ausgegeben.
  Anhand des Identifiers können sie in der Referenzimplementierung herausfinden,
  welcher Testfall nicht erfolgreich war.
+ Auch die Referenzimplementierung ist gegen diese Testfälle geprüft worden.
 \end_layout
 
 \begin_layout Subsection

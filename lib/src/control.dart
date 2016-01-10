@@ -28,7 +28,7 @@ const acceleration = 0.05;
 /**
  * Constant of the gamekey service.
  */
-const gamekeyHost = '127.0.0.1';
+const gamekeyHost = '192.168.99.100';
 
 /**
  * Constant of the gamekey service (port).
@@ -38,12 +38,12 @@ const gamekeyPort = 8080;
 /**
  * Constant of the game ID used to authenticate against the gamekey service.
  */
-const gameId = '393bb182-cbe9-43fd-9de1-1754523e5870';
+const gameId = 'e79f3fe4-deb3-47b0-b053-c474d2b6b645';
 
 /**
  * Constant of the game secret used to authenticate against the gamekey service.
  */
-const gameSecret = '0ecd279674df603b';
+const gameSecret = '65d144180f3ef299';
 
 /**
  * A [SnakeGameController] object registers several handlers
