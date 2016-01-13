@@ -5,3 +5,5 @@ pubspec.lock
 build
 
 .idea
+
+*.lyx#
