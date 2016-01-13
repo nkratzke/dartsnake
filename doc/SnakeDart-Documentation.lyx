@@ -168,9 +168,9 @@ url{https://github.com/nkratzke/dartsnake}
 \end_layout
 
 \begin_layout Standard
-Vorliegende Dokumentation erläutert das SnakeGame exemplarisch.
- Die Dokumentation dient gleichermaßen als Anhalt, das eigenständig entwickelte
- Spiel zu dokumentieren.
+Vorliegende Dokumentation erläutert in einerseits das SnakeGame.
+ In zweiter Funktion dient die Dokumentation gleichermaßen als Anhalt, um
+ das eigenständig entwickelte Spiel zu dokumentieren.
 \end_layout
 
 \begin_layout Section
@@ -1295,6 +1295,67 @@ end{lstlisting}
 Architektur
 \end_layout
 
+\begin_layout Standard
+Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Architektur"
+
+\end_inset
+
+ zeigt die Architektur von SnakeGame im Überblick.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Architektur.pdf
+	width 66text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Architektur
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Architektur"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Model
 \end_layout
@@ -1396,7 +1457,7 @@ Referenzimplementierung (GameKey Service, Ruby)
 \end_layout
 
 \begin_layout Standard
-Die Referenz-Storage Lösung ist bewusst in Ruby und nich in Dart implementiert
+Die Referenz-Storage Lösung ist bewusst in Ruby und nicht in Dart implementiert
  und findet sich hier: 
 \begin_inset ERT
 status open
@@ -2060,6 +2121,11 @@ reference.rb
  Anhand des Identifiers können sie in der Referenzimplementierung herausfinden,
  welcher Testfall nicht erfolgreich war.
  Auch die Referenzimplementierung ist gegen diese Testfälle geprüft worden.
+\end_layout
+
+\begin_layout Standard
+Ihre Referenzimplementierung muss ferner mit dem GameKey command line client
+ wie die Referenzimplementierung funktionieren.
 \end_layout
 
 \begin_layout Subsection
