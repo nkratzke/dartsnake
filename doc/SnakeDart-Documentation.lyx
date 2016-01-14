@@ -1292,7 +1292,7 @@ end{lstlisting}
 \end_layout
 
 \begin_layout Chapter
-Architektur
+Architektur und Implementierung
 \end_layout
 
 \begin_layout Standard
@@ -1311,10 +1311,6 @@ reference "fig:Architektur"
 wide false
 sideways false
 status open
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \noindent
@@ -1360,6 +1356,48 @@ name "fig:Architektur"
 Model
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Klassendiagram-Controller-Model.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Klassendiagramm (Model und Controller)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Klassendiagramm-(MC)"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
 Überblick über Model 
 \end_layout
@@ -1399,6 +1437,48 @@ ggf.
 
 \begin_layout Section
 View
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Klassendiagram-View-Controller.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Klassendiagramm (View-Controller und Gamekey)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Klassendiagramm-(VC)"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1446,6 +1526,87 @@ Abbildung der Nutzerinteraktionen auf Modelinteraktionen (Controler - Model
 \begin_layout Itemize
 Abbildung der Timer-Events auf Modelinteraktionen (Controler - Model Schnittstel
 le, Teil 2)
+\end_layout
+
+\begin_layout Subsection
+Laufendes Spiel
+\end_layout
+
+\begin_layout Standard
+Durch den 
+\family typewriter
+snakeTrigger
+\family default
+ und den 
+\family typewriter
+miceTrigger
+\family default
+ werden periodisch die Abläufe in Abbildung <TBD> angestoßen.
+ Beide Abläufe sind identisch, daher wird nur die Kontrollfluss der Schlange
+ erläutert.
+ Der Kontrollfluss der Mäuse (im aktuellen Zustand wird nur eine Maus genutzt)
+ ist analog.
+ Nur die Beschleunigung der Mausgeschwindigkeit wird nicht durchgeführt.
+\end_layout
+
+\begin_layout Subsection
+Game Over bei registriertem Spieler
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Game-Over-bei-registriertem-Spieler"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Im Falle das während der Bearbeitung des 
+\family typewriter
+snakeTrigger
+\family default
+ oder des 
+\family typewriter
+miceTrigger
+\family default
+ festgestellt wird, dass sich der GameOver Zustand im Spiel eingestellt
+ hat, erfolgen zwei Abläufe, die gestartet werden, je nachdem ob es sich
+ beim Spieler um einen registerierten Spieler (siehe Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Game-Over-bei-registriertem-Spieler"
+
+\end_inset
+
+) oder nicht registrierten Spieler (siehe Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Game-Over-bei-nicht-registriertem-Spieler"
+
+\end_inset
+
+) handelt.
+\end_layout
+
+\begin_layout Standard
+Im Falle eines registrierten Spieler ist der Kontrollfluss wie in Abbildung
+ <TBD> gezeigt.
+\end_layout
+
+\begin_layout Subsection
+Game Over bei nicht registriertem Spieler
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Game-Over-bei-nicht-registriertem-Spieler"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Im Falle eines nicht registrierten Spieler ist der Kontrollfluss wie in
+ Abbildung <TBD> gezeigt.
 \end_layout
 
 \begin_layout Section
