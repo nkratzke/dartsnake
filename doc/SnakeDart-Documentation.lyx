@@ -1348,6 +1348,13 @@ Das Spiel muss keine Sounds unterstützen.
 
 \begin_layout Section
 Spielkonzept des Snake Games
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Spielkonzept-des-Snake-Game"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3258,6 +3265,43 @@ Nachweis der funktionalen Anforderungen
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis: } Nachfolgend erfolgt der Nachweis der Einhaltung funktionaler
+ Anforderungen.
+ Grundsätzlich gilt: Nur teilweise oder nicht Erfüllung von Anforderungen
+ bringt Punktabzüge mit sich.
+ Pro Anforderung sind Erläuterungen anzugeben, warum eine Anforderung als
+ erfüllt, teilweise erfüllt oder nicht erfüllt betrachtet wird.
+ Nicht erläuterte Angaben, werden wie nicht erfüllt gewertet.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="6">
 <features rotate="0" tabularvalignment="middle">
@@ -3266,7 +3310,7 @@ Nachweis der funktionalen Anforderungen
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
-<column alignment="left" valignment="top" width="50col%">
+<column alignment="left" valignment="top" width="60col%">
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -3412,7 +3456,14 @@ x
 \begin_layout Plain Layout
 
 \size footnotesize
-SnakeGame ist ein Einpersonen Spiel.
+SnakeGame ist ein Einpersonen Spiel, wie aus dem in Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Spielkonzept-des-Snake-Game"
+
+\end_inset
+
+ dargestellten Spielkonzepts hervorgeht.
 \end_layout
 
 \end_inset
@@ -3476,7 +3527,14 @@ x
 \begin_layout Plain Layout
 
 \size footnotesize
-SnakeGame wird auf einem 2D-Raster gespielt.
+SnakeGame wird auf einem 2D-Raster gespielt, wie aus dem in Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Spielkonzept-des-Snake-Game"
+
+\end_inset
+
+ dargestellten Spielkonzepts hervorgeht.
 \end_layout
 
 \end_inset
@@ -3739,6 +3797,8 @@ x
 
 \size footnotesize
 Das Spiel ist in Desktop Browsern spielbar.
+ Es wurde in Chrome, Safari und Firefox erfolgreich zur Ausführung gebracht,
+ gespielt und jeweils ein Highscore gespeichert.
 \end_layout
 
 \end_inset
@@ -3821,6 +3881,43 @@ Nachweis der Dokumentationsanforderungen
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis: } Nachfolgend erfolgt der Nachweis der Einhaltung der Dokumentat
+ionsanforderungen.
+ Grundsätzlich gilt: Nur teilweise oder nicht Erfüllung von Anforderungen
+ bringt Punktabzüge mit sich.
+ Pro Anforderung sind Erläuterungen anzugeben, warum eine Anforderung als
+ erfüllt, teilweise erfüllt oder nicht erfüllt betrachtet wird.
+ Nicht erläuterte Angaben, werden wie nicht erfüllt gewertet.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="6">
 <features rotate="0" tabularvalignment="middle">
@@ -3829,7 +3926,7 @@ Nachweis der Dokumentationsanforderungen
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
-<column alignment="left" valignment="top" width="50col%">
+<column alignment="left" valignment="top" width="60col%">
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -4172,13 +4269,1111 @@ x
 \begin_layout Plain Layout
 
 \size footnotesize
-Alle genutzten Libraries werden im Abschnitt <TBD> aufgeführt.
+Alle genutzten Libraries werden in der 
+\family typewriter
+\series bold
+pubspec.yaml
+\family default
+\series default
+ der Implementierung aufgeführt.
+ Da nur die zugelassenen Pakete genutzt wurden, sind darüber hinaus keine
+ weiteren Erläuterungen, warum welche Pakete genutzt wurden, erforderlich.
 \end_layout
 
 \end_inset
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis: } Achten sie bitte darauf, dass sie beim Nachweis der erlaubten/
+verbotenen Pakete ggf.
+ zwei Projekte berücksichtigen.
+ Einmal ihr Spiel und einmal die Referenzimplementierung des Gamekey Storage
+ Service.
+ Sie müssen den Nachweis also ggf.
+ für beide Projekte erbringen.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Nachweis der Einhaltung technischer Randbedingungen
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis: } Nachfolgend erfolgt der Nachweis der Einhaltung der vorgegeben
+en technischen Randbedingungen.
+ Grundsätzlich gilt: Nur teilweise oder nicht Erfüllung von Anforderungen
+ bringt Punktabzüge mit sich.
+ Pro Anforderung sind Erläuterungen anzugeben, warum eine Anforderung als
+ erfüllt, teilweise erfüllt oder nicht erfüllt betrachtet wird.
+ Nicht erläuterte Angaben, werden wie nicht erfüllt gewertet.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="14" columns="6">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="5col%">
+<column alignment="left" valignment="top" width="15col%">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="60col%">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Id
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Kurztitel
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Erfüllt
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Teilw.
+ erfüllt
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Nicht erfüllt
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Erläuterung
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+No Canvas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Die Darstellung des Spielfeldes sollte ausschließlich mittels DOM-Tree Techniken
+ erfolgen.
+ Die Nutzung von Canvas-basierten Darstellungstechniken ist 
+\series bold
+\bar under
+explizit
+\series default
+\bar default
+ untersagt.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Levelformat
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
+ eines Levelkonzepts verzichtet.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Parameterformat
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
+ eines ausgereiften Parametrisierungskonzept verzichtet.
+ Wesentliche Werte zur Verhaltensbeeinflussung, wurden jedoch als Konstanten
+ in der Klasse SnakeGameController realisiert, so dass diese an zentraler
+ Stelle -- jedoch nur mit Änderung des Quellcodes --- geändert werden können.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+HTML + CSS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Der View des Spiels beruht ausschließlich auf HTML und CSS realisiert werden.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Gamelogic in Dart
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Die Logik des Spiels ist mittels der Programmiersprache Dart realisiert
+ worden.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Storagelogic in Dart 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Dart-Implementie
+rung des Storageservice verzichtet.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Storage Referenz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SnakeGame nutzt nur die Referenzimplementierung des Storageservice.
+ Da die Eigenrealisierung des Storageservice in Dart nicht vorgenommen wurde,
+ kann dieser Teil nicht nachgewiesen werden.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Storage Referenztest
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Es wurde keine Dart Implementierung der Referenz Storage Services vorgenommen.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Browser Support
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Das Spiel muss im Browser Chromium/Dartium (native Dart Engine) funktionieren.
+ Das Spiel muss ferner in allen anderen Browserrn (JavaScript Engines) ebenfalls
+ in der JavaScript kompilierten Form funktionieren (geprüft wird ggf.
+ mit Safari, Chrome und Firefox).
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+MVC Architektur
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Das Spiel sollte einer MVC-Architektur folgen.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Erlaubte Pakete
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Es sind nur dart:* packages, sowie das Webframework start genutzt worden.
+ Siehe 
+\family typewriter
+\series bold
+pubspec.yaml
+\family default
+\series default
+ der Implementierung.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Verbotene Pakete
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Es sind keine Pakete, außer den erlaubten genutzt worden.
+ Siehe 
+\family typewriter
+\series bold
+pubspec.yaml
+\family default
+\series default
+ der Implementierung.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+No Sound
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Das Spiel hat keine Soundeffekte.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis: } Achten sie bitte darauf, dass sie beim Nachweis der erlaubten/
+verbotenen Pakete ggf.
+ zwei Projekte berücksichtigen.
+ Einmal ihr Spiel und einmal die Referenzimplementierung des Storage Service.
+ Sie müssen den Nachweis also ggf.
+ für beide Projekte erbringen.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis: } Achten sie bitte bei der Storage Lösung darauf, dass Sie
+ objektive Nachweise erbringen müssen, dass ihre Lösung alle Referenztests
+ bestanden hat und das ihr Spiel sowohl mit der Referenzlösung als auch
+ ihrer Dart Implementierung des Gamekey Service funktionieren muss!
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
 
 \end_inset
 
