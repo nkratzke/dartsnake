@@ -8,6 +8,7 @@
 \usepackage{xcolor} 
 \usepackage{babel} 
 \usepackage{hyperref}
+\usepackage{framed}
 
 \definecolor{hellgrau}{rgb}{0.95,0.95,0.95}
 \definecolor{colKeys}{rgb}{0,0,1}
@@ -123,8 +124,71 @@ LatexCommand tableofcontents
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter*
 Einleitung
+\end_layout
+
+\begin_layout Standard
+Hinweise für die Durchführung ihres Webtechnologie Projekts sind in vorliegender
+ Dokumentation in folgender Form gekennzeichnet.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis:} Solche Boxen kennzeichnen Hinweise für ihr Webtechnologie-Proje
+kt.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ich wünsche Ihnen nun viel Erfolg und Spaß bei der Entwicklung ihres Webgames.
+ Die besten Spiele der vergangenen Jahre finden Sie in einer Hall-of-Fame
+ unter folgendem Link 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+url{http://www.nkode.io/assets/webtech-hall-of-fame/index.html}
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -144,8 +208,9 @@ Anforderungen und abgeleitetes Spielkonzept
 \end_layout
 
 \begin_layout Standard
-Im Verlaufe des Projekts sollen sie ein clientseitiges Spiel entwickeln.
- Das Spiel kann sich softwaretechnisch am 
+Im Verlaufe des Webtechnologie Projekts sollen sie ein clientseitiges Spiel
+ entwickeln, welches in einem Webbrowser spielbar sein soll.
+ Das Spiel kann sich softwaretechnisch am hier dokumentierten 
 \series bold
 SnakeGame
 \series default
@@ -163,14 +228,40 @@ url{https://github.com/nkratzke/dartsnake}
 \end_inset
 
 ) orientieren.
- Es soll jedoch ein eigenständiges Spielkonzept entwickelt und umgesetzt
- werden.
+ Sie sollen jedoch ein eigenständiges Spielkonzept entwickeln und umsetzen.
 \end_layout
 
 \begin_layout Standard
-Vorliegende Dokumentation erläutert in einerseits das SnakeGame.
- In zweiter Funktion dient die Dokumentation gleichermaßen als Anhalt, um
- das eigenständig entwickelte Spiel zu dokumentieren.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis:} Vorliegende Dokumentation erläutert einerseits den Aufbau
+ des SnakeGame.
+ In zweiter Funktion dient die Dokumentation gleichermaßen als Anhalt für
+ Sie, um das eigenständig entwickelte Spiel zu dokumentieren.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -178,7 +269,7 @@ Anforderungen
 \end_layout
 
 \begin_layout Standard
-Das Spiel soll folgende Anforderungen erfüllen.
+Ihr Spiel soll folgende Anforderungen erfüllen.
  Sie sollen dabei nachvollziehbar dokumentieren, wie diese Anforderungen
  durch ihre Realisierung umgesetzt werden.
 \end_layout
@@ -944,7 +1035,7 @@ Gamelogic in Dart
 \begin_layout Plain Layout
 
 \size small
-Die Logik des Spiels muss mittels der Programmiersprache Dart realsiert
+Die Logik des Spiels muss mittels der Programmiersprache Dart realisiert
  werden.
 \end_layout
 
@@ -1440,6 +1531,277 @@ View
 \end_layout
 
 \begin_layout Standard
+Der View wird im Browser initial durch folgendes HTML-Dokument erzeugt.
+ Im Verlaufe des Spiels wird der DOM-Tree dieses HTML-Dokuments durch die
+ Klasse 
+\family typewriter
+\series bold
+SnakeView
+\family default
+\series default
+ manipuliert (siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Klassendiagramm-(VC)"
+
+\end_inset
+
+), um den Spielzustand darzustellen und Nutzerinteraktionen zu ermöglichen.
+ Die Klasse 
+\family typewriter
+\series bold
+SnakeView
+\family default
+\series default
+ wird dabei durch das Script 
+\family typewriter
+\series bold
+snakeclient.dart 
+\family default
+\series default
+als clientseitige Logik geladen.
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+<html>   
+\end_layout
+
+\begin_layout Plain Layout
+
+  <head>   	
+\end_layout
+
+\begin_layout Plain Layout
+
+    [...]     
+\end_layout
+
+\begin_layout Plain Layout
+
+    <title>Snake Dart</title>     
+\end_layout
+
+\begin_layout Plain Layout
+
+    <link rel="stylesheet" type="text/css" href="style.css">     
+\end_layout
+
+\begin_layout Plain Layout
+
+  </head>     
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  <body>
+\end_layout
+
+\begin_layout Plain Layout
+
+    <div id="warningoverlay"></div>
+\end_layout
+
+\begin_layout Plain Layout
+
+    <div id="overlay"></div>
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    <div class="container">       
+\end_layout
+
+\begin_layout Plain Layout
+
+       <h1 id="title">Snake Dart</h1>              
+\end_layout
+
+\begin_layout Plain Layout
+
+       <div id='welcome'>         
+\end_layout
+
+\begin_layout Plain Layout
+
+         <div id='highscore'></div>         
+\end_layout
+
+\begin_layout Plain Layout
+
+         <span id="start">Start</span>      
+\end_layout
+
+\begin_layout Plain Layout
+
+       </div>              
+\end_layout
+
+\begin_layout Plain Layout
+
+       <div id='message'>         
+\end_layout
+
+\begin_layout Plain Layout
+
+         <div id='gameover'></div>         
+\end_layout
+
+\begin_layout Plain Layout
+
+         <div id='reasons'></div>       
+\end_layout
+
+\begin_layout Plain Layout
+
+       </div>
+\end_layout
+
+\begin_layout Plain Layout
+
+      
+\end_layout
+
+\begin_layout Plain Layout
+
+       <table id='snakegame'></table>              
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+       <div id='controls'>         
+\end_layout
+
+\begin_layout Plain Layout
+
+         <span id='points'></span>       
+\end_layout
+
+\begin_layout Plain Layout
+
+       </div>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	   [...]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   </div>
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+   <script type='application/dart' src='snakeclient.dart'></script>     
+\end_layout
+
+\begin_layout Plain Layout
+
+   <script src='packages/browser/dart.js'></script>      
+\end_layout
+
+\begin_layout Plain Layout
+
+  </body>
+\end_layout
+
+\begin_layout Plain Layout
+
+</html> 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Objekte der Klasse 
+\family typewriter
+\series bold
+SnakeView
+\family default
+\series default
+ agieren nie eigenständig, sondern werden grundsätzlich von Objekten der
+ Klasse 
+\family typewriter
+\series bold
+SnakeGameController
+\family default
+\series default
+ genutzt, um View Aktualisierungen vorzunehmen (vgl.
+ auch Sequenzdiagramme in den Abschnitten 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Laufendes-Spiel"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Game-Over-bei-registriertem-Spieler"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Game-Over-bei-nicht-registriertem-Spieler"
+
+\end_inset
+
+ ).
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -1504,6 +1866,62 @@ Erläuterung der Wirkungsweise des View-Updates (dies sollte insbesondere
 Gestaltung des Spiels mittels CSS
 \end_layout
 
+\begin_layout Standard
+Die update() Methode ...
+\end_layout
+
+\begin_layout Standard
+Die 
+\family typewriter
+\series bold
+generateField()
+\family default
+\series default
+ Methode erzeugt eine Tabelle zur Darstellung des quadratischen Spielfeldes.
+ Dieses wird in den DOM-Tree in das TABLE-Element mit der Id 
+\family typewriter
+\series bold
+#snakegame
+\family default
+\series default
+ eingeblendet.
+\end_layout
+
+\begin_layout Standard
+Highscore und Highscore Speicherung kann mittels der Methode 
+\family typewriter
+\series bold
+showHighscore()
+\family default
+\series default
+ als Formular in das DIV-Element mit der Id 
+\family typewriter
+\series bold
+#overlay
+\family default
+\series default
+ des DOM-Tree eingeblendet werden.
+ Mittels der 
+\family typewriter
+\series bold
+warn()
+\family default
+\series default
+ Methode können innerhalb des Highscore Formulars Warnungstexte eingeblendet
+ werden (bspw.
+ falsches Password eingegeben, Spieler nicht vorhanden, etc.)
+\end_layout
+
+\begin_layout Standard
+Die Methode 
+\family typewriter
+\series bold
+closeForm()
+\family default
+\series default
+ blendet das Highscore Speicherformular wieder aus dem DOM-Tree aus.
+\end_layout
+
 \begin_layout Section
 Controller
 \end_layout
@@ -1530,6 +1948,13 @@ le, Teil 2)
 
 \begin_layout Subsection
 Laufendes Spiel
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Laufendes-Spiel"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1541,19 +1966,277 @@ snakeTrigger
 \family typewriter
 miceTrigger
 \family default
- werden periodisch die Abläufe in Abbildung <TBD> angestoßen.
- Beide Abläufe sind identisch, daher wird nur die Kontrollfluss der Schlange
+ werden periodisch die Abläufe in Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sequenzdiagramm-(Laufendes-Spiel)"
+
+\end_inset
+
+ angestoßen.
+ Beide Abläufe sind identisch, daher wird nur der Kontrollfluss der Schlange
  erläutert.
- Der Kontrollfluss der Mäuse (im aktuellen Zustand wird nur eine Maus genutzt)
- ist analog.
- Nur die Beschleunigung der Mausgeschwindigkeit wird nicht durchgeführt.
+ Der Kontrollfluss der Mäuse (im aktuellen Zustand wird nur eine sich nicht
+ bewegende Maus genutzt) ist (bis auf eine fehlende Beschleunigung der Mausgesch
+windigkeit) analog.
+ 
+\end_layout
+
+\begin_layout Standard
+Obwohl nur eine sich nicht bewegende Maus genutzt wird, wäre es ein leichtes,
+ das bestehende Spiel, so zu erweitern, dass die Schlange mehrere Mäuse
+ jagen könnte.
+ Das Spiel ist grundsätzlich dafür vorbereitet.
+ Man müsste nur den Konstruktor des 
+\family typewriter
+\series bold
+SnakeGame
+\family default
+\series default
+ wie folgt erweitern.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis:} Es ist häufig nicht sonderlich schwer, ein Spiel flexibel
+ zu gestalten.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Obwohl klassisch im SnakeGame nur eine sich nicht bewegende Maus genutzt
+ wird, wäre es ein leichtes, das bestehende Spiel so zu erweitern, dass
+ die Schlange mehrere Mäuse jagen könnte.
+ Das Spiel ist grundsätzlich dafür vorbereitet.
+ Man müsste nur den Konstruktor der Klasse 
+\backslash
+textbf{
+\backslash
+texttt{SnakeGame}} wie folgt erweitern.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{addmargin}[20pt]{10pt}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+SnakeGame(this._size) {     
+\end_layout
+
+\begin_layout Plain Layout
+
+	start();     
+\end_layout
+
+\begin_layout Plain Layout
+
+	_snake = new Snake.on(this);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	addMouse();     
+\end_layout
+
+\begin_layout Plain Layout
+
+	// addMouse(); // Um mit zwei Maeusen zu spielen
+\end_layout
+
+\begin_layout Plain Layout
+
+	// addMouse(); // Um mit drei Maeusen zu spielen, ...
+\end_layout
+
+\begin_layout Plain Layout
+
+	stop();  
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{addmargin}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Die SnakeGame Implementierung sieht sogar sich bewegende Mäuse vor.
+ Das ist der Grund warum es einen 
+\backslash
+textbf{
+\backslash
+texttt{miceTrigger}} gibt, der bei sich nicht bewegenden Mäusen eigentlich
+ nicht erforderlich wäre.
+ Sie können SnakeGame mit sich bewegenden Mäusen spielen, wenn sie die 
+\backslash
+textbf{
+\backslash
+texttt{addMouse()}} Methode der Klasse 
+\backslash
+textbf{
+\backslash
+texttt{SnakeGame}} wie folgt abändern.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{addmargin}[20pt]{10pt}    
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+void addMouse() {     
+\end_layout
+
+\begin_layout Plain Layout
+
+  if (stopped) return;     
+\end_layout
+
+\begin_layout Plain Layout
+
+  Random r = new Random();     
+\end_layout
+
+\begin_layout Plain Layout
+
+  final row = r.nextInt(_size);     
+\end_layout
+
+\begin_layout Plain Layout
+
+  final col = r.nextInt(_size);     
+\end_layout
+
+\begin_layout Plain Layout
+
+  //_mice.add(new Mouse.staticOn(this, row, col));     
+\end_layout
+
+\begin_layout Plain Layout
+
+  _mice.add(new Mouse.movingOn(this, row, col));   
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{addmargin}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Auch wenn das SnakeGame in der vorliegenden Implementierung kein Level-System
+ vorsieht, sollte ersichtlich sein, dass man auf Basis dieser beiden Variationsm
+öglichkeiten die Schwierigkeit des Spiels zusätzlich zur steigenden Geschwindigk
+eit der Schlange in unterschiedlichen Leveln variieren könnte.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \noindent
@@ -1632,7 +2315,56 @@ reference "sub:Game-Over-bei-nicht-registriertem-Spieler"
 
 \begin_layout Standard
 Im Falle eines registrierten Spieler ist der Kontrollfluss wie in Abbildung
- <TBD> gezeigt.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sequenzdiagramm-(Game Over, registrierter Spieler)"
+
+\end_inset
+
+ gezeigt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Sequenzdiagramm-game-over-registered-user.pdf
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sequenzdiagram (Game Over bei registriertem Spieler)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sequenzdiagramm-(Game Over, registrierter Spieler)"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1648,7 +2380,56 @@ name "sub:Game-Over-bei-nicht-registriertem-Spieler"
 
 \begin_layout Standard
 Im Falle eines nicht registrierten Spieler ist der Kontrollfluss wie in
- Abbildung <TBD> gezeigt.
+ Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sequenzdiagramm-(Game Over, nicht registrierter Spieler)"
+
+\end_inset
+
+ gezeigt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Sequenzdiagramm-game-over-not-registered-user.pdf
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sequenzdiagram (Game Over bei nicht registriertem Spieler)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sequenzdiagramm-(Game Over, nicht registrierter Spieler)"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1657,6 +2438,56 @@ REST-basierte Storage Lösung
 
 \begin_layout Subsection
 Referenzimplementierung (GameKey Service, Ruby)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis:} Die Referenzimplementierung des Gamekey Service in Ruby,
+ dient nur dazu, dass Spiel und Storage parallel durch Ihr Team entwickelt
+ werden kann.
+ Denken sie über eine entsprechende Aufgabenverteilung nach.
+ Eine wesentliche Aufgabe ist es, dass sie die Storage Referenzlösung als
+ Dart Service nachimplementieren, um nachzuweisen, dass Sie in der Lage
+ sind Dart auch serverseitig (Storage) und nicht nur clientseitig (Spiel)
+ einzusetzen.
+ Gleichzeitig weisen Sie so nach, dass sie sich hinreichend in REST-Prinzipien
+ und das HTTP Protokoll eingearbeitet haben.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Ihr Spiel muss sowohl mit der Referenzimplementierung in Ruby als auch mit
+ ihrer Eigenentwicklung in Dart funktionieren.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2333,6 +3164,655 @@ Ihre Referenzimplementierung muss ferner mit dem GameKey command line client
 
 \begin_layout Subsection
 Client-seitige Anbindung an den GameKey Service (Dart Schnittstelle)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis:} Die Gamekey Dart Schnittstelle unterstützt nicht die volle
+ Funktionalität der REST Schnittstelle.
+ Bspw.
+ ist es nicht möglich Spielernamen zu ändern, Spieler zu löschen, oder dass
+ Passwort eines Spielers zu ändern.
+ Es wird daher absehbar nicht für ihr Spiel ausreichen, einfach nur die
+ 
+\backslash
+texttt{gamekey.dart} Datei für ihr Spiel zu übernehmen.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis:} Vergessen Sie bitte nicht! Sie müssen sowohl die 
+\backslash
+textbf{clientseitige Dart API} als auch die 
+\backslash
+textbf{serverseitige Storage Lösung} in Dart entwickeln.
+ Ihre clientseitige Dart API muss auch mit der Rubyimplementierung funktionieren.
+ Sie können die Referenztests der Ruby Implementierung problemlos gegen
+ ihre Dart-Implementierung laufen lassen, um zu prüfen, ob sich ihr Dart
+ Service genauso verhält, wie der Ruby Referenz-Service.
+ D.h.
+ sie müssen keine eigenen Testfälle für die Storage Lösung entwickeln (sie
+ dürfen aber natürlich).
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Level- und Parametrisierungskonzept
+\end_layout
+
+\begin_layout Chapter
+Nachweis der Anforderungen
+\end_layout
+
+\begin_layout Section
+Nachweis der funktionalen Anforderungen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="6">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top" width="55col%">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Id
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Kurztitel
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Erfüllt
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Teilw.
+ erfüllt
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Nicht erfüllt
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Erläuterung
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+AF-1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Einplayer Game
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SnakeGame ist ein Einpersonen Spiel.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+AF-2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+2D Game
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SnakeGame wird auf einem 2D-Raster gespielt.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+AF-3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Levelkonzept
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
+ eines Levelkonzepts verzichtet.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+AF-4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Parametrisierungskonzept
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
+ eines ausgereiften Parametrisierungskonzept verzichtet.
+ Wesentliche Werte zur Verhaltensbeeinflussung, wurden jedoch als Konstanten
+ in der Klasse SnakeGameController realisiert, so dass diese an zentraler
+ Stelle -- jedoch nur mit Änderung des Quellcodes --- geändert werden können.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+AF-5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+REST-basierter Storage
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Das Spiel kann auf die JSON-basierte Referenz-Storagelösung zugreifen.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+AF-6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Desktop Browser
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Das Spiel ist in Desktop Browsern spielbar.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+AF-7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Mobile Browser
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die SmartPhone
+ Unterstützung von Mobilebrowsern verzichtet.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \end_body

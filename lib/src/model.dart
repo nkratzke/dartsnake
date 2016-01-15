@@ -68,7 +68,7 @@ class Snake {
       _body.remove(tail);
     else {
       // if so, eat the first one
-      _game.mice.removeAt(0);
+      _game.mice.removeWhere((mouse) => mouse.row == newrow && mouse.col == newcol);
       _game.increaseMiceCounter(1);
       _game.addMouse();
     }
@@ -258,6 +258,7 @@ class SnakeGame {
     start();
     _snake = new Snake.on(this);
     addMouse();
+    addMouse();
     stop();
   }
 
@@ -331,7 +332,8 @@ class SnakeGame {
     Random r = new Random();
     final row = r.nextInt(_size);
     final col = r.nextInt(_size);
-    _mice.add(new Mouse.staticOn(this, row, col));
+    //_mice.add(new Mouse.staticOn(this, row, col));
+    _mice.add(new Mouse.movingOn(this, row, col));
   }
 
   /**
