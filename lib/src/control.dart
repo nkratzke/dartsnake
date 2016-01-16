@@ -13,6 +13,12 @@ const snakeSpeed = const Duration(milliseconds: 250);
 const miceSpeed = const Duration(milliseconds: 750);
 
 /**
+ * Constant to define the acceleration of a [Mouse].
+ * An [acceleration] of 0.01 means 1% speed increase for every eaten mouse.
+ */
+const acceleration = 0.05;
+
+/**
  * Constant to define the interval how often it is checked, that
  * a [GameKey] server is reachable.
  * A [gamekeyCheck] of 5 seconds means gamekey service is checked every 5 seconds.
@@ -20,30 +26,14 @@ const miceSpeed = const Duration(milliseconds: 750);
 const gamekeyCheck = const Duration(seconds: 5);
 
 /**
- * Constant to define the acceleration of a [Mouse].
- * An [acceleration] of 0.01 means 1% speed increase for every eaten mouse.
- */
-const acceleration = 0.05;
-
-/**
- * Constant of the gamekey service.
- */
-const gamekeyHost = '192.168.99.100';
-
-/**
- * Constant of the gamekey service (port).
- */
-const gamekeyPort = 8080;
-
-/**
- * Constant of the game ID used to authenticate against the gamekey service.
- */
-const gameId = 'e79f3fe4-deb3-47b0-b053-c474d2b6b645';
-
-/**
  * Constant of the game secret used to authenticate against the gamekey service.
  */
 const gameSecret = '65d144180f3ef299';
+
+/**
+ * Constant of the relative path which stores the gamekey settings.
+ */
+const gamekeySettings = 'gamekey.json';
 
 /**
  * A [SnakeGameController] object registers several handlers
@@ -71,8 +61,13 @@ class SnakeGameController {
 
   /**
    * Referencing the gamekey API used to store game states.
+   * Only initial values. The gamekey API client object
+   * will be recreated using data encoded in the gamekey.json
+   * file (defined by the [gamekeySettings] constant).
+   * The settings file must be placed in the same directory as the
+   * game (index.html, snakeclient.dart and style.css).
    */
-  final gamekey = new GameKey(gamekeyHost, gamekeyPort, gameId, gameSecret);
+  var gamekey = new GameKey('undefined', 8080, 'undefined', 'undefined');
 
   /**
    * Periodic trigger controlling snake movement.
@@ -96,16 +91,38 @@ class SnakeGameController {
    */
   SnakeGameController() {
 
-    // Check if gamekey service is reachable. Display warning if not.
-    gamekeyTrigger = new Timer.periodic(gamekeyCheck, (_) async {
-      if (await gamekey.authenticate()) {
-        view.warningoverlay.innerHtml = "";
-      } else {
-        view.warningoverlay.innerHtml =
-          "Could not connect to gamekey service. "
-          "Highscore will not working properly. ";
-      }
-    });
+    // Establish gamekey connection
+    try {
+      // Download gamekey settings. Display warning on problems.
+      HttpRequest.getString(gamekeySettings).then((json) {
+        final settings = JSON.decode(json);
+
+        // Create gamekey client using connection parameters
+        this.gamekey = new GameKey(
+            settings['host'],
+            settings['port'],
+            settings['gameid'],
+            gameSecret
+        );
+
+        // Check if gamekey service is reachable. Display warning if not.
+        this.gamekeyTrigger = new Timer.periodic(gamekeyCheck, (_) async {
+          if (await this.gamekey.authenticate()) {
+            view.warningoverlay.innerHtml = "";
+          } else {
+            view.warningoverlay.innerHtml =
+              "Could not connect to gamekey service. "
+              "Highscore will not working properly.";
+          }
+        });
+      });
+    } catch (error, stacktrace) {
+      print ("SnakeGameController() caused following error: '$error'");
+      print ("$stacktrace");
+      view.warningoverlay.innerHtml =
+        "Could not get gamekey settings. "
+        "Highscore will not working properly.";
+    }
 
     view.generateField(game);
     getHighscores().then((highscore) => view.update(game, scores: highscore));
