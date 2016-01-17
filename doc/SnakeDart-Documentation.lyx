@@ -2,13 +2,14 @@
 \lyxformat 474
 \begin_document
 \begin_header
-\textclass scrreprt
+\textclass article
 \begin_preamble
 \usepackage{listings}
 \usepackage{xcolor} 
 \usepackage{babel} 
 \usepackage{hyperref}
 \usepackage{framed}
+\usepackage{scrextend}
 
 \definecolor{hellgrau}{rgb}{0.95,0.95,0.95}
 \definecolor{colKeys}{rgb}{0,0,1}
@@ -83,7 +84,7 @@ logicalmkup
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
-\suppress_date false
+\suppress_date true
 \justification true
 \use_refstyle 0
 \index Index
@@ -111,14 +112,91 @@ logicalmkup
 
 \begin_body
 
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
 \begin_layout Title
 SnakeDart
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename /Users/nane/github/dartsnake/web/img/background.png
+	lyxscale 25
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+Referenzspiel und -dokumentation für das Modul 
+\begin_inset Quotes eld
+\end_inset
+
+Webtechnologie Projekt
+\begin_inset Quotes erd
+\end_inset
+
+ an der Fachhochschule Lübeck.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+Prof.
+ Dr.
+ Nane Kratzke
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+SoSe 2016
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -132,7 +210,38 @@ LatexCommand tableofcontents
 
 \end_layout
 
-\begin_layout Chapter*
+\begin_layout Standard
+\begin_inset FloatList table
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand lstlistoflistings
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Einleitung
 \end_layout
 
@@ -173,62 +282,8 @@ end{framed}
 \end_layout
 
 \begin_layout Standard
-Ich wünsche Ihnen nun viel Erfolg und Spaß bei der Entwicklung ihres Webgames.
- Die besten Spiele der vergangenen Jahre finden Sie in einer Hall-of-Fame
- unter folgendem Link 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-url{http://www.nkode.io/assets/webtech-hall-of-fame/index.html}
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\noindent
-\align right
-Lübeck im Januar 2016
-\end_layout
-
-\begin_layout Standard
-\noindent
-\align right
-Nane Kratzke
-\end_layout
-
-\begin_layout Chapter
-Anforderungen und abgeleitetes Spielkonzept
-\end_layout
-
-\begin_layout Standard
-Im Verlaufe des Webtechnologie Projekts sollen sie ein clientseitiges Spiel
- entwickeln, welches in einem Webbrowser spielbar sein soll.
- Das Spiel kann sich softwaretechnisch am hier dokumentierten 
-\series bold
-SnakeGame
-\series default
- (Github: 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-url{https://github.com/nkratzke/dartsnake}
-\end_layout
-
-\end_inset
-
-) orientieren.
- Sie sollen jedoch ein eigenständiges Spielkonzept entwickeln und umsetzen.
+Es gilt z.B.
+ der folgende Hinweis:
 \end_layout
 
 \begin_layout Standard
@@ -264,7 +319,97 @@ end{framed}
 
 \end_layout
 
+\begin_layout Standard
+Ich wünsche Ihnen nun viel Erfolg und Spaß bei der Entwicklung ihres Webgames.
+ Die besten Spiele der vergangenen Jahre finden Sie in einer Hall-of-Fame
+ unter folgendem Link 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+url{http://www.nkode.io/assets/webtech-hall-of-fame/index.html}
+\end_layout
+
+\end_inset
+
+.
+ Auch ihr Spiel kann in diese Hall-of-Fame eintreten.
+ Dabei gelten die folgenden Regeln:
+\end_layout
+
+\begin_layout Enumerate
+Ihr Team muss dass Modul mit einer guten oder sehr guten Note abschließen.
+\end_layout
+
+\begin_layout Enumerate
+Sie müssen erlauben, dass ihr Spiel der Öffentlichkeit zur Verfügung gestellt
+ werden darf.
+\end_layout
+
+\begin_layout Enumerate
+Die fünf besten Spiele werden in der Google+ Dartisans Community zu einer
+ öffentlichen Abstimmung eingestellt.
+\end_layout
+
+\begin_layout Enumerate
+Die Google+ Dartisans Community stimmt über die besten Spiele ab.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Die drei best bewerteten Spiele (Stimmenanzahl) werden in die "Hall of Fame"
+ aufgenommen.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Nur das 
+\series bold
+\bar under
+beste Spiel
+\series default
+\bar default
+ des Semesters erhält einen 
+\series bold
+\bar under
+Notenbonus
+\series default
+\bar default
+.
+\end_layout
+
 \begin_layout Section
+Anforderungen und abgeleitetes Spielkonzept
+\end_layout
+
+\begin_layout Standard
+Im Verlaufe des Webtechnologie Projekts sollen Sie ein clientseitiges Spiel
+ entwickeln, welches in einem Webbrowser spielbar sein soll.
+ Das Spiel kann sich softwaretechnisch am hier dokumentierten 
+\series bold
+SnakeGame
+\series default
+ (Github: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+url{https://github.com/nkratzke/dartsnake}
+\end_layout
+
+\end_inset
+
+) orientieren.
+ Sie sollen jedoch ein eigenständiges Spielkonzept entwickeln und umsetzen.
+\end_layout
+
+\begin_layout Subsection
 Anforderungen
 \end_layout
 
@@ -275,10 +420,70 @@ Ihr Spiel soll folgende Anforderungen erfüllen.
 \end_layout
 
 \begin_layout Standard
-Das Spiel soll folgende funktionale Anforderungen erfüllen:
+Das Spiel soll folgende die 
+\end_layout
+
+\begin_layout Itemize
+in Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Funktionale-Anforderungen"
+
+\end_inset
+
+ aufgeführten 
+\series bold
+funktionalen Anforderungen
+\series default
+ und
+\end_layout
+
+\begin_layout Itemize
+in Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Dokumentationsanforderungen"
+
+\end_inset
+
+ aufgeführten 
+\series bold
+Dokumentationsanforderungen
+\series default
+ und
+\end_layout
+
+\begin_layout Itemize
+in Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Technische-Randbedingungen"
+
+\end_inset
+
+ aufgeführten 
+\series bold
+technischen Randbedingungen
 \end_layout
 
 \begin_layout Standard
+erfüllen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="3">
 <features rotate="0" tabularvalignment="middle">
@@ -613,11 +818,44 @@ Das Spiel muss auf SmartPhone Browsern spielbar sein.
 
 \end_layout
 
-\begin_layout Standard
-Das Spiel soll folgende Dokumentationsanforderungen erfüllen:
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Funktionale Anforderungen
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Funktionale-Anforderungen"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="3">
 <features rotate="0" tabularvalignment="middle">
@@ -803,11 +1041,40 @@ Alle verwendeten Libraries sind tabellarisch aufzuführen und zu begründen.
 
 \end_layout
 
-\begin_layout Standard
-Das Spiel soll folgende technische Randbedingungen einhalten:
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dokumentationsanforderungen
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Dokumentationsanforderungen"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="14" columns="3">
 <features rotate="0" tabularvalignment="middle">
@@ -1346,7 +1613,31 @@ Das Spiel muss keine Sounds unterstützen.
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Technische Randbedingungen
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Technische-Randbedingungen"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Spielkonzept des Snake Games
 \begin_inset CommandInset label
 LatexCommand label
@@ -1389,7 +1680,7 @@ end{lstlisting}
 
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Section
 Architektur und Implementierung
 \end_layout
 
@@ -1450,7 +1741,7 @@ name "fig:Architektur"
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Model
 \end_layout
 
@@ -1533,7 +1824,7 @@ ggf.
  Erläuterung wie Spiellevel definiert werden
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 View
 \end_layout
 
@@ -1577,7 +1868,7 @@ status open
 
 
 \backslash
-begin{lstlisting}
+begin{lstlisting}[caption=HTML Basisdokument des Spiels]
 \end_layout
 
 \begin_layout Plain Layout
@@ -1929,7 +2220,7 @@ closeForm()
  blendet das Highscore Speicherformular wieder aus dem DOM-Tree aus.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Controller
 \end_layout
 
@@ -1953,7 +2244,7 @@ Abbildung der Timer-Events auf Modelinteraktionen (Controler - Model Schnittstel
 le, Teil 2)
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Laufendes Spiel
 \begin_inset CommandInset label
 LatexCommand label
@@ -2054,7 +2345,9 @@ begin{addmargin}[20pt]{10pt}
 
 
 \backslash
-begin{lstlisting}
+begin{lstlisting}[caption=Konstruktor der Klasse 
+\backslash
+texttt{SnakeGame}]
 \end_layout
 
 \begin_layout Plain Layout
@@ -2150,7 +2443,11 @@ begin{addmargin}[20pt]{10pt}
 
 
 \backslash
-begin{lstlisting}
+begin{lstlisting}[caption=Hinzufügen von Mäusen mittels der Methode 
+\backslash
+texttt{addMouse()} der Klasse 
+\backslash
+texttt{SnakeGame}]
 \end_layout
 
 \begin_layout Plain Layout
@@ -2281,7 +2578,7 @@ name "fig:Sequenzdiagramm-(Laufendes-Spiel)"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Game Over bei registriertem Spieler
 \begin_inset CommandInset label
 LatexCommand label
@@ -2374,7 +2671,7 @@ name "fig:Sequenzdiagramm-(Game Over, registrierter Spieler)"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Game Over bei nicht registriertem Spieler
 \begin_inset CommandInset label
 LatexCommand label
@@ -2439,11 +2736,11 @@ name "fig:Sequenzdiagramm-(Game Over, nicht registrierter Spieler)"
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 REST-basierte Storage Lösung
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Referenzimplementierung (GameKey Service, Ruby)
 \end_layout
 
@@ -2467,9 +2764,9 @@ textbf{Hinweis:} Die Referenzimplementierung des Gamekey Service in Ruby,
  werden kann.
  Denken sie über eine entsprechende Aufgabenverteilung nach.
  Eine wesentliche Aufgabe ist es, dass sie die Storage Referenzlösung als
- Dart Service nachimplementieren, um nachzuweisen, dass Sie in der Lage
- sind Dart auch serverseitig (Storage) und nicht nur clientseitig (Spiel)
- einzusetzen.
+ REST-basierten Dart Service nachimplementieren, um nachzuweisen, dass Sie
+ in der Lage sind Dart auch serverseitig (Storage) und nicht nur clientseitig
+ (Spiel) einzusetzen.
  Gleichzeitig weisen Sie so nach, dass sie sich hinreichend in REST-Prinzipien
  und das HTTP Protokoll eingearbeitet haben.
 \end_layout
@@ -2586,17 +2883,32 @@ Gamekey::api()
 .
  Hier werden alle URLs und zulässigen HTTP Methoden sowie Rückgabecodes
  erklärt.
- Nachfolgende Tabelle fast die REST-basierte Schnittstelle für einen ersten
- Überblick zusammen.
+ Nachfolgende Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:REST-Schnittstelle-des-Gamekey-Service"
+
+\end_inset
+
+ fast die REST-basierte Schnittstelle für einen ersten Überblick zusammen.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="14" columns="3">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="left" valignment="top">
-<column alignment="left" valignment="top" width="60col%">
+<column alignment="left" valignment="top" width="70col%">
 <row>
 <cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -2604,8 +2916,8 @@ Gamekey::api()
 \begin_layout Plain Layout
 
 \series bold
-\size small
-PATH
+\size footnotesize
+Ressource
 \end_layout
 
 \end_inset
@@ -2616,7 +2928,7 @@ PATH
 \begin_layout Plain Layout
 
 \series bold
-\size small
+\size footnotesize
 METHOD
 \end_layout
 
@@ -2628,6 +2940,7 @@ METHOD
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 Erklärung
 \end_layout
 
@@ -2641,7 +2954,7 @@ Erklärung
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 /user
 \end_layout
 
@@ -2653,7 +2966,7 @@ Erklärung
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 POST
 \end_layout
 
@@ -2664,7 +2977,7 @@ POST
 
 \begin_layout Plain Layout
 
-\size small
+\size footnotesize
 Erstellt eine neue User Resource (Spieler eines Games).
 \end_layout
 
@@ -2678,7 +2991,7 @@ Erstellt eine neue User Resource (Spieler eines Games).
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 /users
 \end_layout
 
@@ -2690,16 +3003,18 @@ Erstellt eine neue User Resource (Spieler eines Games).
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 GET
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Liefert alle User als JSON Liste.
 \end_layout
 
@@ -2713,7 +3028,7 @@ Liefert alle User als JSON Liste.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 /user/:id
 \end_layout
 
@@ -2725,7 +3040,7 @@ Liefert alle User als JSON Liste.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 GET
 \end_layout
 
@@ -2736,7 +3051,7 @@ GET
 
 \begin_layout Plain Layout
 
-\size small
+\size footnotesize
 Liest User Daten zu einem User mit der ID :id aus.
  User Daten werden als JSON zurückgegeben.
  Der User muss sich mit seinem Passwort authentifizieren.
@@ -2752,7 +3067,7 @@ Liest User Daten zu einem User mit der ID :id aus.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 /user/:id
 \end_layout
 
@@ -2764,7 +3079,7 @@ Liest User Daten zu einem User mit der ID :id aus.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 PUT
 \end_layout
 
@@ -2775,7 +3090,7 @@ PUT
 
 \begin_layout Plain Layout
 
-\size small
+\size footnotesize
 Aktualisiert User Daten für einen User mit der ID :id.
  Aktualisierte User Daten werden als JSON zurückgegeben.
  Der User muss sich mit seinem Passwort authentifizieren.
@@ -2791,7 +3106,7 @@ Aktualisiert User Daten für einen User mit der ID :id.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 /user/:id
 \end_layout
 
@@ -2803,7 +3118,7 @@ Aktualisiert User Daten für einen User mit der ID :id.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 DELETE
 \end_layout
 
@@ -2814,7 +3129,7 @@ DELETE
 
 \begin_layout Plain Layout
 
-\size small
+\size footnotesize
 Löscht User Ressource für einen User mit der ID :id.
  Der User muss sich mit seinem Passwort authentifizieren.
  Diese Operation löscht auch alle GameStates des Users!
@@ -2830,7 +3145,7 @@ Löscht User Ressource für einen User mit der ID :id.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 /game
 \end_layout
 
@@ -2842,18 +3157,18 @@ Löscht User Ressource für einen User mit der ID :id.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 POST
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size footnotesize
 Erstellt eine neue Game Resource (Games).
 \end_layout
 
@@ -2867,7 +3182,7 @@ Erstellt eine neue Game Resource (Games).
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 /games
 \end_layout
 
@@ -2879,16 +3194,18 @@ Erstellt eine neue Game Resource (Games).
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 GET 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Liefert alle Games als JSON Liste.
 \end_layout
 
@@ -2902,7 +3219,7 @@ Liefert alle Games als JSON Liste.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 /game/:id
 \end_layout
 
@@ -2914,18 +3231,18 @@ Liefert alle Games als JSON Liste.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 GET
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size footnotesize
 Liest Game Daten zu einem Game mit der ID :id aus.
  Game Daten werden als JSON zurückgegeben.
  Das Game muss sich mit seinem Secret authentifizieren.
@@ -2941,7 +3258,7 @@ Liest Game Daten zu einem Game mit der ID :id aus.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 /game/:id
 \end_layout
 
@@ -2953,18 +3270,18 @@ Liest Game Daten zu einem Game mit der ID :id aus.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 PUT
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size footnotesize
 Aktualisiert Game Daten für ein Game mit der ID :id.
  Aktualisirte Game Daten werden als JSON zurückgegeben.
  Das Game muss sich mit seinem Secret authentifizieren.
@@ -2980,7 +3297,7 @@ Aktualisiert Game Daten für ein Game mit der ID :id.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 /game/:id
 \end_layout
 
@@ -2992,18 +3309,18 @@ Aktualisiert Game Daten für ein Game mit der ID :id.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 DELETE
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size footnotesize
 Löscht Game Ressource für ein Game mit der ID :id.
  Das Game muss sich mit seinem Secret authentifizieren.
  Diese Operation löscht auch alle GameStates des Games!
@@ -3019,7 +3336,7 @@ Löscht Game Ressource für ein Game mit der ID :id.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 /gamestate/:gid/:uid
 \end_layout
 
@@ -3031,21 +3348,21 @@ Löscht Game Ressource für ein Game mit der ID :id.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 GET
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Liefert alle GameState Ressourcen eines Games mit der ID :gid für den User
  mit der ID :uid.
- 
-\size small
-Das Game muss sich mit seinem Secret authentifizieren.
+ Das Game muss sich mit seinem Secret authentifizieren.
  Alle GameStates werden als JSON Liste zurückgegeben.
 \end_layout
 
@@ -3059,7 +3376,7 @@ Das Game muss sich mit seinem Secret authentifizieren.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 /gamestate/:gid
 \end_layout
 
@@ -3071,20 +3388,20 @@ Das Game muss sich mit seinem Secret authentifizieren.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 GET
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Liefert alle GameState Ressourcen eines Games mit der ID :gid für alle.
- 
-\size small
-Das Game muss sich mit seinem Secret authentifizieren.
+ Das Game muss sich mit seinem Secret authentifizieren.
  Alle GameStates werden als JSON Liste zurückgegeben.
 \end_layout
 
@@ -3098,7 +3415,7 @@ Das Game muss sich mit seinem Secret authentifizieren.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 /gamestate/:gid/:uid
 \end_layout
 
@@ -3110,18 +3427,18 @@ Das Game muss sich mit seinem Secret authentifizieren.
 \begin_layout Plain Layout
 
 \family typewriter
-\size small
+\size footnotesize
 POST
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size footnotesize
 Speichert einen GameState für ein Spiel mit der ID :gid und einem User mit
  der ID :uid.
  Das Game muss sich mit seinem Secret authentifizieren.
@@ -3132,6 +3449,34 @@ Speichert einen GameState für ein Spiel mit der ID :gid und einem User mit
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+REST Schnittstelle des Gamekey Service
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:REST-Schnittstelle-des-Gamekey-Service"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -3169,7 +3514,7 @@ Ihre Referenzimplementierung muss ferner mit dem GameKey command line client
  wie die Referenzimplementierung funktionieren.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Client-seitige Anbindung an den GameKey Service (Dart Schnittstelle)
 \end_layout
 
@@ -3252,15 +3597,167 @@ end{framed}
 
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Section
 Level- und Parametrisierungskonzept
 \end_layout
 
-\begin_layout Chapter
-Nachweis der Anforderungen
+\begin_layout Subsection
+Levelkonzept
+\end_layout
+
+\begin_layout Standard
+Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
+ eines Levelkonzepts verzichtet.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis: } Sie sollten an dieser Stelle beschreiben, wie ihre Level
+ definiert werden und nach welchen Kriterien sie steigende Schwierigkeitsgrade
+ definieren.
+\end_layout
+
+\begin_layout Plain Layout
+
+Gehen Sie dabei insbesondere auf die Art und Weise ein, mittels welcher
+ Datenformate sie unterschiedliche Level konfigurieren.
+ Vergessen Sie kein einprägsames Beispiel, um ihre Leveldefinition exemplarisch
+ zu erläutern.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Parameterisierungskonzept
+\end_layout
+
+\begin_layout Standard
+Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
+ eines vollständigen Parametrisierungskonzepts verzichtet.
+ Dennoch wurde bspw.
+ die Anbindung an den Gamekey-Service mittels einer extermen Settings-Datei
+ folgenden Formats umgesetzt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[caption=Spielparameter des 
+\backslash
+texttt{SnakeGame}s (
+\backslash
+texttt{gamekey.json})]{../web/gamekey.json} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis: } Es sollte ihnen ein Leichtes sein, diesen Ansatz für weitere
+ spielrelevante Parameter zu erweitern.
+ Sie ermöglichen sich damit nebenbei einfachere Anpassungsmöglichkeiten,
+ während der finalen Feintuningphase ihres Spiels.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis: } Beachten sie bitte, dass sie ein Parametrisierungskonzept
+ ggf.
+ für ihr Spiel und einmal für Ihre Dart-Implementierung des Gamekey Storage
+ Service benötigen.
+ Sie müssen also ggf.
+ zwei Parameterisierungskonzepte dokumentieren, bzw.
+ erläutern, warum ggf.
+ ein Parametrisierungskonzept nicht erforderlich ist.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
+Nachweis der Anforderungen
+\end_layout
+
+\begin_layout Subsection
 Nachweis der funktionalen Anforderungen
 \end_layout
 
@@ -3302,6 +3799,15 @@ end{framed}
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="6">
 <features rotate="0" tabularvalignment="middle">
@@ -3876,7 +4382,35 @@ Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die SmartPhone
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Nachweis der funktionalen Anforderungen
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Nachweis-der-funktionalen-AFo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Nachweis der Dokumentationsanforderungen
 \end_layout
 
@@ -3918,6 +4452,19 @@ end{framed}
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="6">
 <features rotate="0" tabularvalignment="middle">
@@ -4290,6 +4837,34 @@ pubspec.yaml
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Nachweis der Dokumentationsanforderungen
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Nachweis-der-Dokumentationsanforderungen"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -4326,7 +4901,7 @@ end{framed}
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Nachweis der Einhaltung technischer Randbedingungen
 \end_layout
 
@@ -4368,6 +4943,16 @@ end{framed}
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="14" columns="6">
 <features rotate="0" tabularvalignment="middle">
@@ -5306,6 +5891,30 @@ Das Spiel hat keine Soundeffekte.
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Nachweis der technischen Randbedingungen
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Nachweis-der-technischen-Randbedingungen"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
