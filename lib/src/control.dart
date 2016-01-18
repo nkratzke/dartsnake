@@ -28,7 +28,7 @@ const gamekeyCheck = const Duration(seconds: 5);
 /**
  * Constant of the game secret used to authenticate against the gamekey service.
  */
-const gameSecret = '65d144180f3ef299';
+const gameSecret = '2obvious';
 
 /**
  * Constant of the relative path which stores the gamekey settings.

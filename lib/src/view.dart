@@ -146,9 +146,10 @@ class SnakeView {
   /**
    * Generates HTML snippet to present the highscore.
    */
-  String generateHighscore(List<Map> scores) {
+  String generateHighscore(List<Map> scores, { int score: 0 }) {
     final list = scores.map((entry) => "<li>${entry['name']}: ${entry['score']}</li>").join("");
-    return list.isEmpty ? "<div id='scorelist'></div>" : "<div id='scorelist'><ul>$list</ul></div>";
+    final points = "You got $score points";
+    return "<div id='scorelist'>${ score == 0 ? "" : points }${ list.isEmpty? "" : "<ul>$list</ul>"}</div>";
   }
 
   /**
@@ -163,12 +164,12 @@ class SnakeView {
     overlay.innerHtml =
       "<div id='highscore'>"
       "   <h1>Highscore</h1>"
-      "   You got $score points."
       "</div>"
       "<div id='highscorewarning'></div>";
 
-    if (scores.isEmpty || score > scores.last['score']) {
+    if (scores.isEmpty || score > scores.last['score'] || scores.length < 10) {
       overlay.appendHtml(
+          this.generateHighscore(scores, score: score) +
           "<form id='highscoreform'>"
           "<input type='text' id='user' placeholder='user'>"
           "<input type='password' id='pwd' placeholder='password'>"
@@ -177,10 +178,10 @@ class SnakeView {
           "</form>"
       );
     } else {
+      overlay.appendHtml(this.generateHighscore(scores, score: score));
       overlay.appendHtml("<button type='button' id='close' class='discard'>Close</button>");
     }
 
-    overlay.appendHtml(this.generateHighscore(scores));
   }
 
   /**

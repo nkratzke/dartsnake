@@ -89,6 +89,16 @@ a {
   margin: 10px;
 }
 
+#highscorewarning {
+  background: lightpink;
+  color: darkred;
+  padding: 50px;
+}
+
+#highscorewarning:empty {
+  display: none;
+}
+
 #scorelist:empty {
   display: none;
 }
@@ -188,6 +198,6 @@ body {
 }
 
 .snake {
-  background-color: dodgerblue !important;
+  background-color: greenyellow !important;
   border-radius: 10px;
 }
