@@ -3646,8 +3646,40 @@ reference "sub:REST-basierter-Storage"
 \end_inset
 
  erläutert.
- Der Gamekey Service kann von beliebigen Spielen genutzt werden, um Spielzuständ
-e in einem JSON Format zu speichern.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis:} Der Gamekey Service kann von beliebigen Spielen genutzt
+ werden, um Spielzustände in einem JSON Format zu speichern.
+ D.h.
+ auch Sie sollen Ihr Spiel an den Gamekey Service anbinden.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3772,6 +3804,42 @@ reference "fig:Klassendiagramm-(MC)"
 \end_inset
 
  gezeigt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis:} Aufgrund der geringen Komplexität des SnakeGame (deswegen
+ wurde es als Anschauungsgegenstand gewählt) ist das Model sehr übersichtlich.
+ Es ist unwahrscheinlich, dass ihr Model ähnlich 'klein' ausfallen wird
+ (es sei denn sie wählen ein Spiel geringer Komplexität und beabsichtigen
+ nicht das Notenspektrum nach oben hin auszunutzen).
+ Üblicherweise hat das Model den größten Codeumfang, was logisch ist, denn
+ hier wird ja die Spiellogik realisiert.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5016,24 +5084,94 @@ name "sub:Controller"
 
 \end_layout
 
-\begin_layout Itemize
-Überblick über ihren Controller Erläuterung der Model-Controller Schnittstelle
+\begin_layout Standard
+Der Controller ist für die Ablaufsteuerung des Spiels zuständig.
+ Er verarbeitet dabei gem.
+ Abb.
  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Architektur"
+
+\end_inset
+
+ sowohl zeitgesteuerte Events, als auch Nutzerinteraktionen.
+ Während des Spiels hat der Spieler die Möglichkeit die Schlange (
+\family typewriter
+\series bold
+Snake
+\family default
+\series default
+) mittels der Cursortasten zu bewegen.
+ Diese Steuerung ist recht naheliegend und wenig überraschend und wird am
+ besten durch das Listing 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{snakecontrol}
 \end_layout
 
-\begin_layout Itemize
-Erläuterung der Interaktionsmöglichkeiten des Nutzers Erläuterung des Timers
- (welche Trigger erzeugen Zustandsübergänge des Models) 
+\end_inset
+
+ erläutert.
 \end_layout
 
-\begin_layout Itemize
-Abbildung der Nutzerinteraktionen auf Modelinteraktionen (Controler - Model
- Schnittstelle, Teil 1) 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[caption=Steuerung der Schlange,firstline=141,lastline=149,label=
+snakecontrol]{../lib/src/control.dart} 
 \end_layout
 
-\begin_layout Itemize
-Abbildung der Timer-Events auf Modelinteraktionen (Controler - Model Schnittstel
-le, Teil 2)
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dies dreht im wesentlichen nur den Kopf der Schlange in die Richtung, in
+ die sie sich im nächsten Zug zu bewegen hat.
+ Komplexer sind die zeitgesteuerten Abläufe, die die Dynamik des Spiels
+ realisieren.
+ Der grundsätzliche Prozess wie das Spielzustände sich im laufenden Spiel
+ ergeben und auf dem View widergegeben werden, wird in Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Laufendes-Spiel"
+
+\end_inset
+
+ erläutert.
+ Noch komplexer sind erstaunlicherweise die Abläufe im Falle des Game Overs.
+ Zum einen muss hier die zeitgesteuerten Events deaktiviert werden, zum
+ anderen muss der Controller eng mit dem View und dem Gamekey Service interagier
+en, um ggf.
+ erreichte Highscores zu speichern und noch nicht registrierte Nutzer im
+ Gamekey Service zu registrieren.
+ Diese GameOver Abläufe werden in den Abschnitten 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Game-Over-bei-registriertem-Spieler"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Game-Over-bei-nicht-registriertem-Spieler"
+
+\end_inset
+
+ erläutert.
 \end_layout
 
 \begin_layout Subsubsection
@@ -5050,12 +5188,16 @@ name "sub:Laufendes-Spiel"
 \begin_layout Standard
 Durch den 
 \family typewriter
+\series bold
 snakeTrigger
 \family default
+\series default
  und den 
 \family typewriter
+\series bold
 miceTrigger
 \family default
+\series default
  werden periodisch die Abläufe in Abbildung 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5329,10 +5471,135 @@ end{framed}
 \end_layout
 
 \begin_layout Standard
+Der 
+\family typewriter
+\series bold
+snakeTrigger
+\family default
+\series default
+ und 
+\family typewriter
+\series bold
+miceTrigger
+\family default
+\series default
+ feuern periodisch und der 
+\family typewriter
+\series bold
+SnakeGameController
+\family default
+\series default
+ ruft mit jedem Trigger Event die 
+\family typewriter
+\series bold
+moveSnake()
+\family default
+\series default
+ bzw.
+ die 
+\family typewriter
+\series bold
+moveMice()
+\family default
+\series default
+ Methode auf, wie in Abb.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sequenzdiagramm-(Laufendes-Spiel)"
+
+\end_inset
+
+ gezeigt.
+ Als erstes wird geprüft, ob das Spiel einen Game Over Zustand erreicht
+ hat.
+ Sollte dies der Fall sein, wird gem.
+ Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sequenzdiagramm-(Game Over, registrierter Spieler)"
+
+\end_inset
+
+ oder 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Game-Over-bei-nicht-registriertem-Spieler"
+
+\end_inset
+
+ fortgefahren.
+ Solange das Spiel noch läuft, ruft der Controller je nach Trigger die 
+\family typewriter
+\series bold
+moveSnake()
+\family default
+\series default
+ oder die 
+\family typewriter
+\series bold
+moveMice()
+\family default
+\series default
+ Methode des Model (
+\family typewriter
+\series bold
+SnakeGame
+\family default
+\series default
+) auf (die es wiederum an die 
+\family typewriter
+\series bold
+move()
+\family default
+\series default
+ Methoden der Klassen 
+\family typewriter
+\series bold
+Snake
+\family default
+\series default
+ bzw.
+ 
+\family typewriter
+\series bold
+Mouse
+\family default
+\series default
+ delegieren, nicht in Abb.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sequenzdiagramm-(Laufendes-Spiel)"
+
+\end_inset
+
+dargestellt).
+\end_layout
+
+\begin_layout Standard
+Auf diese Weise wird das Model in seinen nächsten Zustand überführt.
+ Anschließend benachrichtigt der Controller den 
+\family typewriter
+\series bold
+SnakeView
+\family default
+\series default
+ über das Eintreten eines neuen Model Zustands und veranlasst so die Aktualisier
+ung der Oberfläche mittels der 
+\family typewriter
+\series bold
+update()
+\family default
+\series default
+ Methode des Views.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \noindent
@@ -6705,10 +6972,10 @@ acceleration
 \series default
  gibt die Reduktion der snakeSpeed an, wenn die Schlange eine Maus gefressen
  hat.
- 0.01 bedeutet dass Schlangenbewegung um 1% schneller wird mit jeder gefressenen
- Maus.
- Je größer dieser Wert wird, desto spürbarer ist die Beschleunigung für
- jede gefressene Maus.
+ 0.01 bedeutet dass die Schlangenbewegung mit jeder gefressenen Maus 1% schneller
+ wird.
+ Je größer dieser Wert wird, desto spürbarer ist die Beschleunigung mit
+ jeder gefressenen Maus (desto schwieriger wird das Spiel).
 \end_layout
 
 \begin_layout Itemize
@@ -6719,7 +6986,8 @@ miceSpeed
 \family default
 \series default
  gibt die Zeitspanne in Millisekunden an, die zwischen zwei Mausbewegungen
- liegen soll (je größer, je langsamer ist die Maus).
+ liegen soll (je größer, je langsamer ist die Maus, desto einfacher sind
+ Mäuse für die Schlange zu fressen).
 \end_layout
 
 \begin_layout Itemize
