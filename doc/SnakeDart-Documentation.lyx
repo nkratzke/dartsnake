@@ -3932,7 +3932,7 @@ level
 \end_layout
 
 \begin_layout Itemize
-Mitteks 
+Mittels 
 \family typewriter
 \series bold
 stopped
@@ -3946,11 +3946,14 @@ running
 \series default
  kann in Erfahrung gebracht werden, ob das Spiel gerade läuft oder gestoppt
  ist (mittels 
+\family typewriter
 \series bold
 stopped
+\family default
 \series default
  wäre so z.B.
- ein Pause Funktionalität möglich, die bislang ebenfalls nicht genutzt wird).
+ eine Pause Funktionalität möglich, die bislang ebenfalls nicht genutzt
+ wird).
 \end_layout
 
 \begin_layout Itemize
@@ -4162,8 +4165,10 @@ dr
 \end_inset
 
 ) und 
+\family typewriter
 \series bold
 dc
+\family default
 \series default
  (Bewegung entlang der Spalte, column direction 
 \begin_inset Formula $dc\in\{-1,0,1\}$
@@ -4376,7 +4381,7 @@ dc
 Mouse.movingOn()
 \family default
 \series default
- als sich zufällig in eine Richtung bewegende Maus erzuegt werden.
+ als sich zufällig in eine Richtung bewegende Maus erzeugt werden.
  
 \end_layout
 
@@ -4792,8 +4797,14 @@ snakeclient.dart
 \series default
  Script geladen.
  Für nicht Dart-fähige Browser wird ergänzend gem.
- den Dart-Konventionen die dart.js geladen, um Dart Logik in Javascript Engines
- zur Ausführung bringen zu können.
+ den Dart-Konventionen die 
+\family typewriter
+\series bold
+dart.js
+\family default
+\series default
+ geladen, um Dart Logik in Javascript Engines zur Ausführung bringen zu
+ können.
 \end_layout
 
 \begin_layout Standard
@@ -4978,7 +4989,11 @@ showHighscore()
 \family default
 \series default
  des DOM-Tree eingeblendet werden.
- Mittels der 
+ 
+\end_layout
+
+\begin_layout Itemize
+Mittels der 
 \family typewriter
 \series bold
 warn()
@@ -5142,8 +5157,8 @@ Dies dreht im wesentlichen nur den Kopf der Schlange in die Richtung, in
  die sie sich im nächsten Zug zu bewegen hat.
  Komplexer sind die zeitgesteuerten Abläufe, die die Dynamik des Spiels
  realisieren.
- Der grundsätzliche Prozess wie das Spielzustände sich im laufenden Spiel
- ergeben und auf dem View widergegeben werden, wird in Abschnitt 
+ Der grundsätzliche Prozess sich ändernder Spielzustände und deren Abbildung
+ auf dem View, wird in Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Laufendes-Spiel"
@@ -5244,7 +5259,8 @@ begin{framed}
 
 \backslash
 textbf{Hinweis:} Es ist häufig nicht sonderlich schwer, ein Spiel flexibel
- zu gestalten.
+ zu gestalten, wenn man sich Anfangs ein paar Gedanken macht und nicht nur
+ versucht ein spezifisches Problem zu lösen.
 \end_layout
 
 \begin_layout Plain Layout
@@ -5517,7 +5533,7 @@ reference "fig:Sequenzdiagramm-(Laufendes-Spiel)"
  Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Sequenzdiagramm-(Game Over, registrierter Spieler)"
+reference "sub:Game-Over-bei-registriertem-Spieler"
 
 \end_inset
 
@@ -5574,7 +5590,7 @@ reference "fig:Sequenzdiagramm-(Laufendes-Spiel)"
 
 \end_inset
 
-dargestellt).
+ dargestellt).
 \end_layout
 
 \begin_layout Standard
@@ -5663,7 +5679,7 @@ miceTrigger
 \series default
  festgestellt wird, dass sich der GameOver Zustand im Spiel eingestellt
  hat, erfolgen zwei Abläufe, die gestartet werden, je nachdem ob es sich
- beim Spieler um einen registerierten Spieler (siehe Abschnitt 
+ beim Spieler um einen registrierten Spieler (siehe Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Game-Over-bei-registriertem-Spieler"
@@ -5802,7 +5818,7 @@ SnakeView
 update()
 \family default
 \series default
- benachrechtigt.
+ benachrichtigt.
  Anschließend wendet sich der 
 \family typewriter
 \series bold
@@ -6123,10 +6139,6 @@ name "sub:REST-basierter-Storage"
 
 \end_layout
 
-\begin_layout Subsubsection
-Referenzimplementierung (GameKey Service, Ruby)
-\end_layout
-
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -6177,6 +6189,10 @@ end{framed}
 
 \end_layout
 
+\begin_layout Subsubsection
+Referenzimplementierung (GameKey Service, Ruby)
+\end_layout
+
 \begin_layout Standard
 Die Referenz-Storage Lösung ist bewusst in Ruby und nicht in Dart implementiert
  und findet sich hier: 
@@ -6193,13 +6209,27 @@ url{https://bitbucket.org/nanekratzke/gamekey}
 \end_inset
 
 .
- Ihre Aufgabe ist es (neben der Entwicklung des eigentlichen Spiels), diese
- Referenzimplementierung in Dart mit identischer Verhaltensweise nachzuimplement
+ Sie finden unter diesem Link auch eine kurze Online Dokumentation, wie
+ der GameKey command line client funktioniert.
+ 
+\end_layout
+
+\begin_layout Standard
+Sie können sich die Ruby Implementierung als Git Repository clonen:
+\end_layout
+
+\begin_layout LyX-Code
+git clone https://nanekratzke@bitbucket.org/nanekratzke/gamekey.git
+\end_layout
+
+\begin_layout Standard
+Ihre Aufgabe ist es (neben der Entwicklung des eigentlichen Spiels), diese
+ Referenzimplementierung mit identischer Verhaltensweise in Dart nachzuimplement
 ieren.
 \end_layout
 
 \begin_layout Standard
-Der gamekey Service kann auf Systemen auf denen Ruby (Version 2.2 oder höher)
+Der GameKey Service kann auf Systemen auf denen Ruby (Version 2.2 oder höher)
  installiert ist, mittels
 \end_layout
 
@@ -6230,7 +6260,7 @@ gamekey help <command>
 \end_layout
 
 \begin_layout Standard
-erhalten sie weitere Nutzungshinweise.
+erhalten sie weitere Nutzungshinweise für die einzelnen command line Befehle.
 \end_layout
 
 \begin_layout Standard
@@ -6982,8 +7012,10 @@ end{framed}
 
 \begin_layout Standard
 Der GameKey Service wird in SnakeDart mittels eines Objekts der Klasse 
+\family typewriter
 \series bold
 GameKey
+\family default
 \series default
  (vgl.
  Abb.
@@ -6996,8 +7028,10 @@ reference "fig:Klassendiagramm-(VC)"
 
 ) angesprochen.
  Die Klasse 
+\family typewriter
 \series bold
 GameKey
+\family default
 \series default
  dient dem Controller dazu mit dem GameKey Service interagieren zu können,
  ohne die Details der REST Schnittstelle kennen zu müssen.
@@ -7005,40 +7039,50 @@ GameKey
 
 \begin_layout Standard
 Ein 
+\family typewriter
 \series bold
 GameKey
+\family default
 \series default
  Objektzustand umfasst letztlich nicht mehr
 \end_layout
 
 \begin_layout Itemize
 als die 
+\family typewriter
 \series bold
 gameid
+\family default
 \series default
  des Spiels (wird bei Registerieren des Spiels vergeben)
 \end_layout
 
 \begin_layout Itemize
 das 
+\family typewriter
 \series bold
 secret
+\family default
 \series default
  des Spiels (wird mit der gameid zur Authentifizierung benötigt)
 \end_layout
 
 \begin_layout Itemize
 sowie der 
+\family typewriter
 \series bold
 uri
+\family default
 \series default
  des GameKey Service Endpoints.
 \end_layout
 
 \begin_layout Standard
 Ein 
+\family typewriter
 \series bold
 GameKey
+\family default
 \series default
  Objekt kann mittels eines Konstruktors erzeugt werden.
  Anschließend ist dieses Objekt in der Lage mit dem GameKey Service über
@@ -7052,10 +7096,106 @@ reference "tab:REST-Schnittstelle-des-Gamekey-Service"
 
 ) zu kommunizieren.
  Es kapselt damit im wesentlichen die GameKey REST API für den 
+\family typewriter
 \series bold
 SnakeGameController
+\family default
 \series default
-.
+ in Form folgener Methoden:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\series bold
+registerUser()
+\family default
+\series default
+ dient dazu, einen neuen Nutzer im GameKey Service zu registrieren (hierzu
+ muss Nutzername und Passwort bekannt sein).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\series bold
+getUser()
+\family default
+\series default
+ dient dazu, detaillierte Informationen über einen Nutzer abzurufen.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\series bold
+authenticate()
+\family default
+\series default
+ dient dazu, einen Nutzer anhand seines Namens und seines Passworts zu authentif
+izieren.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\series bold
+getUserId()
+\family default
+\series default
+ dient dazu, auf Basis eines Nutzernamens die zugehörige Id des Nutzers
+ zu bestimmen (da ein Nutzer diese kryptische Id normalerweise niemals bewusst
+ eingeben würde)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\series bold
+listUsers()
+\family default
+\series default
+ liefert eine JSON List mit öffentlichen Informationen über alle im GameKey
+ registrierten Nutzer.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\series bold
+getStates()
+\family default
+\series default
+ liefert eine JSON List mit allen für ein Game gespeicherten Spielzustände.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\series bold
+storeState()
+\family default
+\series default
+ speichert für einen Nutzer einen JSON State (der mittels 
+\family typewriter
+\series bold
+getStates()
+\family default
+\series default
+ nachträglich wieder abgerufen werden kann).
+\end_layout
+
+\begin_layout Standard
+Alle genannten Methoden arbeiten asynchron (da sie auf Netzwerkzugriffen
+ beruhen) und lieferen daher 
+\family typewriter
+Future
+\family default
+s zurück.
+ Die oben genannten Methoden decken nur den Teil der REST API ab, die für
+ das SnakeGame erforderlich sind.
+ Die REST API wird nicht komplett durch diese Dart Schnittstelle genutzt.
+ 
 \end_layout
 
 \begin_layout Section
@@ -7087,8 +7227,9 @@ begin{framed}
 textbf{Hinweis: } SnakeDart sieht kein Levelkonzept (bis auf eine triviale
  Beschleunigung der Schlange) und nur ein rudimentäres Parameterisierungskonzept
  vor.
- Sie sollten beides jedoch vorsehen.
- Ihnen dient dieses Kapitel daher beides zu beschreiben.
+ Sie sollten für ihr Spiel jedoch beides in deutlich umfangreicherer Form
+ vorsehen.
+ Ihnen dient dieses Kapitel daher primär als Platzhalter beides zu beschreiben.
 \end_layout
 
 \begin_layout Plain Layout
@@ -9771,6 +9912,936 @@ textbf{Hinweis: } Achten sie bitte bei der Storage Lösung darauf, dass Sie
 
 \backslash
 end{framed}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Verantwortlichkeiten im Projekt
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis: } Sie müssen dokumentieren, welche Person für welche Programm
+ Anteile verantwortlich war.
+ Am besten machen Sie dies, indem sie relevante Assets identifizieren und
+ mittels einer Matrix dokumentieren, wer von Ihnen  welche Assets verantwortlich
+ und unterstützend erstellt hat.
+ Dies kann bspw.
+ wie nachfolgend gezeigt geschehen.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="14" columns="6">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="5col%">
+<column alignment="left" valignment="top" width="15col%">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="60col%">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hauptassset
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Detail
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Nane Kratzke
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Heinzelmann A
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Heinzelfrau B
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Anmerkungen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Model
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+No Canvas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Levelformat
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Parameterformat
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+View
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+HTML + CSS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Gamelogic in Dart
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Storagelogic in Dart 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Controller
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Storage Referenz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Storage Referenztest
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GameKey API
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+lib/src/gamekey.dart
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+U
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+MVC Architektur
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GameKey Service
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Ruby Implementation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Verbotene Pakete
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+TF-13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+No Sound
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Projektverantwortlichkeiten
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Projektverantwortlichkeiten"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
