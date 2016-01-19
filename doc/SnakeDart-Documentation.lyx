@@ -3716,26 +3716,52 @@ reference "sec:Spielkonzept-des-Snake-Game"
 \end_inset
 
  wurden eine Schlange (
+\family typewriter
 \series bold
 Snake
+\family default
 \series default
 ) und eine Maus Entity (
+\family typewriter
 \series bold
 Mouse
+\family default
 \series default
 ) abgeleitet.
  Ein Spiel (
+\family typewriter
 \series bold
 SnakeGame
+\family default
 \series default
 ) besteht dabei aus einer Schlange (
+\family typewriter
 \series bold
 Snake
+\family default
 \series default
+, vgl.
+ Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Snake-Entity"
+
+\end_inset
+
 ) und mindestens einer Maus (
+\family typewriter
 \series bold
 Mouse
+\family default
 \series default
+, vgl.
+ Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Mouse-Entity"
+
+\end_inset
+
 ).
  Das Klassendiagramm des Models ist in Abb.
  
@@ -3887,12 +3913,16 @@ Ein
 SnakeGame
 \family default
 \series default
- Objekt kann mittels des Konstruktors erzeugt werden.
+ Objekt 
+\end_layout
+
+\begin_layout Itemize
+kann mittels des Konstruktors erzeugt werden.
  Dabei wird die Spielfeldgröße (Default 30 x 30) übergeben.
 \end_layout
 
-\begin_layout Standard
-Der Controller kann mittels 
+\begin_layout Itemize
+Der Controller kann dem Model mittels 
 \family typewriter
 \series bold
 moveSnake()
@@ -3904,11 +3934,11 @@ moveSnake()
 moveMice()
 \family default
 \series default
- dem Model mitteilen, dass die Schlange bzw.
+ mitteilen, dass die Schlange bzw.
  alle Mäuse sich um einen Schritt bewegen sollen.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Mittels 
 \family typewriter
 \series bold
@@ -3938,7 +3968,7 @@ addMouse()
  genutzt.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Mittels der Methode 
 \family typewriter
 \series bold
@@ -3967,6 +3997,13 @@ Snake
 Snake
 \family default
  Entity
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Snake-Entity"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3976,7 +4013,7 @@ Der Zustand einer Schlange (
 Snake
 \family default
 \series default
-) besteht dabei aus einer Liste von Body Elementen (
+) besteht aus einer Liste von Body Elementen (
 \family typewriter
 \series bold
 body
@@ -4008,7 +4045,8 @@ status open
 
 
 \backslash
-begin{lstlisting}[caption=Codierung eines Schlangenkörperelements]
+begin{lstlisting}[caption=Codierung eines Schlangenkörperelements,label=snakebod
+y]
 \end_layout
 
 \begin_layout Plain Layout
@@ -4139,6 +4177,160 @@ move()
 Mouse
 \family default
  Entity
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Mouse-Entity"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der Zustand einer Maus (
+\family typewriter
+\series bold
+Mouse
+\family default
+\series default
+) besteht aus
+\end_layout
+
+\begin_layout Itemize
+der aktuellen Zeile (
+\family typewriter
+\series bold
+row
+\family default
+\series default
+),
+\end_layout
+
+\begin_layout Itemize
+der aktuellen Spalte (
+\family typewriter
+\series bold
+col
+\family default
+\series default
+) auf dem sich die Maus befindet,
+\end_layout
+
+\begin_layout Itemize
+Bewegung entlang der Zeile, row direction 
+\family typewriter
+\series bold
+dr
+\family default
+\series default
+ 
+\begin_inset Formula $\in\{-1,0,1\}$
+\end_inset
+
+) und 
+\end_layout
+
+\begin_layout Itemize
+Bewegung entlang der Spalte, column direction 
+\family typewriter
+\series bold
+dc
+\family default
+\series default
+ 
+\begin_inset Formula $\in\{-1,0,1\}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Das berechnete Attribut 
+\family typewriter
+\series bold
+pos
+\family default
+\series default
+ ergibt sich aus 
+\family typewriter
+\series bold
+row
+\family default
+\series default
+ und 
+\family typewriter
+\series bold
+col
+\family default
+\series default
+, die als Map in demselben Format zurückgegeben werden, wie auch Schlangenkörper
+elemente (vgl.
+ Listing 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{snakebody}
+\end_layout
+
+\end_inset
+
+) codiert werden.
+\end_layout
+
+\begin_layout Standard
+Ein Mausobjekt kann mittels des Konstruktors 
+\family typewriter
+\series bold
+Mouse.staticOn()
+\family default
+\series default
+ als sich nicht bewegende Maus (
+\family typewriter
+\series bold
+dr
+\family default
+=0
+\series default
+ und 
+\family typewriter
+\series bold
+dc
+\family default
+=0
+\series default
+) und mittels des Konstruktors 
+\family typewriter
+\series bold
+Mouse.movingOn()
+\family default
+\series default
+ als sich zufällig in eine Richtung bewegende Maus erzuegt werden.
+ 
+\end_layout
+
+\begin_layout Standard
+Mittels der Methode 
+\family typewriter
+\series bold
+move()
+\family default
+\series default
+ kann einer Maus mitgeteilt werden, dass sie den nächsten Schritt machen
+ soll.
+ Die Methode sorgt ferner dafür, dass die Maus auf dem Spielfeld bleibt,
+ indem sie bei Berührung des Spielfeldrands den entsprechend 
+\series bold
+dr
+\series default
+ oder 
+\series bold
+dc
+\series default
+ in die andere Richtung dreht.
 \end_layout
 
 \begin_layout Subsection
@@ -4154,12 +4346,33 @@ name "sub:View"
 
 \begin_layout Standard
 Der View dient der Darstellung des Spiels für den Spieler.
- Er besteht im Kern aus einem HTML-Dokument und einer clientseitigen Logik,
- die den DOM-Tree des HTML-Dokuments manipuliert.
+ Er besteht im Kern aus einem HTML-Dokument (siehe Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:HTML-Dokument"
+
+\end_inset
+
+) und einer clientseitigen Logik, die den DOM-Tree des HTML-Dokuments manipulier
+t (siehe Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:SnakeView"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsubsection
 HTML-Dokument
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:HTML-Dokument"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4413,6 +4626,13 @@ reference "fig:Screenshots-des-SnakeGames"
 SnakeView
 \family default
  als Schnittstelle zum HTML-Dokument
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:SnakeView"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -6300,6 +6520,78 @@ texttt{gamekey.json})]{../web/gamekey.json}
 
 \end_layout
 
+\begin_layout Itemize
+Die 
+\family typewriter
+\series bold
+gameid
+\family default
+\series default
+ bezeichnet dabei die vom GamekeyService während der Registrierung zugewiesen
+ Identifier
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\series bold
+host
+\family default
+\series default
+ ist ein valider DNS-Name oder IP Adresse (String codiert), der angibt auf
+ welchem Host der Gamekey Service läuft (da der Gamekey Service CORS enabled
+ ist, muss dies nicht derselbe Host sein, von dem das Spiel geladen wurde)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\series bold
+port
+\family default
+\series default
+ ist ein Integer Wert, der den Port angibt auf dem der Gamekey Service lauscht
+\end_layout
+
+\begin_layout Standard
+Diese Datei wird durch den 
+\family typewriter
+\series bold
+SnakeGameController
+\family default
+\series default
+ zu Beginn auf folgende Weise geladen und zur Herstellung der Gamekey-Connection
+ genutzt.
+ 
+\family typewriter
+\series bold
+gamekeySettings
+\family default
+\series default
+ ist dabei eine String-Konstante die lediglich auf die 
+\family typewriter
+'gamekey.json'
+\family default
+ Datei verweist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[caption=Laden der Spielparameter,firstline=96,lastline=118]{../lib
+/src/control.dart} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -6369,6 +6661,96 @@ end{framed}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Ergänzend zu den Angaben in der 
+\family typewriter
+gamekey.json
+\family default
+ Datei sind diverse Konstanten im 
+\family typewriter
+\series bold
+SnakeGameController
+\family default
+\series default
+ (
+\family typewriter
+lib/src/control.dart
+\family default
+) definiert (die grundsätzlich auf vergleichbare Art und Weise in die 
+\family typewriter
+gamekey.json
+\family default
+ ausgelagert werden könnten).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\series bold
+snakeSpeed
+\family default
+\series default
+ gibt die Zeitspanne in Millisekunden an, die zwischen zwei Schlangenbewegungen
+ liegen soll (je größer, je langsamer ist die Schlange)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\series bold
+acceleration
+\family default
+\series default
+ gibt die Reduktion der snakeSpeed an, wenn die Schlange eine Maus gefressen
+ hat.
+ 0.01 bedeutet dass Schlangenbewegung um 1% schneller wird mit jeder gefressenen
+ Maus.
+ Je größer dieser Wert wird, desto spürbarer ist die Beschleunigung für
+ jede gefressene Maus.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\series bold
+miceSpeed
+\family default
+\series default
+ gibt die Zeitspanne in Millisekunden an, die zwischen zwei Mausbewegungen
+ liegen soll (je größer, je langsamer ist die Maus).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\series bold
+gamekeyCheck
+\family default
+\series default
+ gibt das Intervall in Sekunden an, in dem geprüft werden soll, ob der Gamekey
+ Service erreichbar ist.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+\series bold
+gameSecret
+\family default
+\series default
+ gibt das Secret des Games an, welches bei der Registrierung des Games beim
+ GamekeyService angegeben wurde/bzw.
+ durch den Command Line Client automatisch generiert wurde.
+ Dieses Secret ist aus Gründen der Schlüsselverteilung hart in das Spiel
+ codiert.
+ Bei Änderungen des Secrets muss auch das Spiel aktualisiert werden.
+ Von der Auslagerung des gameSecret in die 
+\family typewriter
+gamekey.json
+\family default
+ wird jedoch aus Sicherheitsgründen abgeraten.
 \end_layout
 
 \begin_layout Section

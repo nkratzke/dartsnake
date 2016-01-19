@@ -105,7 +105,7 @@ class SnakeGameController {
             gameSecret
         );
 
-        // Check if gamekey service is reachable. Display warning if not.
+        // Check periodically if gamekey service is reachable. Display warning if not.
         this.gamekeyTrigger = new Timer.periodic(gamekeyCheck, (_) async {
           if (await this.gamekey.authenticate()) {
             view.warningoverlay.innerHtml = "";
