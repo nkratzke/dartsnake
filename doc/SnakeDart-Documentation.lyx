@@ -4812,7 +4812,7 @@ status open
 \begin_inset Graphics
 	filename Screenshot-game.png
 	lyxscale 40
-	width 40col%
+	width 25col%
 
 \end_inset
 
@@ -4824,7 +4824,7 @@ status open
 \begin_inset Graphics
 	filename Screenshot-highscore.png
 	lyxscale 40
-	width 40col%
+	width 25col%
 
 \end_inset
 
@@ -5651,12 +5651,16 @@ name "sub:Game-Over-bei-registriertem-Spieler"
 \begin_layout Standard
 Im Falle das während der Bearbeitung des 
 \family typewriter
+\series bold
 snakeTrigger
 \family default
+\series default
  oder des 
 \family typewriter
+\series bold
 miceTrigger
 \family default
+\series default
  festgestellt wird, dass sich der GameOver Zustand im Spiel eingestellt
  hat, erfolgen zwei Abläufe, die gestartet werden, je nachdem ob es sich
  beim Spieler um einen registerierten Spieler (siehe Abschnitt 
@@ -5730,6 +5734,228 @@ name "fig:Sequenzdiagramm-(Game Over, registrierter Spieler)"
 
 \end_layout
 
+\begin_layout Standard
+Im Verlaufe des zeitgesteuerten Modelltriggerings (
+\family typewriter
+\series bold
+moveSnake()
+\family default
+\series default
+ bzw.
+ 
+\family typewriter
+\series bold
+moveMice()
+\family default
+\series default
+) wird irgendwann der Game Over Zustand des Models mittels der 
+\family typewriter
+\series bold
+gameOver()
+\family default
+\series default
+ Methode festgestellt.
+ In diesem Fall wird die Game Over Behandlung durch den 
+\family typewriter
+\series bold
+SnakeGameController
+\family default
+\series default
+ vorgenommen.
+\end_layout
+
+\begin_layout Standard
+Hierzu veranlasst der 
+\family typewriter
+\series bold
+SnakeGameController
+\family default
+\series default
+ das 
+\family typewriter
+\series bold
+SnakeGame
+\family default
+\series default
+ mittels der Methode 
+\family typewriter
+\series bold
+stop()
+\family default
+\series default
+ in den 
+\family typewriter
+\series bold
+stopped
+\family default
+\series default
+ Status zu wechseln.
+ Anschließend wird der 
+\family typewriter
+\series bold
+SnakeView
+\family default
+\series default
+ für ein letztes 
+\family typewriter
+\series bold
+update()
+\family default
+\series default
+ benachrechtigt.
+ Anschließend wendet sich der 
+\family typewriter
+\series bold
+SnakeGameController
+\family default
+\series default
+ an die 
+\family typewriter
+\series bold
+GameKey
+\family default
+\series default
+ API um alle gespeicherten Highscores mittels 
+\family typewriter
+\series bold
+getStates()
+\family default
+\series default
+ anzufordern.
+ Die 
+\family typewriter
+\series bold
+GameKey
+\family default
+\series default
+ Klasse leitet diese Anfrage an den GameKey Service über die in Abb.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Architektur"
+
+\end_inset
+
+ gezeigte REST Schnittstelle (vgl.
+ auch Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:REST-Schnittstelle-des-Gamekey-Service"
+
+\end_inset
+
+) weiter.
+ Diese Highscores werden sortiert und mittels 
+\family typewriter
+\series bold
+showHighscore()
+\family default
+\series default
+ an den 
+\family typewriter
+\series bold
+SnakeView
+\family default
+\series default
+ geleitet, damit dieser ein Formular zur Highscore-Speicherung auflegt (siehe
+ auch Abb.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Screenshots-des-SnakeGames"
+
+\end_inset
+
+(rechts)).
+ Im Highscore Formular sind Eingabefelder für User und Passwort Informationen
+ sowie ein Save und Cancel Button vorhanden.
+ Es werden entsprechende Listener registriert.
+ 
+\end_layout
+
+\begin_layout Standard
+Die erste Phase der Verarbeitung ist damit beendet.
+ Der View befindet sich jetzt in einem Zustand, dass ein Spieler seinen
+ Namen und Passwort eingeben kann und seinen Highscore mittels Save speichern
+ kann (bzw.
+ das Speichern mittels Cancel abbrechen kann, wird hier nicht näher beleuchtet,
+ weil trivial).
+\end_layout
+
+\begin_layout Standard
+Die zweite Phase der Verarbeitung beginnt mit der Betätigung des 
+\series bold
+Save Buttons
+\series default
+ durch den Spieler.
+ In diesem Fall übernimmt wieder der Controller und fragt über den 
+\family typewriter
+\series bold
+SnakeView
+\family default
+\series default
+ Spieler (
+\family typewriter
+\series bold
+user
+\family default
+\series default
+) und Passwort (
+\family typewriter
+\series bold
+pwd
+\family default
+\series default
+) Daten aus den Eingabefeldern ab.
+ Mittels dieser Daten wendet er sich mittels 
+\family typewriter
+\series bold
+getUserId()
+\family default
+\series default
+ an die 
+\family typewriter
+\series bold
+GameKey
+\family default
+\series default
+ API, um die Id des Spielers in Erfahrung zu bringen.
+ Sollte der Spieler im GameKey Service existieren und das korrekte Passwort
+ angegeben haben, so wird eine User Id zurück gegeben, die benötigt wird,
+ um einen Status mittels 
+\family typewriter
+\series bold
+storeState()
+\family default
+\series default
+ im GameKey Service für einen Spieler zu speichern.
+ Im erfolgreichen Fall des Speichern wendet sich der 
+\family typewriter
+\series bold
+SnakeGameController
+\family default
+\series default
+ abschließend mittels 
+\family typewriter
+\series bold
+closeForm()
+\family default
+\series default
+ an den 
+\family typewriter
+\series bold
+SnakeView
+\family default
+\series default
+ um das Formular zu schließen und anschließend ein neues Spiel mittels 
+\family typewriter
+\series bold
+newGame()
+\family default
+\series default
+ zu starten.
+\end_layout
+
 \begin_layout Subsubsection
 Game Over bei nicht registriertem Spieler
 \begin_inset CommandInset label
@@ -5751,6 +5977,15 @@ reference "fig:Sequenzdiagramm-(Game Over, nicht registrierter Spieler)"
 \end_inset
 
  gezeigt.
+ Der Ablauf ist grundsätzlich wie in Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sequenzdiagramm-(Game Over, registrierter Spieler)"
+
+\end_inset
+
+ gezeigt, jedoch muss die zweite Phase durch eine dritte Phase der Verarbeitung
+ (Spieler Erzeugung) ergänzt werden.
 \end_layout
 
 \begin_layout Standard
@@ -5793,6 +6028,88 @@ name "fig:Sequenzdiagramm-(Game Over, nicht registrierter Spieler)"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Im Falle das ein Spieler das Spiel zum ersten Mal spielt (und vorher noch
+ keine anderen an den GameKey Service angebunden Spiele gespielt hat) kann
+ 
+\family typewriter
+\series bold
+getUserId()
+\family default
+\series default
+ keine User Id zurückgeben, denn der Spieler existiert ja noch nicht.
+ In diesem Fall blendet der 
+\family typewriter
+\series bold
+SnakeGameController
+\family default
+\series default
+ mittels der 
+\family typewriter
+\series bold
+warn()
+\family default
+\series default
+ Methode im 
+\series bold
+SnakeView
+\series default
+ eine entsprechende Warnung ein, dass der Spieler noch nicht existiert.
+ Zusätzlich werden zwei Buttons (Create User, Cancel) eingeblendet, die
+ bei entsprechenden Listenern registriert werden.
+ Die zweite Phase ist damit um das storeState() gekürzt.
+\end_layout
+
+\begin_layout Standard
+Die dritte Phase der Verarbeitung kann über den 
+\series bold
+Create Button
+\series default
+ durch den Nutzer angestoßen werden.
+ In diesem Fall übernimmt wieder der Controller und registriert den Spieler
+ mittels 
+\family typewriter
+\series bold
+registerUser()
+\family default
+\series default
+ über die 
+\family typewriter
+\series bold
+GameKey
+\family default
+\series default
+ API beim GameKey Service.
+ Im erfolgreichen Fall wird dem User eine Id zugewiesen, die dann dazu genutzt
+ werden kann, den Highscore mittels 
+\family typewriter
+\series bold
+storeState()
+\family default
+\series default
+ wie im Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Game-Over-bei-registriertem-Spieler"
+
+\end_inset
+
+ erläutert zu speichern.
+ Anschließend wird das Formular mittels 
+\family typewriter
+\series bold
+closeForm()
+\family default
+\series default
+ geschlossen und ein neues Spiel gestartet (
+\family typewriter
+\series bold
+newGame()
+\family default
+\series default
+).
 \end_layout
 
 \begin_layout Subsection
@@ -6663,11 +6980,123 @@ end{framed}
 
 \end_layout
 
+\begin_layout Standard
+Der GameKey Service wird in SnakeDart mittels eines Objekts der Klasse 
+\series bold
+GameKey
+\series default
+ (vgl.
+ Abb.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Klassendiagramm-(VC)"
+
+\end_inset
+
+) angesprochen.
+ Die Klasse 
+\series bold
+GameKey
+\series default
+ dient dem Controller dazu mit dem GameKey Service interagieren zu können,
+ ohne die Details der REST Schnittstelle kennen zu müssen.
+\end_layout
+
+\begin_layout Standard
+Ein 
+\series bold
+GameKey
+\series default
+ Objektzustand umfasst letztlich nicht mehr
+\end_layout
+
+\begin_layout Itemize
+als die 
+\series bold
+gameid
+\series default
+ des Spiels (wird bei Registerieren des Spiels vergeben)
+\end_layout
+
+\begin_layout Itemize
+das 
+\series bold
+secret
+\series default
+ des Spiels (wird mit der gameid zur Authentifizierung benötigt)
+\end_layout
+
+\begin_layout Itemize
+sowie der 
+\series bold
+uri
+\series default
+ des GameKey Service Endpoints.
+\end_layout
+
+\begin_layout Standard
+Ein 
+\series bold
+GameKey
+\series default
+ Objekt kann mittels eines Konstruktors erzeugt werden.
+ Anschließend ist dieses Objekt in der Lage mit dem GameKey Service über
+ eine REST-Schnittstelle (vgl.
+ Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:REST-Schnittstelle-des-Gamekey-Service"
+
+\end_inset
+
+) zu kommunizieren.
+ Es kapselt damit im wesentlichen die GameKey REST API für den 
+\series bold
+SnakeGameController
+\series default
+.
+\end_layout
+
 \begin_layout Section
 Level- und Parametrisierungskonzept
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Level--und-Parametrisierungskonzept"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis: } SnakeDart sieht kein Levelkonzept (bis auf eine triviale
+ Beschleunigung der Schlange) und nur ein rudimentäres Parameterisierungskonzept
+ vor.
+ Sie sollten beides jedoch vorsehen.
+ Ihnen dient dieses Kapitel daher beides zu beschreiben.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
 
 \end_inset
 
