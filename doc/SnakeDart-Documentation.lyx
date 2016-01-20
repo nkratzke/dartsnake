@@ -147,8 +147,7 @@ Webtechnologie Projekt
 \begin_inset Quotes erd
 \end_inset
 
- an der Fachhochschule Lübeck.
- 
+
 \end_layout
 
 \begin_layout Standard
@@ -291,10 +290,10 @@ Bei der Suche nach geeigneten Spielideen lohnt es sich immer mal wieder
  Um Komplexität und Aufwand im Griff zu behalten, ist ihnen eine REST-basierte
  Storagekomponente vorgegeben.
  Sie sollen diese nur in Dart nachimplementieren.
- Ferner soll ihr Spiel soll dabei auf einem zweidimensionalen Raster basieren
+ Ferner soll ihr Spiel dabei auf einem zweidimensionalen Raster basieren
  und keinen Canvas zur Darstellung nutzen.
- Ferner sollen sie ein Single Player Game schreiben.
- Um die Komplexität nicht zu sehr zu steigern, sollten sie daher mit Ansätzen
+ Sie sollen ein Single Player Game schreiben.
+ Um die Komplexität nicht im Rahmen zu halten, sollten sie daher mit Ansätzen
  vorsichtig sein, die auf Multi Player Games beruhen und Player durch 
 \begin_inset Quotes eld
 \end_inset
@@ -309,13 +308,54 @@ künstliche Intelligenzen
 \end_layout
 
 \begin_layout Standard
-Zum einen reduziert dies die Komplexität möglicher Spielideen, zum anderen
+Ihr Spiel soll dabei auf den Einsatz von Canvas verzichten, sondern ausschließli
+ch auf DOM-Tree Manipulationen beruhen, um den Spielzustand darzustellen.
+ Das Spiel sollte daher auf einem einfach 2D Raster spielbar sein
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Das Raster soll dabei nicht zu groß werden.
+ Im Extrem könnten sie ansonsten 1 Pixel große Felder definieren und sich
+ künstlich ein Canvas Element 
+\begin_inset Quotes eld
+\end_inset
+
+nachbauen
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+ Zum einen reduziert dies die Komplexität möglicher Spielkonzepte, zum anderen
  sollen sie durch die Aufgabenstellung dazu gezwungen werden, sich intensiv
  mit dem DOM-Tree eines HTML-Dokuments und dessen clientseitiger Manipulation
  auseinander setzen.
  Dies würden sie nicht, wenn Sie Canvas nutzen würden (sie würden dann sich
  intensiv mit Grafikbibliotheken und ggf.
- Game Engines auseinandersetzen, das ist jedoch nicht Ziel dieser Veranstaltung).
+ Game Engines auseinandersetzen, das ist jedoch nicht Ziel dieser Veranstaltung
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Wenn Sie so etwas interessiert überlegen Sie das Wahlpflichtmodul 
+\begin_inset Quotes eld
+\end_inset
+
+Game Programming
+\begin_inset Quotes erd
+\end_inset
+
+ des Studiengangs ITD zu belegen.
+\end_layout
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -456,13 +496,17 @@ reference "sec:Nachweis-der-Anforderungen"
  für Anforderung erbringen sollen.
  Es bietet sich an, dies nicht erst am Ende ihrer Spieleentwicklung zu machen,
  sondern begleitend.
+ 
+\series bold
+Insbesondere da dieses Kapitel sehr viele und relevante Informationen enthält,
+ die im Rahmen der Notenfindung herangezogen werden.
 \end_layout
 
 \begin_layout Standard
-Auch wenn es nur ein kleines Spiel ist, was sie entwickeln, werden sie im
- Verlaufe dieses Projekts die typischen Phasen der Softwareentwicklung von
- der Anforderungserhebung, über Architektur und Implementierung bis zur
- Nachweisführung durchlaufen und dokumentieren.
+Auch wenn es nur ein kleines Spiel ist, das sie entwickeln sollen, werden
+ sie im Verlaufe dieses Projekts die typischen Phasen der Softwareentwicklung
+ von der Anforderungserhebung, über Architektur und Implementierung bis
+ zur Nachweisführung durchlaufen und dokumentieren.
 \end_layout
 
 \begin_layout Standard
@@ -570,14 +614,10 @@ Anforderungen
 Ihr Spiel soll folgende Anforderungen erfüllen.
  Sie sollen dabei nachvollziehbar dokumentieren, wie diese Anforderungen
  durch ihre Realisierung umgesetzt werden.
- Das Spiel soll folgende 
-\end_layout
-
-\begin_layout Itemize
-in Tabelle 
+ Das Spiel soll folgende in Tabelle 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:Funktionale-Anforderungen"
+reference "tab:Anforderungen"
 
 \end_inset
 
@@ -585,39 +625,15 @@ reference "tab:Funktionale-Anforderungen"
 \series bold
 funktionalen Anforderungen
 \series default
- und
-\end_layout
-
-\begin_layout Itemize
-in Tabelle 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Dokumentationsanforderungen"
-
-\end_inset
-
- aufgeführten 
+, 
 \series bold
 Dokumentationsanforderungen
 \series default
- und
-\end_layout
-
-\begin_layout Itemize
-in Tabelle 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Technische-Randbedingungen"
-
-\end_inset
-
- aufgeführten 
+ und 
 \series bold
 technischen Randbedingungen
-\end_layout
-
-\begin_layout Standard
-erfüllen.
+\series default
+ erfüllen.
 \end_layout
 
 \begin_layout Standard
@@ -625,21 +641,17 @@ erfüllen.
 placement H
 wide false
 sideways false
-status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
+status open
 
 \begin_layout Plain Layout
 \noindent
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="8" columns="3">
+<lyxtabular version="3" rows="27" columns="3">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top" width="60col%">
+<column alignment="left" valignment="top" width="10col%">
+<column alignment="left" valignment="top" width="80col%">
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -647,7 +659,7 @@ status collapsed
 \begin_layout Plain Layout
 
 \series bold
-\size small
+\size scriptsize
 Id
 \end_layout
 
@@ -659,7 +671,7 @@ Id
 \begin_layout Plain Layout
 
 \series bold
-\size small
+\size scriptsize
 Kurztitel
 \end_layout
 
@@ -671,7 +683,7 @@ Kurztitel
 \begin_layout Plain Layout
 
 \series bold
-\size small
+\size scriptsize
 Anforderung
 \end_layout
 
@@ -684,7 +696,7 @@ Anforderung
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 AF-1
 \end_layout
 
@@ -695,7 +707,7 @@ AF-1
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Einplayer Game
 \end_layout
 
@@ -706,7 +718,7 @@ Einplayer Game
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Das Spiel soll ein Einplayer Game sein 
 \emph on
 (Mehrplayer Konzepte können als Einplayer Game realisiert werden, wenn Spieler
@@ -734,7 +746,7 @@ künstliche Intelligenzen
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 AF-2
 \end_layout
 
@@ -745,7 +757,7 @@ AF-2
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 2D Game
 \end_layout
 
@@ -756,7 +768,7 @@ AF-2
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Das Spiel soll konzeptionell auf einem 2D-Raster basieren.
 \end_layout
 
@@ -769,7 +781,7 @@ Das Spiel soll konzeptionell auf einem 2D-Raster basieren.
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 AF-3
 \end_layout
 
@@ -780,7 +792,7 @@ AF-3
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Levelkonzept
 \end_layout
 
@@ -791,7 +803,7 @@ Levelkonzept
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Das Spiel sollte ein Levelkonzept vorsehen.
 \end_layout
 
@@ -804,7 +816,7 @@ Das Spiel sollte ein Levelkonzept vorsehen.
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 AF-4
 \end_layout
 
@@ -815,8 +827,8 @@ AF-4
 
 \begin_layout Plain Layout
 
-\size small
-Parametrisierungskonzept
+\size scriptsize
+Parametrisier-ungskonzept
 \end_layout
 
 \end_inset
@@ -826,7 +838,7 @@ Parametrisierungskonzept
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Das Spiel sollte ein Parameterisierungskonzept für relevante Spielparameter
  vorsehen.
 \end_layout
@@ -840,7 +852,7 @@ Das Spiel sollte ein Parameterisierungskonzept für relevante Spielparameter
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 AF-5
 \end_layout
 
@@ -851,24 +863,29 @@ AF-5
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 REST-basierter Storage
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Das Spiel soll auf einen JSON-basierte Storageservice zugreifen können,
  um Spielzustände (z.B.
  Highscores und ähnliches) speichern zu können.
- 
+ Das Spiel muss bei nicht erreichbarem Storage-Service (Gamekey Service)
+ weiterhin spielbar sein.
+ Einzig und allein die Speicherfunktionalitäten dürfen natürlich eingeschränkt
+ sein.
+
 \emph on
-(Für den Storage-Service gibt es eine Referenz-Implementierung: 
+ (Für den Storage-Service (Gamekey-Service) gibt es eine Referenz-Implementierun
+g: 
 \emph default
 
 \begin_inset ERT
@@ -878,7 +895,7 @@ status open
 
 
 \backslash
-url{https://github.com/nkratzke/dartsnake}
+url{https://bitbucket.org/nanekratzke/gamekey}
 \end_layout
 
 \end_inset
@@ -897,8 +914,110 @@ url{https://github.com/nkratzke/dartsnake}
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 AF-6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Desktop Browser
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Das Spiel muss in Desktop Browsern spielbar sein.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+AF-7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Mobile Browser
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Das Spiel muss auf SmartPhone Browsern spielbar sein.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Dokumentationsanforderungen
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+D-1
 \end_layout
 
 \end_inset
@@ -908,8 +1027,8 @@ AF-6
 
 \begin_layout Plain Layout
 
-\size small
-Desktop Browser
+\size scriptsize
+Dokumenta-tionsvorlage
 \end_layout
 
 \end_inset
@@ -919,164 +1038,7 @@ Desktop Browser
 
 \begin_layout Plain Layout
 
-\size small
-Das Spiel muss in Desktop Browsern spielbar sein.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-AF-7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Mobile Browser
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Das Spiel muss auf SmartPhone Browsern spielbar sein.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Funktionale Anforderungen
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Funktionale-Anforderungen"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="3">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top" width="60col%">
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size small
-Id
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size small
-Kurztitel
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size small
-Anforderung
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-D-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Dokumentationsvorlage
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
+\size scriptsize
 Die Dokumentation soll sich an vorliegender Vorlage orientieren.
 \end_layout
 
@@ -1089,27 +1051,29 @@ Die Dokumentation soll sich an vorliegender Vorlage orientieren.
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 D-2
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
-Projektdokumentation
+\size scriptsize
+Projekt-dokumentation
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Das Spiel muss geeignet dokumentiert sein, so dass es von projektfremden
  Personen fortgeführt werden könnte.
 \end_layout
@@ -1123,27 +1087,29 @@ Das Spiel muss geeignet dokumentiert sein, so dass es von projektfremden
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 D-3
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
-Quelltextdokumentation
+\size scriptsize
+Quelltext-dokumentation
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Der Quelltext des Spiels muss geeignet dokumentiert sein und mittels schriftlich
 er Dokumentation erschließbar und verständlich sein.
 \end_layout
@@ -1152,118 +1118,67 @@ er Dokumentation erschließbar und verständlich sein.
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 D-4
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Libraries
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Alle verwendeten Libraries sind tabellarisch aufzuführen und zu begründen.
+
+\size scriptsize
+Alle verwendeten Libraries sind aufzuführen und deren Notwendigkeit zu begründen.
 \end_layout
 
 \end_inset
 </cell>
 </row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Dokumentationsanforderungen
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Dokumentationsanforderungen"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="14" columns="3">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top" width="60col%">
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \series bold
-\size small
-Id
+\size scriptsize
+Technische Randbedingungen
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\series bold
-\size small
-Kurztitel
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\series bold
-\size small
-Anforderung
 \end_layout
 
 \end_inset
@@ -1275,29 +1190,29 @@ Anforderung
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 TF-1
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 No Canvas
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Die Darstellung des Spielfeldes sollte ausschließlich mittels DOM-Tree Techniken
  erfolgen.
  Die Nutzung von Canvas-basierten Darstellungstechniken ist 
@@ -1318,29 +1233,29 @@ explizit
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 TF-2
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Levelformat
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Level sollten sich mittels deskriptiver Textdateien definieren lassen (z.B.
  mittels CSV, JSON, XML, etc.), so dass Level-Änderungen ohne Sourcecode-Änderung
 en des Spiels realisierbar sind.
@@ -1355,29 +1270,29 @@ en des Spiels realisierbar sind.
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 TF-3
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Parameterformat
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Spielparameter sollten sich mittels deskriptiver Textdateien definieren
  lassen (z.B.
  mittels CSV, JSON, XML, etc.), so dass Parameter-Änderungen ohne Sourcecode-Ände
@@ -1393,29 +1308,29 @@ rungen des Spiels realisierbar sind.
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 TF-4
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 HTML + CSS
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Der View des Spiels darf ausschließlich mittels HTML und CSS realisiert
  werden.
 \end_layout
@@ -1429,18 +1344,18 @@ Der View des Spiels darf ausschließlich mittels HTML und CSS realisiert
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 TF-5
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Gamelogic in Dart
 \end_layout
 
@@ -1451,7 +1366,7 @@ Gamelogic in Dart
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Die Logik des Spiels muss mittels der Programmiersprache Dart realisiert
  werden.
 \end_layout
@@ -1465,7 +1380,7 @@ Die Logik des Spiels muss mittels der Programmiersprache Dart realisiert
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 TF-6
 \end_layout
 
@@ -1476,7 +1391,7 @@ TF-6
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Storagelogic in Dart 
 \end_layout
 
@@ -1487,7 +1402,7 @@ Storagelogic in Dart
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Der Storageservice muss REST-basiert sein und mittels der Programmiersprache
  Dart realisiert werden.
  
@@ -1502,7 +1417,7 @@ Der Storageservice muss REST-basiert sein und mittels der Programmiersprache
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 TF-7
 \end_layout
 
@@ -1513,7 +1428,7 @@ TF-7
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Storage Referenz
 \end_layout
 
@@ -1524,7 +1439,7 @@ Storage Referenz
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Das Spiel soll gleichermaßen mit der Referenzimplementierung des Storageservice
  als auch der Eigenrealisierung des Storageservice funktionieren.
 \end_layout
@@ -1538,7 +1453,7 @@ Das Spiel soll gleichermaßen mit der Referenzimplementierung des Storageservice
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 TF-8
 \end_layout
 
@@ -1549,7 +1464,7 @@ TF-8
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Storage Referenztest
 \end_layout
 
@@ -1560,7 +1475,7 @@ Storage Referenztest
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Die Eigenrealisierung des Storageservices muss den Referenztest der Referenzimpl
 ementierung implementieren.
  
@@ -1578,7 +1493,7 @@ ementierung implementieren.
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 TF-9
 \end_layout
 
@@ -1589,7 +1504,7 @@ TF-9
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Browser Support
 \end_layout
 
@@ -1600,7 +1515,7 @@ Browser Support
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Das Spiel muss im Browser Chromium/Dartium (native Dart Engine) funktionieren.
  Das Spiel muss ferner in allen anderen Browserrn (JavaScript Engines) ebenfalls
  in der JavaScript kompilierten Form funktionieren (geprüft wird ggf.
@@ -1616,7 +1531,7 @@ Das Spiel muss im Browser Chromium/Dartium (native Dart Engine) funktionieren.
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 TF-10
 \end_layout
 
@@ -1627,7 +1542,7 @@ TF-10
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 MVC Architektur
 \end_layout
 
@@ -1638,7 +1553,7 @@ MVC Architektur
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Das Spiel sollte einer MVC-Architektur folgen.
 \end_layout
 
@@ -1651,7 +1566,7 @@ Das Spiel sollte einer MVC-Architektur folgen.
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 TF-11
 \end_layout
 
@@ -1662,7 +1577,7 @@ TF-11
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Erlaubte Pakete
 \end_layout
 
@@ -1673,7 +1588,7 @@ Erlaubte Pakete
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Erlaubt sind alle dart:* packages, sowie das Webframework start.
  
 \end_layout
@@ -1687,7 +1602,7 @@ Erlaubt sind alle dart:* packages, sowie das Webframework start.
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 TF-12
 \end_layout
 
@@ -1698,7 +1613,7 @@ TF-12
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Verbotene Pakete
 \end_layout
 
@@ -1709,7 +1624,7 @@ Verbotene Pakete
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Verboten sind Libraries wie Polymer oder Angular.
  
 \emph on
@@ -1727,7 +1642,7 @@ Verboten sind Libraries wie Polymer oder Angular.
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 TF-13
 \end_layout
 
@@ -1738,7 +1653,7 @@ TF-13
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 No Sound
 \end_layout
 
@@ -1749,7 +1664,7 @@ No Sound
 
 \begin_layout Plain Layout
 
-\size small
+\size scriptsize
 Das Spiel muss keine Sounds unterstützen.
 \end_layout
 
@@ -1767,10 +1682,10 @@ Das Spiel muss keine Sounds unterstützen.
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Technische Randbedingungen
+Anforderungen
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:Technische-Randbedingungen"
+name "tab:Anforderungen"
 
 \end_inset
 
@@ -1832,7 +1747,7 @@ die Geschwindigkeit der Schlange erhöht sich ebenfalls mit jeder gefressenen
 
 \begin_layout Standard
 Die Schlange kann sich dabei nur vorwärts bewegen (d.h.
- nicht nach hinten kriechen).
+ nicht nach hinten kriechen oder zu einer der beiden Seiten rollen).
  Die Steuerung der Schlange wirkt nur auf den Kopf.
  Die restlichen Elemente des Schlangenkörpers folgen einander.
 \end_layout
@@ -3825,7 +3740,9 @@ textbf{Hinweis:} Aufgrund der geringen Komplexität des SnakeGame (deswegen
  wurde es als Anschauungsgegenstand gewählt) ist das Model sehr übersichtlich.
  Es ist unwahrscheinlich, dass ihr Model ähnlich 'klein' ausfallen wird
  (es sei denn sie wählen ein Spiel geringer Komplexität und beabsichtigen
- nicht das Notenspektrum nach oben hin auszunutzen).
+ nicht das 
+\backslash
+textbf{Notenspektrum} nach oben hin auszunutzen).
  Üblicherweise hat das Model den größten Codeumfang, was logisch ist, denn
  hier wird ja die Spiellogik realisiert.
 \end_layout
@@ -3928,7 +3845,7 @@ level
 \family default
 \series default
  bezeichnet den aktuellen Level, in dem sich das Spiel zum Zeitpunkt der
- Abgabe befindet (dies wird bislang nicht genutzt).
+ Abgabe befindet (dies wird bislang im SnakeGame nicht genutzt).
 \end_layout
 
 \begin_layout Itemize
@@ -4018,8 +3935,8 @@ addMouse()
 \series default
  kann eine zusätzliche Maus dem Spiel hinzugefügt werden.
  Normalerweise sollte dies innerhalb des Models geschehen.
- Denkbar sind jedoch auch für denkbare Spielerweiterungen und Varianten
- besondere Ereignisse, die vom Controller erkannt werden (z.B.
+ Denkbar sind jedoch auch für Spielerweiterungen und Varianten besondere
+ Ereignisse, die vom Controller erkannt werden (z.B.
  ein 
 \begin_inset Quotes eld
 \end_inset
@@ -4881,7 +4798,8 @@ SnakeView
  Klasse 
 \family typewriter
 \series bold
-SnakeGameController
+Snake\SpecialChar \-
+GameController
 \family default
 \series default
  genutzt (vgl.
@@ -4915,7 +4833,7 @@ reference "sub:Game-Over-bei-nicht-registriertem-Spieler"
 
 \end_inset
 
- ).
+).
  Der Controller kann sich hierzu folgender Methoden und Attribute bedienen,
  um den DOM-Tree nicht selber manipulieren zu müssen (Separation of Concerns):
 \end_layout
@@ -5118,8 +5036,8 @@ Snake
 \family default
 \series default
 ) mittels der Cursortasten zu bewegen.
- Diese Steuerung ist recht naheliegend und wenig überraschend und wird am
- besten durch das Listing 
+ Diese Steuerung ist recht naheliegend und kann wird am einfachsten durch
+ das Listing 
 \begin_inset ERT
 status open
 
@@ -5167,12 +5085,13 @@ reference "sub:Laufendes-Spiel"
 
  erläutert.
  Noch komplexer sind erstaunlicherweise die Abläufe im Falle des Game Overs.
- Zum einen muss hier die zeitgesteuerten Events deaktiviert werden, zum
+ Zum einen müssen hier die zeitgesteuerten Events deaktiviert werden, zum
  anderen muss der Controller eng mit dem View und dem Gamekey Service interagier
 en, um ggf.
- erreichte Highscores zu speichern und noch nicht registrierte Nutzer im
- Gamekey Service zu registrieren.
- Diese GameOver Abläufe werden in den Abschnitten 
+ erreichte Highscores zu speichern und noch nicht registrierte Nutzer gesondert
+ im Gamekey Service zu registrieren.
+ Diese GameOver Abläufe werden aufgrund ihrer Komplexität in den Abschnitten
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Game-Over-bei-registriertem-Spieler"
@@ -5186,7 +5105,7 @@ reference "sub:Game-Over-bei-nicht-registriertem-Spieler"
 
 \end_inset
 
- erläutert.
+ gesondert erläutert.
 \end_layout
 
 \begin_layout Subsubsection
@@ -5622,7 +5541,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Sequenzdiagramm-running-game.pdf
-	width 75text%
+	width 90col%
 
 \end_inset
 
@@ -5712,14 +5631,14 @@ reference "fig:Sequenzdiagramm-(Game Over, registrierter Spieler)"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \noindent
 \align center
 \begin_inset Graphics
 	filename Sequenzdiagramm-game-over-registered-user.pdf
-	width 75text%
+	width 90col%
 
 \end_inset
 
@@ -5945,7 +5864,7 @@ storeState()
 \family default
 \series default
  im GameKey Service für einen Spieler zu speichern.
- Im erfolgreichen Fall des Speichern wendet sich der 
+ Im erfolgreichen Fall des Speicherns wendet sich der 
 \family typewriter
 \series bold
 SnakeGameController
@@ -6002,48 +5921,6 @@ reference "fig:Sequenzdiagramm-(Game Over, registrierter Spieler)"
 
  gezeigt, jedoch muss die zweite Phase durch eine dritte Phase der Verarbeitung
  (Spieler Erzeugung) ergänzt werden.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename Sequenzdiagramm-game-over-not-registered-user.pdf
-	width 75text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Sequenzdiagram (Game Over bei nicht registriertem Spieler)
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Sequenzdiagramm-(Game Over, nicht registrierter Spieler)"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -6126,6 +6003,48 @@ newGame()
 \family default
 \series default
 ).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Sequenzdiagramm-game-over-not-registered-user.pdf
+	width 90col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sequenzdiagram (Game Over bei nicht registriertem Spieler)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sequenzdiagramm-(Game Over, nicht registrierter Spieler)"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -6912,7 +6831,7 @@ Die Tests die ihre Dartimplementierung bestehen muss, finden sich in der
  Datei 
 \family typewriter
 \size small
-reference.rb
+lib/reference.rb
 \family default
 \size default
  der Referenzimplementierung.
@@ -6927,8 +6846,55 @@ Ihre Referenzimplementierung muss ferner mit dem GameKey command line client
  wie die Referenzimplementierung funktionieren.
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis:} Ihnen wird ein funktionsfähiger GameKey Service in der
+ Ruby Referenzimplementierung für die Laufzeit des Projekts zur Verfügung
+ gestellt.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+Den Endpoint finden sie in Moodle.
+ Ihr Game muss aber ebenfalls mit ihrer Dart Implementierung des Gamekey
+ Service funktionieren.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Client-seitige Anbindung an den GameKey Service (Dart Schnittstelle)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Client-seitige-Anbindung-an-REST"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7054,7 +7020,8 @@ als die
 gameid
 \family default
 \series default
- des Spiels (wird bei Registerieren des Spiels vergeben)
+ des Spiels (wird bei Registerieren des Spiels vergeben, siehe Online Dokumentat
+ion des Gamekey Service)
 \end_layout
 
 \begin_layout Itemize
@@ -7101,7 +7068,7 @@ reference "tab:REST-Schnittstelle-des-Gamekey-Service"
 SnakeGameController
 \family default
 \series default
- in Form folgener Methoden:
+ in Form folgender Methoden:
 \end_layout
 
 \begin_layout Itemize
@@ -7327,6 +7294,13 @@ end{framed}
 
 \begin_layout Subsection
 Parameterisierungskonzept
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Parameterisierungskonzept"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7397,8 +7371,8 @@ Diese Datei wird durch den
 SnakeGameController
 \family default
 \series default
- zu Beginn auf folgende Weise geladen und zur Herstellung der Gamekey-Connection
- genutzt.
+ zu Beginn des Ladens des Spiels auf folgende Weise geladen und zur Herstellung
+ der Gamekey-Connection genutzt.
  
 \family typewriter
 \series bold
@@ -7513,7 +7487,8 @@ SnakeGameController
 \series default
  (
 \family typewriter
-lib/src/control.dart
+lib/src\SpecialChar \slash{}
+control.dart
 \family default
 ) definiert (die grundsätzlich auf vergleichbare Art und Weise in die 
 \family typewriter
@@ -7603,6 +7578,22 @@ name "sec:Nachweis-der-Anforderungen"
 \end_layout
 
 \begin_layout Standard
+Nachfolgend wird erläutert wie die in Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Anforderungen-und-abgeleitetes-Konzept"
+
+\end_inset
+
+ eingeführten funktionalen Anforderungen, die Dokumentationsanforderungen
+ und die technischen Randbedingungen erfüllt bzw.
+ eingehalten werden.
+ Dies kann -- wie nachfolgend geschehen -- argumentativ erfolgen, und muss
+ nicht durch eine Testfall-getriebene Nachweisführung erfolgen.
+ Abschließend wird angegeben, wer im Team welche Verantwortlichkeiten hatte.
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -7620,9 +7611,6 @@ begin{framed}
 textbf{Hinweis: } Aufgrund der Kürze der Zeit, sollen sie in diesem Projekt
  nur argumentativ und über ihr Spiel nachweisen, dass sie die einzelnen
  Anforderungen abgedeckt haben.
- Im echten Leben müssten Sie für jede Anforderungen ggf.
- detaillierte Software Requirements ableiten und die Erfüllung jeder einzelnen
- Haupt- und detaillierenden Teilanforderung über objektive Testfälle belegen.
 \end_layout
 
 \begin_layout Plain Layout
@@ -7652,13 +7640,17 @@ begin{framed}
 
 
 \backslash
-textbf{Hinweis: } Verweisen Sie bitte bei ihrer Argumentation auf konkrete
- Assets (Klassen, Scripte, Kapitel der Dokumentation, Konfigurationsdateien,
- etc.) die ihre These der Erfüllung von Anforderungen stützen.
+textbf{Hinweis: } Verweisen Sie -- falls möglich und sinnvoll -- bitte bei
+ ihrer Argumentation auf konkrete Assets (Klassen, Scripte, Kapitel der
+ Dokumentation, Konfigurationsdateien, etc.) die ihre These der Erfüllung
+ von Anforderungen stützen.
  
 \backslash
 textbf{Behaupten Sie keine Erfüllung, die sie selber nicht sehen.
- Sie sind hier zu wahrheitsgemäßen und nachvollziehbaren Angaben verpflichtet!}
+ Sie sind hier zu wahrheitsgemäßen und nachvollziehbaren Angaben verpflichtet!
+ Ihre Argumente gehen in die 
+\backslash
+uline{Notenfindung} ein.}
 \end_layout
 
 \begin_layout Plain Layout
@@ -7695,11 +7687,18 @@ begin{framed}
 textbf{Hinweis: } Nachfolgend erfolgt der Nachweis der Einhaltung funktionaler
  Anforderungen.
  Grundsätzlich gilt: Nur teilweise oder nicht Erfüllung von Anforderungen
- bringt Punktabzüge mit sich.
+ bringt 
+\backslash
+uline{
+\backslash
+textbf{Notenabzüge}} mit sich.
  Pro Anforderung sind Erläuterungen anzugeben, warum eine Anforderung als
  erfüllt, teilweise erfüllt oder nicht erfüllt betrachtet wird.
- Nicht erläuterte Angaben, werden wie nicht erfüllt gewertet.
  
+\backslash
+uline{
+\backslash
+textbf{Nicht erläuterte Angaben, werden wie nicht erfüllt gewertet.}}
 \end_layout
 
 \begin_layout Plain Layout
@@ -7740,7 +7739,7 @@ status open
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
+\size scriptsize
 Id
 \end_layout
 
@@ -7752,7 +7751,7 @@ Id
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
+\size scriptsize
 Kurztitel
 \end_layout
 
@@ -7764,7 +7763,7 @@ Kurztitel
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
+\size scriptsize
 Erfüllt
 \begin_inset space ~
 \end_inset
@@ -7780,7 +7779,7 @@ Erfüllt
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
+\size scriptsize
 Teilw.
  erfüllt
 \begin_inset space ~
@@ -7797,7 +7796,7 @@ Teilw.
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
+\size scriptsize
 Nicht erfüllt
 \begin_inset space ~
 \end_inset
@@ -7813,7 +7812,7 @@ Nicht erfüllt
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
+\size scriptsize
 Erläuterung
 \end_layout
 
@@ -7826,7 +7825,7 @@ Erläuterung
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 AF-1
 \end_layout
 
@@ -7837,7 +7836,7 @@ AF-1
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Einplayer Game
 \end_layout
 
@@ -7848,7 +7847,7 @@ Einplayer Game
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 x
 \end_layout
 
@@ -7877,7 +7876,7 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 SnakeGame ist ein Einpersonen Spiel, wie aus dem in Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -7897,7 +7896,7 @@ reference "sec:Spielkonzept-des-Snake-Game"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 AF-2
 \end_layout
 
@@ -7908,7 +7907,7 @@ AF-2
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 2D Game
 \end_layout
 
@@ -7919,7 +7918,7 @@ AF-2
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 x
 \end_layout
 
@@ -7948,7 +7947,7 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 SnakeGame wird auf einem 2D-Raster gespielt, wie aus dem in Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -7968,7 +7967,7 @@ reference "sec:Spielkonzept-des-Snake-Game"
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 AF-3
 \end_layout
 
@@ -7979,7 +7978,7 @@ AF-3
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Levelkonzept
 \end_layout
 
@@ -8008,7 +8007,7 @@ Levelkonzept
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 x
 \end_layout
 
@@ -8019,7 +8018,7 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
  eines Levelkonzepts verzichtet.
 \end_layout
@@ -8033,7 +8032,7 @@ Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 AF-4
 \end_layout
 
@@ -8044,7 +8043,7 @@ AF-4
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Parametrisierungs\SpecialChar \-
 konzept
 \end_layout
@@ -8065,7 +8064,7 @@ konzept
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 x
 \end_layout
 
@@ -8085,10 +8084,19 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
  eines ausgereiften Parametrisierungskonzept verzichtet.
- Wesentliche Werte zur Verhaltensbeeinflussung, wurden jedoch als Konstanten
+ Die Gamekey Anbindung wurden jedoch mittels einer Parameterdatei realisiert
+ (siehe Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Parameterisierungskonzept"
+
+\end_inset
+
+).
+ Weitere Werte zur Verhaltensbeeinflussung, wurden jedoch als Konstanten
  in der Klasse SnakeGameController realisiert, so dass diese an zentraler
  Stelle -- jedoch nur mit Änderung des Quellcodes --- geändert werden können.
 \end_layout
@@ -8102,7 +8110,7 @@ Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 AF-5
 \end_layout
 
@@ -8113,7 +8121,7 @@ AF-5
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 REST-basierter Storage
 \end_layout
 
@@ -8124,7 +8132,7 @@ REST-basierter Storage
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 x
 \end_layout
 
@@ -8153,8 +8161,16 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
-Das Spiel kann auf die JSON-basierte Referenz-Storagelösung zugreifen.
+\size scriptsize
+Das Spiel kann auf die JSON-basierte Referenz-Storagelösung zugreifen (vgl.
+ Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Client-seitige-Anbindung-an-REST"
+
+\end_inset
+
+).
 \end_layout
 
 \end_inset
@@ -8166,7 +8182,7 @@ Das Spiel kann auf die JSON-basierte Referenz-Storagelösung zugreifen.
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 AF-6
 \end_layout
 
@@ -8177,7 +8193,7 @@ AF-6
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Desktop Browser
 \end_layout
 
@@ -8188,7 +8204,7 @@ Desktop Browser
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 x
 \end_layout
 
@@ -8217,7 +8233,7 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Das Spiel ist in Desktop Browsern spielbar.
  Es wurde in Chrome, Safari und Firefox erfolgreich zur Ausführung gebracht,
  gespielt und jeweils ein Highscore gespeichert.
@@ -8232,7 +8248,7 @@ Das Spiel ist in Desktop Browsern spielbar.
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 AF-7
 \end_layout
 
@@ -8243,7 +8259,7 @@ AF-7
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Mobile Browser
 \end_layout
 
@@ -8272,7 +8288,7 @@ Mobile Browser
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 x
 \end_layout
 
@@ -8283,7 +8299,7 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die SmartPhone
  Unterstützung von Mobilebrowsern verzichtet.
 \end_layout
@@ -8351,8 +8367,11 @@ ionsanforderungen.
  bringt Punktabzüge mit sich.
  Pro Anforderung sind Erläuterungen anzugeben, warum eine Anforderung als
  erfüllt, teilweise erfüllt oder nicht erfüllt betrachtet wird.
- Nicht erläuterte Angaben, werden wie nicht erfüllt gewertet.
  
+\backslash
+uline{
+\backslash
+textbf{Nicht erläuterte Angaben, werden wie nicht erfüllt gewertet.}}
 \end_layout
 
 \begin_layout Plain Layout
@@ -8397,7 +8416,7 @@ status open
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
+\size scriptsize
 Id
 \end_layout
 
@@ -8409,7 +8428,7 @@ Id
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
+\size scriptsize
 Kurztitel
 \end_layout
 
@@ -8421,7 +8440,7 @@ Kurztitel
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
+\size scriptsize
 Erfüllt
 \begin_inset space ~
 \end_inset
@@ -8437,7 +8456,7 @@ Erfüllt
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
+\size scriptsize
 Teilw.
  erfüllt
 \begin_inset space ~
@@ -8454,7 +8473,7 @@ Teilw.
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
+\size scriptsize
 Nicht erfüllt
 \begin_inset space ~
 \end_inset
@@ -8470,7 +8489,7 @@ Nicht erfüllt
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
+\size scriptsize
 Erläuterung
 \end_layout
 
@@ -8483,7 +8502,7 @@ Erläuterung
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 D-1
 \end_layout
 
@@ -8494,7 +8513,7 @@ D-1
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Dokumentations\SpecialChar \-
 vorlage
 \end_layout
@@ -8506,7 +8525,7 @@ vorlage
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 x
 \end_layout
 
@@ -8535,7 +8554,7 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Vorliegende Dokumentation dient als Vorlage für Spieldokumentationen.
 \end_layout
 
@@ -8548,7 +8567,7 @@ Vorliegende Dokumentation dient als Vorlage für Spieldokumentationen.
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 D-2
 \end_layout
 
@@ -8559,7 +8578,7 @@ D-2
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Projekt\SpecialChar \-
 dokumentation
 \end_layout
@@ -8571,7 +8590,7 @@ dokumentation
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 x
 \end_layout
 
@@ -8600,7 +8619,7 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Vorliegende Dokumentation erläutert die übergeordneten Prinzipien und verweist
  an geeigneten Stellen auf die Quelltextdokumentation.
 \end_layout
@@ -8614,7 +8633,7 @@ Vorliegende Dokumentation erläutert die übergeordneten Prinzipien und verweist
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 D-3
 \end_layout
 
@@ -8625,7 +8644,7 @@ D-3
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Quelltext\SpecialChar \-
 dokumentation
 \end_layout
@@ -8637,7 +8656,7 @@ dokumentation
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 x
 \end_layout
 
@@ -8666,7 +8685,7 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Es wurden alle Methoden und Datenfelder, Konstanten durch Inline-Kommentare
  erläutert.
 \end_layout
@@ -8680,7 +8699,7 @@ Es wurden alle Methoden und Datenfelder, Konstanten durch Inline-Kommentare
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 D-4
 \end_layout
 
@@ -8691,7 +8710,7 @@ D-4
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Libraries
 \end_layout
 
@@ -8702,7 +8721,7 @@ Libraries
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 x
 \end_layout
 
@@ -8731,7 +8750,7 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Alle genutzten Libraries werden in der 
 \family typewriter
 \series bold
@@ -8842,8 +8861,11 @@ en technischen Randbedingungen.
  bringt Punktabzüge mit sich.
  Pro Anforderung sind Erläuterungen anzugeben, warum eine Anforderung als
  erfüllt, teilweise erfüllt oder nicht erfüllt betrachtet wird.
- Nicht erläuterte Angaben, werden wie nicht erfüllt gewertet.
  
+\backslash
+uline{
+\backslash
+textbf{Nicht erläuterte Angaben, werden wie nicht erfüllt gewertet.}}
 \end_layout
 
 \begin_layout Plain Layout
@@ -8851,999 +8873,6 @@ en technischen Randbedingungen.
 
 \backslash
 end{framed}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Tabular
-<lyxtabular version="3" rows="14" columns="6">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top" width="5col%">
-<column alignment="left" valignment="top" width="15col%">
-<column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top" width="0pt">
-<column alignment="left" valignment="top" width="60col%">
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size footnotesize
-Id
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size footnotesize
-Kurztitel
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size footnotesize
-Erfüllt
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size footnotesize
-Teilw.
- erfüllt
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size footnotesize
-Nicht erfüllt
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size footnotesize
-Erläuterung
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-TF-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-No Canvas
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Die Darstellung des Spielfeldes sollte ausschließlich mittels DOM-Tree Techniken
- erfolgen.
- Die Nutzung von Canvas-basierten Darstellungstechniken ist 
-\series bold
-\bar under
-explizit
-\series default
-\bar default
- untersagt.
- Die Klasse 
-\series bold
-SnakeView
-\series default
- nutzt keinerlei Canvas basierten DOM-Elemente.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-TF-2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Levelformat
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
- eines Levelkonzepts verzichtet.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-TF-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Parameterformat
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
- eines ausgereiften Parametrisierungskonzept verzichtet.
- Wesentliche Werte zur Verhaltensbeeinflussung, wurden jedoch als Konstanten
- in der Klasse SnakeGameController realisiert, so dass diese an zentraler
- Stelle -- jedoch nur mit Änderung des Quellcodes --- geändert werden können.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-TF-4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-HTML + CSS
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Der View des Spiels beruht ausschließlich auf HTML und CSS (vgl.
- web/index.html).
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-TF-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Gamelogic in Dart
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Die Logik des Spiels ist mittels der Programmiersprache Dart realisiert
- worden.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-TF-6
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Storagelogic in Dart 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Dart-Implementie
-rung des Storageservice verzichtet.
- 
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-TF-7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Storage Referenz
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-SnakeGame nutzt nur die Referenzimplementierung des Storageservice.
- Da die Eigenrealisierung des Storageservice jedoch in Dart nicht vorgenommen
- wurde, kann dieser Teil der Anforderung nicht nachgewiesen werden.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-TF-8
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Storage Referenztest
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Es wurde keine Dart Implementierung der Referenz Storage Services vorgenommen.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-TF-9
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Browser Support
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Das Spiel muss im Browser Chromium/Dartium (native Dart Engine) funktionieren.
- Das Spiel muss ferner in allen anderen Browserrn (JavaScript Engines) ebenfalls
- in der JavaScript kompilierten Form funktionieren (geprüft wird ggf.
- mit Safari, Chrome und Firefox).
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-TF-10
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-MVC Architektur
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Das Spiel folgt durch Ableitung mehrerer Modell-Klassen (vgl.
- lib/src/model.dart), einer View Klasse (vgl.
- lib/src/view.dart) und dem zentralen Controller (vgl.
- lib/src/controller.dart) einer MVC-Architektur.
- Der GameKey Service (vgl.
- lib/src/gamekey.dart) wird ebenfalls diesem Prinzip unterworfen und wird
- nur vom Controller getriggert, genauso wie das Modell und der View.
- Der View greift zudem auf das Model nur lesend und nicht manipulierend
- zu.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-TF-11
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Erlaubte Pakete
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Es sind nur dart:* packages, sowie das Webframework start genutzt worden.
- Siehe 
-\family typewriter
-\series bold
-pubspec.yaml
-\family default
-\series default
- der Implementierung.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-TF-12
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Verbotene Pakete
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Es sind keine Pakete, außer den erlaubten genutzt worden.
- Siehe 
-\family typewriter
-\series bold
-pubspec.yaml
-\family default
-\series default
- der Implementierung.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-TF-13
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-No Sound
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Das Spiel hat keine Soundeffekte.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Nachweis der technischen Randbedingungen
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Nachweis-der-technischen-Randbedingungen"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -9919,51 +8948,16 @@ end{framed}
 
 \end_layout
 
-\begin_layout Subsection
-Verantwortlichkeiten im Projekt
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{framed}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Hinweis: } Sie müssen dokumentieren, welche Person für welche Programm
- Anteile verantwortlich war.
- Am besten machen Sie dies, indem sie relevante Assets identifizieren und
- mittels einer Matrix dokumentieren, wer von Ihnen  welche Assets verantwortlich
- und unterstützend erstellt hat.
- Dies kann bspw.
- wie nachfolgend gezeigt geschehen.
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{framed}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Tabular
@@ -9980,7 +8974,10 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-Hauptassset
+
+\series bold
+\size scriptsize
+Id
 \end_layout
 
 \end_inset
@@ -9991,8 +8988,8 @@ Hauptassset
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
-Detail
+\size scriptsize
+Kurztitel
 \end_layout
 
 \end_inset
@@ -10003,8 +9000,8 @@ Detail
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
-Nane Kratzke
+\size scriptsize
+Erfüllt
 \begin_inset space ~
 \end_inset
 
@@ -10019,8 +9016,9 @@ Nane Kratzke
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
-Heinzelmann A
+\size scriptsize
+Teilw.
+ erfüllt
 \begin_inset space ~
 \end_inset
 
@@ -10035,8 +9033,8 @@ Heinzelmann A
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
-Heinzelfrau B
+\size scriptsize
+Nicht erfüllt
 \begin_inset space ~
 \end_inset
 
@@ -10051,8 +9049,8 @@ Heinzelfrau B
 \begin_layout Plain Layout
 
 \series bold
-\size footnotesize
-Anmerkungen
+\size scriptsize
+Erläuterung
 \end_layout
 
 \end_inset
@@ -10063,7 +9061,9 @@ Anmerkungen
 \begin_inset Text
 
 \begin_layout Plain Layout
-Model
+
+\size scriptsize
+TF-1
 \end_layout
 
 \end_inset
@@ -10073,7 +9073,7 @@ Model
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 No Canvas
 \end_layout
 
@@ -10083,6 +9083,8 @@ No Canvas
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 x
 \end_layout
 
@@ -10111,6 +9113,21 @@ x
 
 \begin_layout Plain Layout
 
+\size scriptsize
+Die Darstellung des Spielfeldes sollte ausschließlich mittels DOM-Tree Techniken
+ erfolgen.
+ Die Nutzung von Canvas-basierten Darstellungstechniken ist 
+\series bold
+\bar under
+explizit
+\series default
+\bar default
+ untersagt.
+ Die Klasse 
+\series bold
+SnakeView
+\series default
+ nutzt keinerlei Canvas basierten DOM-Elemente.
 \end_layout
 
 \end_inset
@@ -10122,6 +9139,8 @@ x
 
 \begin_layout Plain Layout
 
+\size scriptsize
+TF-2
 \end_layout
 
 \end_inset
@@ -10131,7 +9150,7 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Levelformat
 \end_layout
 
@@ -10159,6 +9178,8 @@ Levelformat
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 x
 \end_layout
 
@@ -10169,6 +9190,9 @@ x
 
 \begin_layout Plain Layout
 
+\size scriptsize
+Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
+ eines Levelkonzepts verzichtet.
 \end_layout
 
 \end_inset
@@ -10180,6 +9204,8 @@ x
 
 \begin_layout Plain Layout
 
+\size scriptsize
+TF-3
 \end_layout
 
 \end_inset
@@ -10189,7 +9215,7 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Parameterformat
 \end_layout
 
@@ -10208,6 +9234,8 @@ Parameterformat
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 x
 \end_layout
 
@@ -10227,6 +9255,21 @@ x
 
 \begin_layout Plain Layout
 
+\size scriptsize
+Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
+ eines ausgereiften Parametrisierungskonzept verzichtet.
+ Die Gamekey Anbindung wurden jedoch mittels einer Parameterdatei realisiert
+ (siehe Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Parameterisierungskonzept"
+
+\end_inset
+
+).
+ Weitere Werte zur Verhaltensbeeinflussung, wurden jedoch als Konstanten
+ in der Klasse SnakeGameController realisiert, so dass diese an zentraler
+ Stelle -- jedoch nur mit Änderung des Quellcodes --- geändert werden können.
 \end_layout
 
 \end_inset
@@ -10237,7 +9280,9 @@ x
 \begin_inset Text
 
 \begin_layout Plain Layout
-View
+
+\size scriptsize
+TF-4
 \end_layout
 
 \end_inset
@@ -10247,7 +9292,7 @@ View
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 HTML + CSS
 \end_layout
 
@@ -10257,6 +9302,8 @@ HTML + CSS
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 x
 \end_layout
 
@@ -10285,6 +9332,9 @@ x
 
 \begin_layout Plain Layout
 
+\size scriptsize
+Der View des Spiels beruht ausschließlich auf HTML und CSS (vgl.
+ web/index.html).
 \end_layout
 
 \end_inset
@@ -10296,6 +9346,8 @@ x
 
 \begin_layout Plain Layout
 
+\size scriptsize
+TF-5
 \end_layout
 
 \end_inset
@@ -10305,7 +9357,7 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Gamelogic in Dart
 \end_layout
 
@@ -10315,6 +9367,8 @@ Gamelogic in Dart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 x
 \end_layout
 
@@ -10343,6 +9397,9 @@ x
 
 \begin_layout Plain Layout
 
+\size scriptsize
+Die Logik des Spiels ist mittels der Programmiersprache Dart realisiert
+ worden.
 \end_layout
 
 \end_inset
@@ -10354,6 +9411,8 @@ x
 
 \begin_layout Plain Layout
 
+\size scriptsize
+TF-6
 \end_layout
 
 \end_inset
@@ -10363,7 +9422,7 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Storagelogic in Dart 
 \end_layout
 
@@ -10391,6 +9450,8 @@ Storagelogic in Dart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 x
 \end_layout
 
@@ -10401,6 +9462,10 @@ x
 
 \begin_layout Plain Layout
 
+\size scriptsize
+Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Dart-Implementie
+rung des Storageservice verzichtet.
+ 
 \end_layout
 
 \end_inset
@@ -10411,7 +9476,9 @@ x
 \begin_inset Text
 
 \begin_layout Plain Layout
-Controller
+
+\size scriptsize
+TF-7
 \end_layout
 
 \end_inset
@@ -10421,7 +9488,7 @@ Controller
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Storage Referenz
 \end_layout
 
@@ -10440,6 +9507,8 @@ Storage Referenz
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 x
 \end_layout
 
@@ -10459,6 +9528,10 @@ x
 
 \begin_layout Plain Layout
 
+\size scriptsize
+SnakeGame nutzt nur die Referenzimplementierung des Storageservice.
+ Da die Eigenrealisierung des Storageservice jedoch in Dart nicht vorgenommen
+ wurde, kann dieser Teil der Anforderung nicht nachgewiesen werden.
 \end_layout
 
 \end_inset
@@ -10470,6 +9543,8 @@ x
 
 \begin_layout Plain Layout
 
+\size scriptsize
+TF-8
 \end_layout
 
 \end_inset
@@ -10479,7 +9554,7 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Storage Referenztest
 \end_layout
 
@@ -10507,6 +9582,8 @@ Storage Referenztest
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 x
 \end_layout
 
@@ -10517,6 +9594,8 @@ x
 
 \begin_layout Plain Layout
 
+\size scriptsize
+Es wurde keine Dart Implementierung der Referenz Storage Services vorgenommen.
 \end_layout
 
 \end_inset
@@ -10527,7 +9606,9 @@ x
 \begin_inset Text
 
 \begin_layout Plain Layout
-GameKey API
+
+\size scriptsize
+TF-9
 \end_layout
 
 \end_inset
@@ -10537,8 +9618,8 @@ GameKey API
 
 \begin_layout Plain Layout
 
-\size footnotesize
-lib/src/gamekey.dart
+\size scriptsize
+Browser Support
 \end_layout
 
 \end_inset
@@ -10547,7 +9628,9 @@ lib/src/gamekey.dart
 \begin_inset Text
 
 \begin_layout Plain Layout
-V
+
+\size scriptsize
+x
 \end_layout
 
 \end_inset
@@ -10556,7 +9639,7 @@ V
 \begin_inset Text
 
 \begin_layout Plain Layout
-U
+
 \end_layout
 
 \end_inset
@@ -10575,6 +9658,11 @@ U
 
 \begin_layout Plain Layout
 
+\size scriptsize
+Das Spiel muss im Browser Chromium/Dartium (native Dart Engine) funktionieren.
+ Das Spiel muss ferner in allen anderen Browserrn (JavaScript Engines) ebenfalls
+ in der JavaScript kompilierten Form funktionieren (geprüft wird ggf.
+ mit Safari, Chrome und Firefox).
 \end_layout
 
 \end_inset
@@ -10586,7 +9674,7 @@ U
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 TF-10
 \end_layout
 
@@ -10597,7 +9685,7 @@ TF-10
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 MVC Architektur
 \end_layout
 
@@ -10608,123 +9696,7 @@ MVC Architektur
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-GameKey Service
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Ruby Implementation
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-V
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-TF-12
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Verbotene Pakete
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
+\size scriptsize
 x
 \end_layout
 
@@ -10753,6 +9725,158 @@ x
 
 \begin_layout Plain Layout
 
+\size scriptsize
+Das Spiel folgt durch Ableitung mehrerer Modell-Klassen (vgl.
+ lib/src/model.dart), einer View Klasse (vgl.
+ lib/src/view.dart) und dem zentralen Controller (vgl.
+ lib/src/controller.dart) einer MVC-Architektur.
+ Der GameKey Service (vgl.
+ lib/src/gamekey.dart) wird ebenfalls diesem Prinzip unterworfen und wird
+ nur vom Controller getriggert, genauso wie das Modell und der View.
+ Der View greift zudem auf das Model nur lesend und nicht manipulierend
+ zu.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+TF-11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Erlaubte Pakete
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Es sind nur dart:* packages, sowie das Webframework start genutzt worden.
+ Siehe 
+\family typewriter
+\series bold
+pubspec.yaml
+\family default
+\series default
+ der Implementierung.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+TF-12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Verbotene Pakete
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Es sind keine Pakete, außer den erlaubten genutzt worden.
+ Siehe 
+\family typewriter
+\series bold
+pubspec.yaml
+\family default
+\series default
+ der Implementierung.
 \end_layout
 
 \end_inset
@@ -10764,7 +9888,7 @@ x
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 TF-13
 \end_layout
 
@@ -10775,7 +9899,7 @@ TF-13
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 No Sound
 \end_layout
 
@@ -10785,6 +9909,8 @@ No Sound
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 x
 \end_layout
 
@@ -10813,6 +9939,8 @@ x
 
 \begin_layout Plain Layout
 
+\size scriptsize
+Das Spiel hat keine Soundeffekte.
 \end_layout
 
 \end_inset
@@ -10823,6 +9951,1555 @@ x
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Nachweis der technischen Randbedingungen
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Nachweis-der-technischen-Randbedingungen"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Verantwortlichkeiten im Projekt
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis: } Sie müssen dokumentieren, welche Person für welche Projekt
+ Ergebnisse verantwortlich war.
+ Am besten machen Sie dies, indem sie relevante Assets identifizieren.
+ Mittels einer Matrix lässt sich dann einfach dokumentieren, wer von Ihnen
+  welche Assets verantwortlich und unterstützend erstellt hat.
+ Dies kann bspw.
+ wie nachfolgend gezeigt geschehen.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+uline{
+\backslash
+textbf{Diese Angaben werden im Rahmen der individuellen Notenfindung herangezoge
+n.}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="19" columns="7">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="0col%">
+<column alignment="left" valignment="top" width="0col%">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="0pt">
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Komponente
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Detail
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Asset
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Nane Kratzke
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Heinzel Mann
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Heinzel Frau
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Anmerkungen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Model
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Snake Game
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+lib/src/model.dart
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+beinhaltelt Inline Dokumentation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Schlange
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+lib/src/model.dart
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+U
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+beinhaltelt Inline Dokumentation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Maus
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+lib/src/model.dart
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+U
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+beinhaltelt Inline Dokumentation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+View
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+HTML-Dokument
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+index.html
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Gestaltung
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+style.css
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+U
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+img/*
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+U
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Viewlogik
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+lib/src/view.dart
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+U
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+beinhaltelt Inline Dokumentation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Controller
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Eventhandling
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+lib/src/controller.dart
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+U
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+beinhaltelt Inline Dokumentation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Parametrisierung
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+gamekey.json
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+U
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Level
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+nicht umgesetzt
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+GameKey API
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+REST Anbindung
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+lib/src/gamekey.dart
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+U
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+beinhaltelt Inline Dokumentation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Documentation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+SnakeGame Report
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+doc/*.*
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Lyx/Latex Report
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+GameKey Service (Ruby)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Command Line Client
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+bin/gamekey
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+U
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+test command von Heinzel Frau
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Dockerization
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+Dockerfile
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+U
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Gamekey Server
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+lib/*.rb
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+beinhaltelt Inline Dokumentation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Referencetests
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+lib/reference.rb
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+U
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+beinhaltet inline Dokumentation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Dokumentation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size scriptsize
+README.md
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Online Dokumentation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+V = verantwortlich (hauptdurchführend, kann nur einmal pro Zeile vergeben
+ werden)
+\end_layout
+
+\begin_layout Plain Layout
+U = unterstützend (Übernahme von Teilaufgaben)
 \end_layout
 
 \begin_layout Plain Layout
@@ -10842,6 +11519,89 @@ name "tab:Projektverantwortlichkeiten"
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis: } Bei der Dokumentation bietet es sich an, diese ggf.
+ nochmals in Kapitel aufzuteilen, um sie besser Einzelpersonen zuordnen
+ zu können.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{framed}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{Hinweis: } Wenn Sie eine Aufgabenzuordnung wählen, die im wesentlichen
+ besagt, dass alle alles gemacht haben, zeigt das eigentlich nur, dass sie
+ recht planlos agiert haben.
+ Achten Sie darauf, dass die Verantwortlichkeiten und Unterstützungen gleichmäßi
+g und fair im Projekt verteilt werden.
+ Grundsätzlich bekommen alle im Team dieselbe Note, wenn sich jedoch Verantwortl
+ichkeiten bei einer Person häufen, ist klar, dass diese die Hauptlast im
+ Projekt getragen hat.
+ Wenn Personen nur unterstützend tätig waren, ist klar, dass diese durch
+ das Team mit durchgezogen wurden.
+ 
+\backslash
+uline{
+\backslash
+textbf{Solche Fälle haben natürlich Auswirkungen auf die Note!}}
+\end_layout
+
+\begin_layout Plain Layout
+
+Im oben stehenden Fall ist recht deutlich, dass die Hauptlast wohl nicht
+ Heinzel Mann und Heinzel Frau getragen haben.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{framed}
 \end_layout
 
 \end_inset
