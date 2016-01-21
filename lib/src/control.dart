@@ -23,7 +23,7 @@ const acceleration = 0.05;
  * a [GameKey] server is reachable.
  * A [gamekeyCheck] of 5 seconds means gamekey service is checked every 5 seconds.
  */
-const gamekeyCheck = const Duration(seconds: 5);
+const gamekeyCheck = const Duration(seconds: 30);
 
 /**
  * Constant of the game secret used to authenticate against the gamekey service.

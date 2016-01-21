@@ -14,6 +14,9 @@ class GameKey {
   // Game secret
   String _secret;
 
+  // Service reachable?
+  bool _available = false;
+
   /**
    * Constructor
    */
@@ -25,6 +28,7 @@ class GameKey {
    * Game ID
    */
   String get gameId => this._gid;
+
 
   /**
    * URI of GameKey REST API
@@ -42,6 +46,7 @@ class GameKey {
    * - Returns null if user could not be stored (due to several reasons, gamekey service not reachable, user already existing)
    */
   Future<Map> registerUser(String name, String pwd) async {
+    if (!_available) return new Future.value(null);
     try {
       final answer = await HttpRequest.request(
           "${this._uri.resolve("/user")}",
@@ -69,6 +74,7 @@ class GameKey {
    * A user must know his [id] and his [password].
    */
   Future<Map> getUser(String id, String pwd) async {
+    if (!_available) return new Future.value(null);
     try {
       final uri = this._uri.resolve("/user/$id").resolveUri(new Uri(queryParameters: { 'pwd' : "$pwd" }));
       final answer = await HttpRequest.request("$uri", method: 'GET');
@@ -83,15 +89,19 @@ class GameKey {
   /**
    * This method can be used to authenticate a game.
    * A game must know its [id] and its [secret].
+   * This method is used to check periodically gamekey service availability
+   * and sets _available flag accordingly.
    */
   Future<bool> authenticate() async {
     try {
       final uri = this._uri.resolve("/game/$_gid").resolveUri(new Uri(queryParameters: { 'secret' : "$_secret" }));
       final answer = await HttpRequest.request("$uri", method: 'GET');
+      if (answer.status == 200) { this._available = true; }
       return answer.status == 200 ? true : throw answer.responseText;
     } catch (error, stacktrace) {
       print ("GameKey.getGame() caused following error: '$error'");
       print ("$stacktrace");
+      this._available = false;
       return false;
     }
   }
@@ -101,6 +111,7 @@ class GameKey {
    * Returns null if name is not present or on error.
    */
   Future<String> getUserId(String name) async {
+    if (!_available) return new Future.value(null);
     try {
       final users = await listUsers();
       if (users == null) return null;
@@ -117,6 +128,7 @@ class GameKey {
    * Lists all users registered with the gamekey service.
    */
   Future<List<Map>> listUsers() async {
+    if (!_available) return new Future.value([]);
     try {
       final answer = await HttpRequest.request("${this._uri.resolve("/users")}", method: 'GET');
       return JSON.decode(answer.responseText);
@@ -131,6 +143,7 @@ class GameKey {
    * Retrieves all states stored for this game.
    */
   Future<List<Map>> getStates() async {
+    if (!_available) return new Future.value([]);
     try {
       final uri = this._uri.resolve("/gamestate/$_gid").resolveUri(new Uri(queryParameters: { 'secret' : "$_secret" }));
       final answer = await HttpRequest.request("$uri", method: 'GET');
@@ -147,6 +160,7 @@ class GameKey {
    * for this game.
    */
   Future<bool> storeState(String uid, Map state) async {
+    if (!_available) return new Future.value(false);
     try {
       final answer = await HttpRequest.request(
           "${this._uri.resolve("/gamestate/$_gid/$uid")}",
