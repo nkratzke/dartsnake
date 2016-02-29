@@ -7420,7 +7420,7 @@ begin{framed}
 \backslash
 textbf{Hinweis: } Es sollte ihnen ein Leichtes sein, diesen Ansatz für weitere
  spielrelevante Parameter zu erweitern.
- Sie ermöglichen sich damit nebenbei einfachere Anpassungsmöglichkeiten,
+ Sie ermöglichen sich damit nebenbei einfachere Anpassungsmöglichkeiten
  während der finalen Feintuningphase ihres Spiels.
  
 \end_layout
@@ -7458,8 +7458,8 @@ textbf{Hinweis: } Beachten sie bitte, dass sie ein Parametrisierungskonzept
  Service benötigen.
  Sie müssen also ggf.
  zwei Parameterisierungskonzepte dokumentieren, bzw.
- erläutern, warum ggf.
- ein Parametrisierungskonzept nicht erforderlich ist.
+ erläutern, warum ein Parametrisierungskonzept ggf.
+ nicht erforderlich ist.
 \end_layout
 
 \begin_layout Plain Layout
