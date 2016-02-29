@@ -293,7 +293,7 @@ Bei der Suche nach geeigneten Spielideen lohnt es sich immer mal wieder
  Ferner soll ihr Spiel dabei auf einem zweidimensionalen Raster basieren
  und keinen Canvas zur Darstellung nutzen.
  Sie sollen ein Single Player Game schreiben.
- Um die Komplexität nicht im Rahmen zu halten, sollten sie daher mit Ansätzen
+ Um die Komplexität im Rahmen zu halten, sollten sie daher mit Ansätzen
  vorsichtig sein, die auf Multi Player Games beruhen und Player durch 
 \begin_inset Quotes eld
 \end_inset
