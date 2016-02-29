@@ -6,6 +6,30 @@
   color: rgba(255, 255, 255, 0.66);
 }
 
+/* Overlays */
+
+#warningoverlay:empty, #overlay:empty {
+  display: none;
+}
+
+#warningoverlay {
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  background-color: firebrick;
+  padding: 20px;
+}
+
+#overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.50);
+  height: 100%;
+  text-align: center;
+}
+
 .container {
   width: 100%;
   height: 100%;
@@ -39,17 +63,99 @@ a {
 
 #message #gameover {
   font-size: 5rem;
-  color: #9a001a;
-  background: rgba(255, 255, 255, 0.5);
+  color: yellow;
   text-align: center
 }
 
 #message #reasons {
-  background: rgba(255, 255, 255, 0.5);
   font-size: 2rem;
   color: white;
   text-align: center;
 }
+
+#highscoreform {
+  margin: 40px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+#highscoreform input {
+  color: white;
+  border: 1px solid white;
+  background: rgba(255, 255, 255, 0.5);
+  appearance: none;
+  box-shadow: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+}
+
+#highscorewarning {
+  background: lightpink;
+  color: darkred;
+  padding: 50px;
+}
+
+#highscorewarning:empty {
+  display: none;
+}
+
+#scorelist:empty {
+  display: none;
+}
+
+#scorelist {
+  padding: 20px;
+  color: white;
+  margin: 20px;
+  width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid white;
+  border-radius: 10px;
+  background: rgba(1,1,1,0.1);
+}
+
+#scorelist ul {
+  list-style-type: none;
+  list-style-position: outside;
+  margin: 0px;
+}
+
+#scorelist li {
+  font-size: 1.1em;
+  margin: 0px 5px 5px 5px;
+  padding: 5px;
+  color: white;
+  display: block;
+  border-radius: 20px;
+}
+
+#scorelist li:nth-child(even) {
+  background: rgba(1,1,1,0.25);
+}
+
+#scorelist li:nth-child(odd) {
+  background: rgba(1,1,1,0.5);
+}
+
+input::-webkit-input-placeholder { color: lightgray; font-style: italic; }
+input::-moz-placeholder { color: lightgray; font-style: italic; }
+
+button {
+  color: white;
+  border: 1px solid white;
+  background: green;
+  padding: 5px;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 10px;
+}
+
+button.discard {
+  background: red;
+}
+
 
 #controls #level:empty { visibility: hidden; }
 #controls #points:empty { visibility: hidden; }
@@ -67,26 +173,31 @@ a {
 
 /* Spielbrett */
 body {
-  background-image: url('img/background.jpg');
-  background-position: center center;
+  background-color: black;
 }
 
 #snakegame {
   margin: 50px auto 50px auto;
+  background-image: url('img/background.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-collapse: collapse;
 }
 
 #snakegame td {
-  width: 10px;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.3);
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgba(255,255,255,0.25);
+  /*background: rgba(0, 0, 0, 0.5);*/
 }
 
 .mouse {
-  background-color: red !important;
+  background-color: gold !important;
   border-radius: 10px;
 }
 
 .snake {
-  background-color: rgba(255, 255, 255, 0.75) !important;
+  background-color: greenyellow !important;
   border-radius: 10px;
 }

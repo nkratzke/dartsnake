@@ -68,7 +68,7 @@ class Snake {
       _body.remove(tail);
     else {
       // if so, eat the first one
-      _game.mice.removeAt(0);
+      _game.mice.removeWhere((mouse) => mouse.row == newrow && mouse.col == newcol);
       _game.increaseMiceCounter(1);
       _game.addMouse();
     }
@@ -192,7 +192,7 @@ class Mouse {
   /**
    * Returns the actual position of this mouse as a map with keys 'row' and 'col'.
    */
-  Map<String, int> get pos => {'row' : _row, 'col' : _col };
+  Map<String, int> get pos => { 'row' : _row, 'col' : _col };
 
   /**
    * Moves this mouse
@@ -201,7 +201,7 @@ class Mouse {
     if (_dr < 0 && row == 0) _dr *= -1;
     if (_dc < 0 && col == 0) _dc *= -1;
     if (_dr > 0 && row == _game.size - 1) _dr *= -1;
-    if (_dc > 0 && col == _game.size - 1) _dr *= -1;
+    if (_dc > 0 && col == _game.size - 1) _dc *= -1;
     _row += _dr;
     _col += _dc;
   }
@@ -258,6 +258,7 @@ class SnakeGame {
     start();
     _snake = new Snake.on(this);
     addMouse();
+    addMouse();
     stop();
   }
 
@@ -286,7 +287,12 @@ class SnakeGame {
     var _field = new Iterable.generate(_size, (row) {
       return new Iterable.generate(_size, (col) => #empty).toList();
     }).toList();
-    mice.forEach((m) => _field[m.row][m.col] = #mouse);
+    mice.forEach((m) {
+      if (m.row < size && m.col < size)
+        _field[m.row][m.col] = #mouse;
+      else
+        print (m);
+    });
     snake.body.forEach((s) {
       final r = s['row'];
       final c = s['col'];
@@ -331,7 +337,8 @@ class SnakeGame {
     Random r = new Random();
     final row = r.nextInt(_size);
     final col = r.nextInt(_size);
-    _mice.add(new Mouse.staticOn(this, row, col));
+    //_mice.add(new Mouse.staticOn(this, row, col));
+    _mice.add(new Mouse.movingOn(this, row, col));
   }
 
   /**

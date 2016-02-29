@@ -1,3 +1,3 @@
-import 'package:snakedart/dartsnake.dart';
+import 'package:snakedart/snakedart.dart';
 
 main() => new SnakeGameController();
