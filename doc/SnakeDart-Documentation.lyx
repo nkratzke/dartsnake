@@ -6768,13 +6768,12 @@ POST
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Plain Layout
+\begin_layout Itemize
 
 \size footnotesize
 Speichert einen GameState für ein Spiel mit der ID :gid und einem User mit
  der ID :uid.
  Das Game muss sich mit seinem Secret authentifizieren.
- Der User muss sich mit seinem Passwort authentifizieren.
 \end_layout
 
 \end_inset
