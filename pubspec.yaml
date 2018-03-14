@@ -1,5 +1,5 @@
 name: snakedart
-version: 0.1.0
+version: 0.1.1
 author: Nane Kratzke <nane@nkode.io>
 description: Dart implementation of the famous Snake Game.
 homepage: https://github.com/nkratzke/dartsnake

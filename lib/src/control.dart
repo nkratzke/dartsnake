@@ -191,7 +191,7 @@ class SnakeGameController {
       String user = view.user;
       String pwd  = view.password;
 
-      if (user?.isEmpty) { view.warn("Please provide user name."); return; }
+      if (user.isEmpty) { view.warn("Please provide user name."); return; }
 
       String id = await gamekey.getUserId(user);
       if (id == null) {
