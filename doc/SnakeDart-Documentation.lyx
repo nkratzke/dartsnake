@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass article
 \begin_preamble
 \usepackage{listings}
@@ -48,16 +50,18 @@ logicalmkup
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family sfdefault
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -87,6 +91,7 @@ logicalmkup
 \suppress_date true
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -99,7 +104,10 @@ logicalmkup
 \tocdepth 3
 \paragraph_separation skip
 \defskip medskip
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 2
 \paperpagestyle headings
@@ -161,7 +169,7 @@ Prof.
 \begin_layout Standard
 \noindent
 \align center
-SoSe 2016
+SoSe 2019
 \end_layout
 
 \begin_layout Standard
@@ -511,64 +519,6 @@ Auch wenn es nur ein kleines Spiel ist, das sie entwickeln sollen, werden
 
 \begin_layout Standard
 Ich wünsche Ihnen nun viel Erfolg und Spaß bei der Entwicklung ihres Webgames.
- Die besten Spiele der vergangenen Jahre finden Sie in einer Hall-of-Fame
- unter folgendem Link 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-url{http://www.nkode.io/assets/webtech-hall-of-fame/index.html}
-\end_layout
-
-\end_inset
-
-.
- Auch ihr Spiel kann in diese Hall-of-Fame eintreten.
- Dafür gelten die folgenden Regeln:
-\end_layout
-
-\begin_layout Enumerate
-Ihr Team muss das Modul mit einer guten oder sehr guten Note abschließen.
-\end_layout
-
-\begin_layout Enumerate
-Sie müssen erlauben, dass ihr Spiel der Öffentlichkeit zur Verfügung gestellt
- werden darf.
-\end_layout
-
-\begin_layout Enumerate
-Die fünf besten Spiele werden in der Google+ Dartisans Community zu einer
- öffentlichen Abstimmung eingestellt.
-\end_layout
-
-\begin_layout Enumerate
-Die Google+ Dartisans Community stimmt über die besten Spiele ab.
- 
-\end_layout
-
-\begin_layout Enumerate
-Die drei best bewerteten Spiele (Stimmenanzahl) werden in die "Hall of Fame"
- aufgenommen.
- 
-\end_layout
-
-\begin_layout Enumerate
-Das 
-\series bold
-\bar under
-beste Spiel
-\series default
-\bar default
- des Semesters erhält einen 
-\series bold
-\bar under
-Notenbonus
-\series default
-\bar default
-.
 \end_layout
 
 \begin_layout Section
@@ -604,1113 +554,6 @@ url{https://github.com/nkratzke/dartsnake}
 
 ) orientieren.
  Sie sollen jedoch ein eigenständiges Spielkonzept entwickeln und umsetzen.
-\end_layout
-
-\begin_layout Subsection
-Anforderungen
-\end_layout
-
-\begin_layout Standard
-Ihr Spiel soll folgende Anforderungen erfüllen.
- Sie sollen dabei nachvollziehbar dokumentieren, wie diese Anforderungen
- durch ihre Realisierung umgesetzt werden.
- Das Spiel soll folgende in Tabelle 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Anforderungen"
-
-\end_inset
-
- aufgeführten 
-\series bold
-funktionalen Anforderungen
-\series default
-, 
-\series bold
-Dokumentationsanforderungen
-\series default
- und 
-\series bold
-technischen Randbedingungen
-\series default
- erfüllen.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="27" columns="3">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="left" valignment="top" width="10col%">
-<column alignment="left" valignment="top" width="80col%">
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size scriptsize
-Id
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size scriptsize
-Kurztitel
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size scriptsize
-Anforderung
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-AF-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Einplayer Game
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Das Spiel soll ein Einplayer Game sein 
-\emph on
-(Mehrplayer Konzepte können als Einplayer Game realisiert werden, wenn Spieler
- durch 
-\begin_inset Quotes eld
-\end_inset
-
-künstliche Intelligenzen
-\begin_inset Quotes erd
-\end_inset
-
- gesteuert werden.
- Beachten Sie dabei bitte, dass abhängig vom Spielkonzept die Komplexität
- des Spiels erheblich steigt, denken sie bspw.
- an Schach.
- Es bietet sich an, sich von alten Arcade Klassikern inspieren zu lassen.)
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-AF-2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-2D Game
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Das Spiel soll konzeptionell auf einem 2D-Raster basieren.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-AF-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Levelkonzept
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Das Spiel sollte ein Levelkonzept vorsehen.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-AF-4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Parametrisier-ungskonzept
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Das Spiel sollte ein Parameterisierungskonzept für relevante Spielparameter
- vorsehen.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-AF-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-REST-basierter Storage
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Das Spiel soll auf einen JSON-basierte Storageservice zugreifen können,
- um Spielzustände (z.B.
- Highscores und ähnliches) speichern zu können.
- Das Spiel muss bei nicht erreichbarem Storage-Service (Gamekey Service)
- weiterhin spielbar sein.
- Einzig und allein die Speicherfunktionalitäten dürfen natürlich eingeschränkt
- sein.
-
-\emph on
- (Für den Storage-Service (Gamekey-Service) gibt es eine Referenz-Implementierun
-g: 
-\emph default
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-url{https://bitbucket.org/nanekratzke/gamekey}
-\end_layout
-
-\end_inset
-
-
-\emph on
-)
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-AF-6
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Desktop Browser
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Das Spiel muss in Desktop Browsern spielbar sein.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-AF-7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Mobile Browser
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Das Spiel muss auf SmartPhone Browsern spielbar sein.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size scriptsize
-Dokumentationsanforderungen
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-D-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Dokumenta-tionsvorlage
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Die Dokumentation soll sich an vorliegender Vorlage orientieren.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-D-2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Projekt-dokumentation
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Das Spiel muss geeignet dokumentiert sein, so dass es von projektfremden
- Personen fortgeführt werden könnte.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-D-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Quelltext-dokumentation
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Der Quelltext des Spiels muss geeignet dokumentiert sein und mittels schriftlich
-er Dokumentation erschließbar und verständlich sein.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-D-4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Libraries
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Alle verwendeten Libraries sind aufzuführen und deren Notwendigkeit zu begründen.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size scriptsize
-Technische Randbedingungen
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-No Canvas
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Die Darstellung des Spielfeldes sollte ausschließlich mittels DOM-Tree Techniken
- erfolgen.
- Die Nutzung von Canvas-basierten Darstellungstechniken ist 
-\series bold
-\bar under
-explizit
-\series default
-\bar default
- untersagt.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Levelformat
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Level sollten sich mittels deskriptiver Textdateien definieren lassen (z.B.
- mittels CSV, JSON, XML, etc.), so dass Level-Änderungen ohne Sourcecode-Änderung
-en des Spiels realisierbar sind.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Parameterformat
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Spielparameter sollten sich mittels deskriptiver Textdateien definieren
- lassen (z.B.
- mittels CSV, JSON, XML, etc.), so dass Parameter-Änderungen ohne Sourcecode-Ände
-rungen des Spiels realisierbar sind.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-HTML + CSS
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Der View des Spiels darf ausschließlich mittels HTML und CSS realisiert
- werden.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Gamelogic in Dart
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Die Logik des Spiels muss mittels der Programmiersprache Dart realisiert
- werden.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-6
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Storagelogic in Dart 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Der Storageservice muss REST-basiert sein und mittels der Programmiersprache
- Dart realisiert werden.
- 
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Storage Referenz
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Das Spiel soll gleichermaßen mit der Referenzimplementierung des Storageservice
- als auch der Eigenrealisierung des Storageservice funktionieren.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-8
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Storage Referenztest
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Die Eigenrealisierung des Storageservices muss den Referenztest der Referenzimpl
-ementierung implementieren.
- 
-\emph on
-(Nicht erfolgreiche Testfälle sind explizit auszuweisen, zu dokumentieren
- und zu begründen!)
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-9
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Browser Support
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Das Spiel muss im Browser Chromium/Dartium (native Dart Engine) funktionieren.
- Das Spiel muss ferner in allen anderen Browserrn (JavaScript Engines) ebenfalls
- in der JavaScript kompilierten Form funktionieren (geprüft wird ggf.
- mit Safari, Chrome und Firefox).
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-10
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-MVC Architektur
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Das Spiel sollte einer MVC-Architektur folgen.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-11
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Erlaubte Pakete
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Erlaubt sind alle dart:* packages, sowie das Webframework start.
- 
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-12
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Verbotene Pakete
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Verboten sind Libraries wie Polymer oder Angular.
- 
-\emph on
-(Sollten Sie Pakete verwenden wollen, die außerhalb der erlaubten Pakete
- liegen, holen Sie sich das Go ab, begründen sie bitte, wieso sie das Paket
- benötigen).
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-13
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-No Sound
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Das Spiel muss keine Sounds unterstützen.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Anforderungen
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Anforderungen"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Spielkonzept des Snake Games
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Spielkonzept-des-Snake-Game"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1822,7 +665,7 @@ status collapsed
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="7">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -2346,7 +1189,7 @@ status collapsed
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="7">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -2869,7 +1712,7 @@ status collapsed
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="7">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -3492,7 +2335,7 @@ erkennen und in entsprechende Modelinteraktionen umsetzen.
  Der Controller wird detailliert im Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Controller"
+reference "subsec:Controller"
 
 \end_inset
 
@@ -3512,7 +2355,7 @@ SnakeView
  Der View wird im Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:View"
+reference "subsec:View"
 
 \end_inset
 
@@ -3523,78 +2366,14 @@ reference "sub:View"
 \begin_layout Standard
 Konzeptionell wird SnakeGame in einem Model abgebildet.
  Das Model ist komplexer und gliedert sich in mehrere logische Entities,
- die sich aus dem Spielkonzept des Abschnitts 
+ die sich aus dem Spielkonzept ableiten und im Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Spielkonzept-des-Snake-Game"
-
-\end_inset
-
- ableiten und im Abschnitt 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Model"
+reference "subsec:Model"
 
 \end_inset
 
  erläutert werden.
- 
-\end_layout
-
-\begin_layout Standard
-Zur Speicherung von Spielzuständen (bei SnakeGame nur Speicherung von Highscores
-) kann der Controller auf eine sogenannte Gamekey API zurürckgreifen.
- Die Gamekey API kapselt in Form der Klasse 
-\family typewriter
-\series bold
-GameKey
-\family default
-\series default
- eine REST basierte Schnittstelle eines externen Gamekey Service.
- Mittels des Gamekey Service ist es möglich, Spielzustände eines Spiels
- in Form von JSON zu speichern und abzufragen.
- Der Gamekey Service und seine Anbindung wird im Abschnitt 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:REST-basierter-Storage"
-
-\end_inset
-
- erläutert.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{framed}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Hinweis:} Der Gamekey Service kann von beliebigen Spielen genutzt
- werden, um Spielzustände in einem JSON Format zu speichern.
- D.h.
- auch Sie sollen Ihr Spiel an den Gamekey Service anbinden.
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{framed}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -3647,7 +2426,7 @@ name "fig:Architektur"
 Model
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Model"
+name "subsec:Model"
 
 \end_inset
 
@@ -3655,14 +2434,7 @@ name "sub:Model"
 \end_layout
 
 \begin_layout Standard
-Aus dem Spielkonzept des Abschnitts 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Spielkonzept-des-Snake-Game"
-
-\end_inset
-
- wurden eine Schlange (
+Aus dem Spielkonzept des Abschnitts wurden eine Schlange (
 \family typewriter
 \series bold
 Snake
@@ -3691,7 +2463,7 @@ Snake
  Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Snake-Entity"
+reference "subsec:Snake-Entity"
 
 \end_inset
 
@@ -3705,7 +2477,7 @@ Mouse
  Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Mouse-Entity"
+reference "subsec:Mouse-Entity"
 
 \end_inset
 
@@ -3987,7 +2759,7 @@ Snake
  Entity
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Snake-Entity"
+name "subsec:Snake-Entity"
 
 \end_inset
 
@@ -4169,7 +2941,7 @@ Mouse
  Entity
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Mouse-Entity"
+name "subsec:Mouse-Entity"
 
 \end_inset
 
@@ -4327,7 +3099,7 @@ dc
 View
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:View"
+name "subsec:View"
 
 \end_inset
 
@@ -4339,7 +3111,7 @@ Der View dient der Darstellung des Spiels für den Spieler.
  Er besteht im Kern aus einem HTML-Dokument (siehe Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:HTML-Dokument"
+reference "subsec:HTML-Dokument"
 
 \end_inset
 
@@ -4347,7 +3119,7 @@ reference "sub:HTML-Dokument"
 t (siehe Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:SnakeView"
+reference "subsec:SnakeView"
 
 \end_inset
 
@@ -4358,7 +3130,7 @@ reference "sub:SnakeView"
 HTML-Dokument
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:HTML-Dokument"
+name "subsec:HTML-Dokument"
 
 \end_inset
 
@@ -4430,7 +3202,12 @@ begin{lstlisting}[caption=HTML Basisdokument des Spiels]
 
 \begin_layout Plain Layout
 
-    <link rel="stylesheet" type="text/css" href="style.css">     
+    <link rel="stylesheet" type="text/css" href="style.css">
+\end_layout
+
+\begin_layout Plain Layout
+
+    <script defer src='snakeclient.dart.js'></script>    
 \end_layout
 
 \begin_layout Plain Layout
@@ -4450,7 +3227,6 @@ begin{lstlisting}[caption=HTML Basisdokument des Spiels]
 
 \begin_layout Plain Layout
 
-    <div id="warningoverlay"></div>
 \end_layout
 
 \begin_layout Plain Layout
@@ -4476,11 +3252,6 @@ begin{lstlisting}[caption=HTML Basisdokument des Spiels]
 \begin_layout Plain Layout
 
        <div id='welcome'>         
-\end_layout
-
-\begin_layout Plain Layout
-
-         <div id='highscore'></div>         
 \end_layout
 
 \begin_layout Plain Layout
@@ -4557,22 +3328,7 @@ begin{lstlisting}[caption=HTML Basisdokument des Spiels]
 
 \begin_layout Plain Layout
 
-   </div>
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\end_layout
-
-\begin_layout Plain Layout
-
-   <script type='application/dart' src='snakeclient.dart'></script>     
-\end_layout
-
-\begin_layout Plain Layout
-
-   <script src='packages/browser/dart.js'></script>      
+   </div>     
 \end_layout
 
 \begin_layout Plain Layout
@@ -4618,7 +3374,7 @@ SnakeView
  als Schnittstelle zum HTML-Dokument
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:SnakeView"
+name "subsec:SnakeView"
 
 \end_inset
 
@@ -4648,17 +3404,6 @@ reference "fig:Klassendiagramm-(VC)"
 Das Element mit dem Identifier 
 \family typewriter
 \series bold
-#warningoverlay
-\family default
-\series default
- wird genutzt, um generelle Warnungen einzublenden (bspw.
- dass keine Verbindung zum Gamekey Service aufgebaut werden konnte).
-\end_layout
-
-\begin_layout Itemize
-Das Element mit dem Identifier 
-\family typewriter
-\series bold
 #overlay
 \family default
 \series default
@@ -4674,16 +3419,6 @@ reference "fig:Screenshots-des-SnakeGames"
 \end_inset
 
 , linker Screenshot).
-\end_layout
-
-\begin_layout Itemize
-Das Element mit dem Identifier 
-\family typewriter
-\series bold
-#highscore
-\family default
-\series default
- dient dazu den Highscore einzublenden.
 \end_layout
 
 \begin_layout Itemize
@@ -4709,19 +3444,10 @@ style.css
  Die Applikationslogik wird über das 
 \family typewriter
 \series bold
-snakeclient.dart
+snakeclient.dart.js
 \family default
 \series default
  Script geladen.
- Für nicht Dart-fähige Browser wird ergänzend gem.
- den Dart-Konventionen die 
-\family typewriter
-\series bold
-dart.js
-\family default
-\series default
- geladen, um Dart Logik in Javascript Engines zur Ausführung bringen zu
- können.
 \end_layout
 
 \begin_layout Standard
@@ -4745,25 +3471,13 @@ status open
 \end_inset
 
 
-\begin_inset space \qquad{}
-\end_inset
-
-
-\begin_inset Graphics
-	filename Screenshot-highscore.png
-	lyxscale 40
-	width 25col%
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Screenshots des SnakeGames
+Screenshot des SnakeGames
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Screenshots-des-SnakeGames"
@@ -4798,7 +3512,7 @@ SnakeView
  Klasse 
 \family typewriter
 \series bold
-Snake\SpecialChar \-
+Snake\SpecialChar softhyphen
 GameController
 \family default
 \series default
@@ -4812,24 +3526,10 @@ reference "fig:Klassendiagramm-(VC)"
 \end_inset
 
 ), um View Aktualisierungen vorzunehmen (vgl.
- auch Sequenzdiagramme in den Abschnitten 
+ auch Sequenzdiagramm im Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Laufendes-Spiel"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Game-Over-bei-registriertem-Spieler"
-
-\end_inset
-
- und 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Game-Over-bei-nicht-registriertem-Spieler"
+reference "subsec:Laufendes-Spiel"
 
 \end_inset
 
@@ -4893,77 +3593,6 @@ generateField()
  eingeblendet.
 \end_layout
 
-\begin_layout Itemize
-Highscore und Highscore Speicherung kann mittels der Methode 
-\family typewriter
-\series bold
-showHighscore()
-\family default
-\series default
- als Formular in das DIV-Element mit der Id 
-\family typewriter
-\series bold
-#overlay
-\family default
-\series default
- des DOM-Tree eingeblendet werden.
- 
-\end_layout
-
-\begin_layout Itemize
-Mittels der 
-\family typewriter
-\series bold
-warn()
-\family default
-\series default
- Methode können innerhalb des Highscore Formulars Warnungstexte eingeblendet
- werden (bspw.
- falsches Password eingegeben, Spieler nicht vorhanden, etc.)
-\end_layout
-
-\begin_layout Itemize
-Die Methode 
-\family typewriter
-\series bold
-closeForm()
-\family default
-\series default
- blendet das Highscore Speicherformular wieder aus dem DOM-Tree aus (d.h.
- das Formular wird geschlossen).
-\end_layout
-
-\begin_layout Itemize
-Mittels der Attribute 
-\family typewriter
-\series bold
-user
-\family default
-\series default
- und 
-\family typewriter
-\series bold
-password
-\family default
-\series default
- kann ein 
-\family typewriter
-\series bold
-SnakeGameController
-\family default
-\series default
- im Verlaufe der Highscore Verarbeitung auf die Input-Eingaben des Highscore
- Formulars (siehe Abb.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Screenshots-des-SnakeGames"
-
-\end_inset
-
-, rechte Screenshot) zugreifen.
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float figure
 wide false
@@ -5010,7 +3639,7 @@ name "fig:Klassendiagramm-(VC)"
 Controller
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Controller"
+name "subsec:Controller"
 
 \end_inset
 
@@ -5079,40 +3708,18 @@ Dies dreht im wesentlichen nur den Kopf der Schlange in die Richtung, in
  auf dem View, wird in Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Laufendes-Spiel"
+reference "subsec:Laufendes-Spiel"
 
 \end_inset
 
  erläutert.
- Noch komplexer sind erstaunlicherweise die Abläufe im Falle des Game Overs.
- Zum einen müssen hier die zeitgesteuerten Events deaktiviert werden, zum
- anderen muss der Controller eng mit dem View und dem Gamekey Service interagier
-en, um ggf.
- erreichte Highscores zu speichern und noch nicht registrierte Nutzer gesondert
- im Gamekey Service zu registrieren.
- Diese GameOver Abläufe werden aufgrund ihrer Komplexität in den Abschnitten
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Game-Over-bei-registriertem-Spieler"
-
-\end_inset
-
- und 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Game-Over-bei-nicht-registriertem-Spieler"
-
-\end_inset
-
- gesondert erläutert.
 \end_layout
 
 \begin_layout Subsubsection
 Laufendes Spiel
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Laufendes-Spiel"
+name "subsec:Laufendes-Spiel"
 
 \end_inset
 
@@ -5448,22 +4055,6 @@ reference "fig:Sequenzdiagramm-(Laufendes-Spiel)"
  gezeigt.
  Als erstes wird geprüft, ob das Spiel einen Game Over Zustand erreicht
  hat.
- Sollte dies der Fall sein, wird gem.
- Abschnitt 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Game-Over-bei-registriertem-Spieler"
-
-\end_inset
-
- oder 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Game-Over-bei-nicht-registriertem-Spieler"
-
-\end_inset
-
- fortgefahren.
  Solange das Spiel noch läuft, ruft der Controller je nach Trigger die 
 \family typewriter
 \series bold
@@ -5572,103 +4163,6 @@ name "fig:Sequenzdiagramm-(Laufendes-Spiel)"
 
 \end_layout
 
-\begin_layout Subsubsection
-Game Over bei registriertem Spieler
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:Game-Over-bei-registriertem-Spieler"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Im Falle das während der Bearbeitung des 
-\family typewriter
-\series bold
-snakeTrigger
-\family default
-\series default
- oder des 
-\family typewriter
-\series bold
-miceTrigger
-\family default
-\series default
- festgestellt wird, dass sich der GameOver Zustand im Spiel eingestellt
- hat, erfolgen zwei Abläufe, die gestartet werden, je nachdem ob es sich
- beim Spieler um einen registrierten Spieler (siehe Abschnitt 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Game-Over-bei-registriertem-Spieler"
-
-\end_inset
-
-) oder nicht registrierten Spieler (siehe Abschnitt 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Game-Over-bei-nicht-registriertem-Spieler"
-
-\end_inset
-
-) handelt.
-\end_layout
-
-\begin_layout Standard
-Im Falle eines registrierten Spieler ist der Kontrollfluss wie in Abbildung
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Sequenzdiagramm-(Game Over, registrierter Spieler)"
-
-\end_inset
-
- gezeigt.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename Sequenzdiagramm-game-over-registered-user.pdf
-	width 90col%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Sequenzdiagram (Game Over bei registriertem Spieler)
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Sequenzdiagramm-(Game Over, registrierter Spieler)"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 Im Verlaufe des zeitgesteuerten Modelltriggerings (
 \family typewriter
@@ -5738,1430 +4232,6 @@ update()
 \family default
 \series default
  benachrichtigt.
- Anschließend wendet sich der 
-\family typewriter
-\series bold
-SnakeGameController
-\family default
-\series default
- an die 
-\family typewriter
-\series bold
-GameKey
-\family default
-\series default
- API um alle gespeicherten Highscores mittels 
-\family typewriter
-\series bold
-getStates()
-\family default
-\series default
- anzufordern.
- Die 
-\family typewriter
-\series bold
-GameKey
-\family default
-\series default
- Klasse leitet diese Anfrage an den GameKey Service über die in Abb.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Architektur"
-
-\end_inset
-
- gezeigte REST Schnittstelle (vgl.
- auch Tabelle 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:REST-Schnittstelle-des-Gamekey-Service"
-
-\end_inset
-
-) weiter.
- Diese Highscores werden sortiert und mittels 
-\family typewriter
-\series bold
-showHighscore()
-\family default
-\series default
- an den 
-\family typewriter
-\series bold
-SnakeView
-\family default
-\series default
- geleitet, damit dieser ein Formular zur Highscore-Speicherung auflegt (siehe
- auch Abb.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Screenshots-des-SnakeGames"
-
-\end_inset
-
-(rechts)).
- Im Highscore Formular sind Eingabefelder für User und Passwort Informationen
- sowie ein Save und Cancel Button vorhanden.
- Es werden entsprechende Listener registriert.
- 
-\end_layout
-
-\begin_layout Standard
-Die erste Phase der Verarbeitung ist damit beendet.
- Der View befindet sich jetzt in einem Zustand, dass ein Spieler seinen
- Namen und Passwort eingeben kann und seinen Highscore mittels Save speichern
- kann (bzw.
- das Speichern mittels Cancel abbrechen kann, wird hier nicht näher beleuchtet,
- weil trivial).
-\end_layout
-
-\begin_layout Standard
-Die zweite Phase der Verarbeitung beginnt mit der Betätigung des 
-\series bold
-Save Buttons
-\series default
- durch den Spieler.
- In diesem Fall übernimmt wieder der Controller und fragt über den 
-\family typewriter
-\series bold
-SnakeView
-\family default
-\series default
- Spieler (
-\family typewriter
-\series bold
-user
-\family default
-\series default
-) und Passwort (
-\family typewriter
-\series bold
-pwd
-\family default
-\series default
-) Daten aus den Eingabefeldern ab.
- Mittels dieser Daten wendet er sich mittels 
-\family typewriter
-\series bold
-getUserId()
-\family default
-\series default
- an die 
-\family typewriter
-\series bold
-GameKey
-\family default
-\series default
- API, um die Id des Spielers in Erfahrung zu bringen.
- Sollte der Spieler im GameKey Service existieren und das korrekte Passwort
- angegeben haben, so wird eine User Id zurück gegeben, die benötigt wird,
- um einen Status mittels 
-\family typewriter
-\series bold
-storeState()
-\family default
-\series default
- im GameKey Service für einen Spieler zu speichern.
- Im erfolgreichen Fall des Speicherns wendet sich der 
-\family typewriter
-\series bold
-SnakeGameController
-\family default
-\series default
- abschließend mittels 
-\family typewriter
-\series bold
-closeForm()
-\family default
-\series default
- an den 
-\family typewriter
-\series bold
-SnakeView
-\family default
-\series default
- um das Formular zu schließen und anschließend ein neues Spiel mittels 
-\family typewriter
-\series bold
-newGame()
-\family default
-\series default
- zu starten.
-\end_layout
-
-\begin_layout Subsubsection
-Game Over bei nicht registriertem Spieler
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:Game-Over-bei-nicht-registriertem-Spieler"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Im Falle eines nicht registrierten Spieler ist der Kontrollfluss wie in
- Abbildung 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Sequenzdiagramm-(Game Over, nicht registrierter Spieler)"
-
-\end_inset
-
- gezeigt.
- Der Ablauf ist grundsätzlich wie in Abschnitt 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Sequenzdiagramm-(Game Over, registrierter Spieler)"
-
-\end_inset
-
- gezeigt, jedoch muss die zweite Phase durch eine dritte Phase der Verarbeitung
- (Spieler Erzeugung) ergänzt werden.
-\end_layout
-
-\begin_layout Standard
-Im Falle das ein Spieler das Spiel zum ersten Mal spielt (und vorher noch
- keine anderen an den GameKey Service angebunden Spiele gespielt hat) kann
- 
-\family typewriter
-\series bold
-getUserId()
-\family default
-\series default
- keine User Id zurückgeben, denn der Spieler existiert ja noch nicht.
- In diesem Fall blendet der 
-\family typewriter
-\series bold
-SnakeGameController
-\family default
-\series default
- mittels der 
-\family typewriter
-\series bold
-warn()
-\family default
-\series default
- Methode im 
-\series bold
-SnakeView
-\series default
- eine entsprechende Warnung ein, dass der Spieler noch nicht existiert.
- Zusätzlich werden zwei Buttons (Create User, Cancel) eingeblendet, die
- bei entsprechenden Listenern registriert werden.
- Die zweite Phase ist damit um das storeState() gekürzt.
-\end_layout
-
-\begin_layout Standard
-Die dritte Phase der Verarbeitung kann über den 
-\series bold
-Create Button
-\series default
- durch den Nutzer angestoßen werden.
- In diesem Fall übernimmt wieder der Controller und registriert den Spieler
- mittels 
-\family typewriter
-\series bold
-registerUser()
-\family default
-\series default
- über die 
-\family typewriter
-\series bold
-GameKey
-\family default
-\series default
- API beim GameKey Service.
- Im erfolgreichen Fall wird dem User eine Id zugewiesen, die dann dazu genutzt
- werden kann, den Highscore mittels 
-\family typewriter
-\series bold
-storeState()
-\family default
-\series default
- wie im Abschnitt 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Game-Over-bei-registriertem-Spieler"
-
-\end_inset
-
- erläutert zu speichern.
- Anschließend wird das Formular mittels 
-\family typewriter
-\series bold
-closeForm()
-\family default
-\series default
- geschlossen und ein neues Spiel gestartet (
-\family typewriter
-\series bold
-newGame()
-\family default
-\series default
-).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename Sequenzdiagramm-game-over-not-registered-user.pdf
-	width 90col%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Sequenzdiagram (Game Over bei nicht registriertem Spieler)
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Sequenzdiagramm-(Game Over, nicht registrierter Spieler)"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-REST-basierte Storage Lösung
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:REST-basierter-Storage"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{framed}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Hinweis:} Die Referenzimplementierung des Gamekey Service in Ruby,
- dient nur dazu, dass Spiel und Storage parallel durch Ihr Team entwickelt
- werden kann.
- Denken sie über eine entsprechende Aufgabenverteilung nach.
- Eine wesentliche Aufgabe ist es, dass sie die Storage Referenzlösung als
- REST-basierten Dart Service nachimplementieren, um nachzuweisen, dass Sie
- in der Lage sind Dart auch serverseitig (Storage) und nicht nur clientseitig
- (Spiel) einzusetzen.
- Gleichzeitig weisen Sie so nach, dass sie sich hinreichend in REST-Prinzipien
- und das HTTP Protokoll eingearbeitet haben.
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-Ihr Spiel muss sowohl mit der Referenzimplementierung in Ruby als auch mit
- ihrer Eigenentwicklung in Dart funktionieren.
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{framed}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-Referenzimplementierung (GameKey Service, Ruby)
-\end_layout
-
-\begin_layout Standard
-Die Referenz-Storage Lösung ist bewusst in Ruby und nicht in Dart implementiert
- und findet sich hier: 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-url{https://bitbucket.org/nanekratzke/gamekey}
-\end_layout
-
-\end_inset
-
-.
- Sie finden unter diesem Link auch eine kurze Online Dokumentation, wie
- der GameKey command line client funktioniert.
- 
-\end_layout
-
-\begin_layout Standard
-Sie können sich die Ruby Implementierung als Git Repository clonen:
-\end_layout
-
-\begin_layout LyX-Code
-git clone https://nanekratzke@bitbucket.org/nanekratzke/gamekey.git
-\end_layout
-
-\begin_layout Standard
-Ihre Aufgabe ist es (neben der Entwicklung des eigentlichen Spiels), diese
- Referenzimplementierung mit identischer Verhaltensweise in Dart nachzuimplement
-ieren.
-\end_layout
-
-\begin_layout Standard
-Der GameKey Service kann auf Systemen auf denen Ruby (Version 2.2 oder höher)
- installiert ist, mittels
-\end_layout
-
-\begin_layout LyX-Code
-gem install gamekey
-\end_layout
-
-\begin_layout Standard
-installiert werden.
- Anschließend kann der Service kann mittels
-\end_layout
-
-\begin_layout LyX-Code
-gamekey start
-\end_layout
-
-\begin_layout Standard
-gestartet werden.
- Mittels 
-\end_layout
-
-\begin_layout LyX-Code
-gamekey help
-\end_layout
-
-\begin_layout LyX-Code
-gamekey help <command>
-\end_layout
-
-\begin_layout Standard
-erhalten sie weitere Nutzungshinweise für die einzelnen command line Befehle.
-\end_layout
-
-\begin_layout Standard
-Der Gamekey-Service kann theoretisch als In-Memory Key-Value Lösung betrieben
- werden.
- Alle Schreiboperationen werden jedoch in der Referenzimplementierung in
- eine 
-\family typewriter
-\size small
-gamekey.json
-\family default
-\size default
- Datei serialisiert (das senkt die Performance, man erhält dafür aber Persistenz
- und Debug-Möglichkeiten).
- Diese Datei (letztlich nur eine 1:1 JSON Serialisierung der internen Datenstruk
-tur zum Zeitpunkt der letzten Schreiboperation) können Sie für Test und
- Debugging-Zwecke heranziehen.
-\end_layout
-
-\begin_layout Standard
-Details der REST-basierten Schnittstellen finden sich in der 
-\family typewriter
-\size small
-lib/gamekey.rb
-\family default
-\size default
- in der Methode 
-\family typewriter
-\size small
-Gamekey::api()
-\family default
-\size default
-.
- Hier werden alle URLs und zulässigen HTTP Methoden sowie Rückgabecodes
- erklärt.
- Nachfolgende Tabelle 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:REST-Schnittstelle-des-Gamekey-Service"
-
-\end_inset
-
- fast die REST-basierte Schnittstelle für einen ersten Überblick zusammen.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="14" columns="3">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top" width="70col%">
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size footnotesize
-Ressource
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size footnotesize
-METHOD
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size footnotesize
-Erklärung
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-/user
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-POST
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Erstellt eine neue User Resource (Spieler eines Games).
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-/users
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-GET
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Liefert alle User als JSON Liste.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-/user/:id
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-GET
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Liest User Daten zu einem User mit der ID :id aus.
- User Daten werden als JSON zurückgegeben.
- Der User muss sich mit seinem Passwort authentifizieren.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-/user/:id
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-PUT
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Aktualisiert User Daten für einen User mit der ID :id.
- Aktualisierte User Daten werden als JSON zurückgegeben.
- Der User muss sich mit seinem Passwort authentifizieren.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-/user/:id
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-DELETE
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Löscht User Ressource für einen User mit der ID :id.
- Der User muss sich mit seinem Passwort authentifizieren.
- Diese Operation löscht auch alle GameStates des Users!
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-/game
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-POST
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Erstellt eine neue Game Resource (Games).
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-/games
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-GET 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Liefert alle Games als JSON Liste.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-/game/:id
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-GET
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Liest Game Daten zu einem Game mit der ID :id aus.
- Game Daten werden als JSON zurückgegeben.
- Das Game muss sich mit seinem Secret authentifizieren.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-/game/:id
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-PUT
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Aktualisiert Game Daten für ein Game mit der ID :id.
- Aktualisirte Game Daten werden als JSON zurückgegeben.
- Das Game muss sich mit seinem Secret authentifizieren.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-/game/:id
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-DELETE
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Löscht Game Ressource für ein Game mit der ID :id.
- Das Game muss sich mit seinem Secret authentifizieren.
- Diese Operation löscht auch alle GameStates des Games!
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-/gamestate/:gid/:uid
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-GET
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Liefert alle GameState Ressourcen eines Games mit der ID :gid für den User
- mit der ID :uid.
- Das Game muss sich mit seinem Secret authentifizieren.
- Alle GameStates werden als JSON Liste zurückgegeben.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-/gamestate/:gid
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-GET
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Liefert alle GameState Ressourcen eines Games mit der ID :gid für alle.
- Das Game muss sich mit seinem Secret authentifizieren.
- Alle GameStates werden als JSON Liste zurückgegeben.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-/gamestate/:gid/:uid
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size footnotesize
-POST
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Itemize
-
-\size footnotesize
-Speichert einen GameState für ein Spiel mit der ID :gid und einem User mit
- der ID :uid.
- Das Game muss sich mit seinem Secret authentifizieren.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-REST Schnittstelle des Gamekey Service
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:REST-Schnittstelle-des-Gamekey-Service"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Der Gamekey Service beinhaltet ferner einen Satz an automatisierten Referenztest
-s, mit der Sie prüfen können, ob ihre Dart Implementierung des Gamekey Service
- korrekt ist und sich verhält wie die Referenzlösung.
- 
-\end_layout
-
-\begin_layout LyX-Code
-gamekey test --host http://my.gamekey.implementation:8080
-\end_layout
-
-\begin_layout Standard
-Die Tests die ihre Dartimplementierung bestehen muss, finden sich in der
- Datei 
-\family typewriter
-\size small
-lib/reference.rb
-\family default
-\size default
- der Referenzimplementierung.
- Nicht erfolgreiche Testfälle werden mit Identifier ausgegeben.
- Anhand des Identifiers können sie in der Referenzimplementierung herausfinden,
- welcher Testfall nicht erfolgreich war.
- Auch die Referenzimplementierung ist gegen diese Testfälle geprüft worden.
-\end_layout
-
-\begin_layout Standard
-Ihre Referenzimplementierung muss ferner mit dem GameKey command line client
- wie die Referenzimplementierung funktionieren.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{framed}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Hinweis:} Ihnen wird ein funktionsfähiger GameKey Service in der
- Ruby Referenzimplementierung für die Laufzeit des Projekts zur Verfügung
- gestellt.
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-Den Endpoint finden sie in Moodle.
- Ihr Game muss aber ebenfalls mit ihrer Dart Implementierung des Gamekey
- Service funktionieren.
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{framed}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-Client-seitige Anbindung an den GameKey Service (Dart Schnittstelle)
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:Client-seitige-Anbindung-an-REST"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{framed}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Hinweis:} Die Gamekey Dart Schnittstelle unterstützt nicht die volle
- Funktionalität der REST Schnittstelle.
- Bspw.
- ist es nicht möglich Spielernamen zu ändern, Spieler zu löschen, oder dass
- Passwort eines Spielers zu ändern.
- Es wird daher absehbar nicht für ihr Spiel ausreichen, einfach nur die
- 
-\backslash
-texttt{gamekey.dart} Datei für ihr Spiel zu übernehmen.
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{framed}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{framed}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Hinweis:} Vergessen Sie bitte nicht! Sie müssen sowohl die 
-\backslash
-textbf{clientseitige Dart API} als auch die 
-\backslash
-textbf{serverseitige Storage Lösung} in Dart entwickeln.
- Ihre clientseitige Dart API muss auch mit der Rubyimplementierung funktionieren.
- Sie können die Referenztests der Ruby Implementierung problemlos gegen
- ihre Dart-Implementierung laufen lassen, um zu prüfen, ob sich ihr Dart
- Service genauso verhält, wie der Ruby Referenz-Service.
- D.h.
- sie müssen keine eigenen Testfälle für die Storage Lösung entwickeln (sie
- dürfen aber natürlich).
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{framed}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Der GameKey Service wird in SnakeDart mittels eines Objekts der Klasse 
-\family typewriter
-\series bold
-GameKey
-\family default
-\series default
- (vgl.
- Abb.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Klassendiagramm-(VC)"
-
-\end_inset
-
-) angesprochen.
- Die Klasse 
-\family typewriter
-\series bold
-GameKey
-\family default
-\series default
- dient dem Controller dazu mit dem GameKey Service interagieren zu können,
- ohne die Details der REST Schnittstelle kennen zu müssen.
-\end_layout
-
-\begin_layout Standard
-Ein 
-\family typewriter
-\series bold
-GameKey
-\family default
-\series default
- Objektzustand umfasst letztlich nicht mehr
-\end_layout
-
-\begin_layout Itemize
-als die 
-\family typewriter
-\series bold
-gameid
-\family default
-\series default
- des Spiels (wird bei Registerieren des Spiels vergeben, siehe Online Dokumentat
-ion des Gamekey Service)
-\end_layout
-
-\begin_layout Itemize
-das 
-\family typewriter
-\series bold
-secret
-\family default
-\series default
- des Spiels (wird mit der gameid zur Authentifizierung benötigt)
-\end_layout
-
-\begin_layout Itemize
-sowie der 
-\family typewriter
-\series bold
-uri
-\family default
-\series default
- des GameKey Service Endpoints.
-\end_layout
-
-\begin_layout Standard
-Ein 
-\family typewriter
-\series bold
-GameKey
-\family default
-\series default
- Objekt kann mittels eines Konstruktors erzeugt werden.
- Anschließend ist dieses Objekt in der Lage mit dem GameKey Service über
- eine REST-Schnittstelle (vgl.
- Tabelle 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:REST-Schnittstelle-des-Gamekey-Service"
-
-\end_inset
-
-) zu kommunizieren.
- Es kapselt damit im wesentlichen die GameKey REST API für den 
-\family typewriter
-\series bold
-SnakeGameController
-\family default
-\series default
- in Form folgender Methoden:
-\end_layout
-
-\begin_layout Itemize
-
-\family typewriter
-\series bold
-registerUser()
-\family default
-\series default
- dient dazu, einen neuen Nutzer im GameKey Service zu registrieren (hierzu
- muss Nutzername und Passwort bekannt sein).
-\end_layout
-
-\begin_layout Itemize
-
-\family typewriter
-\series bold
-getUser()
-\family default
-\series default
- dient dazu, detaillierte Informationen über einen Nutzer abzurufen.
-\end_layout
-
-\begin_layout Itemize
-
-\family typewriter
-\series bold
-authenticate()
-\family default
-\series default
- dient dazu, einen Nutzer anhand seines Namens und seines Passworts zu authentif
-izieren.
-\end_layout
-
-\begin_layout Itemize
-
-\family typewriter
-\series bold
-getUserId()
-\family default
-\series default
- dient dazu, auf Basis eines Nutzernamens die zugehörige Id des Nutzers
- zu bestimmen (da ein Nutzer diese kryptische Id normalerweise niemals bewusst
- eingeben würde)
-\end_layout
-
-\begin_layout Itemize
-
-\family typewriter
-\series bold
-listUsers()
-\family default
-\series default
- liefert eine JSON List mit öffentlichen Informationen über alle im GameKey
- registrierten Nutzer.
-\end_layout
-
-\begin_layout Itemize
-
-\family typewriter
-\series bold
-getStates()
-\family default
-\series default
- liefert eine JSON List mit allen für ein Game gespeicherten Spielzustände.
-\end_layout
-
-\begin_layout Itemize
-
-\family typewriter
-\series bold
-storeState()
-\family default
-\series default
- speichert für einen Nutzer einen JSON State (der mittels 
-\family typewriter
-\series bold
-getStates()
-\family default
-\series default
- nachträglich wieder abgerufen werden kann).
-\end_layout
-
-\begin_layout Standard
-Alle genannten Methoden arbeiten asynchron (da sie auf Netzwerkzugriffen
- beruhen) und lieferen daher 
-\family typewriter
-Future
-\family default
-s zurück.
- Die oben genannten Methoden decken nur den Teil der REST API ab, die für
- das SnakeGame erforderlich sind.
- Die REST API wird nicht komplett durch diese Dart Schnittstelle genutzt.
- 
 \end_layout
 
 \begin_layout Section
@@ -7295,7 +4365,7 @@ end{framed}
 Parameterisierungskonzept
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Parameterisierungskonzept"
+name "subsec:Parameterisierungskonzept"
 
 \end_inset
 
@@ -7304,10 +4374,10 @@ name "sub:Parameterisierungskonzept"
 
 \begin_layout Standard
 Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
- eines vollständigen Parametrisierungskonzepts verzichtet.
- Dennoch wurde bspw.
- die Anbindung an den Gamekey-Service mittels einer extermen Settings-Datei
- folgenden Formats umgesetzt.
+ eines aufwändigen Parametrisierungskonzepts verzichtet.
+ Werden Spiele aber komplexer, bietet es sich an Spieleparameter in externen
+ Definitionsformaten (und nicht hardcodiert im Quelltext, auch nicht als
+ Konstanten) zu definieren.
 \end_layout
 
 \begin_layout Standard
@@ -7322,7 +4392,7 @@ lstinputlisting[caption=Spielparameter des
 \backslash
 texttt{SnakeGame}s (
 \backslash
-texttt{gamekey.json})]{../web/gamekey.json} 
+texttt{parameter.json})]{../web/parameter.json} 
 \end_layout
 
 \end_inset
@@ -7330,59 +4400,8 @@ texttt{gamekey.json})]{../web/gamekey.json}
 
 \end_layout
 
-\begin_layout Itemize
-Die 
-\family typewriter
-\series bold
-gameid
-\family default
-\series default
- bezeichnet dabei die vom GamekeyService während der Registrierung zugewiesen
- Identifier
-\end_layout
-
-\begin_layout Itemize
-
-\family typewriter
-\series bold
-host
-\family default
-\series default
- ist ein valider DNS-Name oder IP Adresse (String codiert), der angibt auf
- welchem Host der Gamekey Service läuft (da der Gamekey Service CORS enabled
- ist, muss dies nicht derselbe Host sein, von dem das Spiel geladen wurde)
-\end_layout
-
-\begin_layout Itemize
-
-\family typewriter
-\series bold
-port
-\family default
-\series default
- ist ein Integer Wert, der den Port angibt auf dem der Gamekey Service lauscht
-\end_layout
-
 \begin_layout Standard
-Diese Datei wird durch den 
-\family typewriter
-\series bold
-SnakeGameController
-\family default
-\series default
- zu Beginn des Ladens des Spiels auf folgende Weise geladen und zur Herstellung
- der Gamekey-Connection genutzt.
- 
-\family typewriter
-\series bold
-gamekeySettings
-\family default
-\series default
- ist dabei eine String-Konstante die lediglich auf die 
-\family typewriter
-'gamekey.json'
-\family default
- Datei verweist.
+Sie können solche Dateien als normale Webresourcen nachladen.
 \end_layout
 
 \begin_layout Standard
@@ -7393,8 +4412,8 @@ status open
 
 
 \backslash
-lstinputlisting[caption=Laden der Spielparameter,firstline=96,lastline=118]{../lib
-/src/control.dart} 
+lstinputlisting[caption=Laden von Ressourcen,firstline=97,lastline=104]{../lib/src
+/control.dart} 
 \end_layout
 
 \end_inset
@@ -7417,7 +4436,7 @@ begin{framed}
 
 
 \backslash
-textbf{Hinweis: } Es sollte ihnen ein Leichtes sein, diesen Ansatz für weitere
+textbf{Hinweis: } Es sollte ein Leichtes sein, diesen Ansatz für weitere
  spielrelevante Parameter zu erweitern.
  Sie ermöglichen sich damit nebenbei einfachere Anpassungsmöglichkeiten
  während der finalen Feintuningphase ihres Spiels.
@@ -7437,48 +4456,7 @@ end{framed}
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{framed}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-textbf{Hinweis: } Beachten sie bitte, dass sie ein Parametrisierungskonzept
- ggf.
- für ihr Spiel und einmal für Ihre Dart-Implementierung des Gamekey Storage
- Service benötigen.
- Sie müssen also ggf.
- zwei Parameterisierungskonzepte dokumentieren, bzw.
- erläutern, warum ein Parametrisierungskonzept ggf.
- nicht erforderlich ist.
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{framed}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Ergänzend zu den Angaben in der 
-\family typewriter
-gamekey.json
-\family default
- Datei sind diverse Konstanten im 
+Im 
 \family typewriter
 \series bold
 SnakeGameController
@@ -7486,14 +4464,10 @@ SnakeGameController
 \series default
  (
 \family typewriter
-lib/src\SpecialChar \slash{}
+lib/src\SpecialChar breakableslash
 control.dart
 \family default
-) definiert (die grundsätzlich auf vergleichbare Art und Weise in die 
-\family typewriter
-gamekey.json
-\family default
- ausgelagert werden könnten).
+) werden diese Festlegungen eingelesen.
 \end_layout
 
 \begin_layout Itemize
@@ -7534,37 +4508,6 @@ miceSpeed
  Mäuse für die Schlange zu fressen).
 \end_layout
 
-\begin_layout Itemize
-
-\family typewriter
-\series bold
-gamekeyCheck
-\family default
-\series default
- gibt das Intervall in Sekunden an, in dem geprüft werden soll, ob der Gamekey
- Service erreichbar ist.
-\end_layout
-
-\begin_layout Itemize
-
-\family typewriter
-\series bold
-gameSecret
-\family default
-\series default
- gibt das Secret des Games an, welches bei der Registrierung des Games beim
- GamekeyService angegeben wurde/bzw.
- durch den Command Line Client automatisch generiert wurde.
- Dieses Secret ist aus Gründen der Schlüsselverteilung hart in das Spiel
- codiert.
- Bei Änderungen des Secrets muss auch das Spiel aktualisiert werden.
- Von der Auslagerung des gameSecret in die 
-\family typewriter
-gamekey.json
-\family default
- wird jedoch aus Sicherheitsgründen abgeraten.
-\end_layout
-
 \begin_layout Section
 Nachweis der Anforderungen
 \begin_inset CommandInset label
@@ -7577,17 +4520,11 @@ name "sec:Nachweis-der-Anforderungen"
 \end_layout
 
 \begin_layout Standard
-Nachfolgend wird erläutert wie die in Kapitel 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Anforderungen-und-abgeleitetes-Konzept"
-
-\end_inset
-
- eingeführten funktionalen Anforderungen, die Dokumentationsanforderungen
- und die technischen Randbedingungen erfüllt bzw.
+Nachfolgend wird erläutert wie die jeweilig im Semester defininierten funktional
+en Anforderungen, die Dokumentationsanforderungen und die technischen Randbeding
+ungen erfüllt bzw.
  eingehalten werden.
- Dies kann -- wie nachfolgend geschehen -- argumentativ erfolgen, und muss
+ Dies kann – wie nachfolgend geschehen – argumentativ erfolgen, und muss
  nicht durch eine Testfall-getriebene Nachweisführung erfolgen.
  Abschließend wird angegeben, wer im Team welche Verantwortlichkeiten hatte.
 \end_layout
@@ -7723,8 +4660,8 @@ status open
 \noindent
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="8" columns="6">
-<features rotate="0" tabularvalignment="middle">
+<lyxtabular version="3" rows="7" columns="6">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="5col%">
 <column alignment="left" valignment="top" width="15col%">
 <column alignment="center" valignment="top">
@@ -8043,8 +4980,7 @@ AF-4
 \begin_layout Plain Layout
 
 \size scriptsize
-Parametrisierungs\SpecialChar \-
-konzept
+Parametrisierungskonzept
 \end_layout
 
 \end_inset
@@ -8090,86 +5026,14 @@ Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
  (siehe Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Parameterisierungskonzept"
+reference "subsec:Parameterisierungskonzept"
 
 \end_inset
 
 ).
  Weitere Werte zur Verhaltensbeeinflussung, wurden jedoch als Konstanten
  in der Klasse SnakeGameController realisiert, so dass diese an zentraler
- Stelle -- jedoch nur mit Änderung des Quellcodes --- geändert werden können.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-AF-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-REST-basierter Storage
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Das Spiel kann auf die JSON-basierte Referenz-Storagelösung zugreifen (vgl.
- Abschnitt 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Client-seitige-Anbindung-an-REST"
-
-\end_inset
-
-).
+ Stelle – jedoch nur mit Änderung des Quellcodes — geändert werden können.
 \end_layout
 
 \end_inset
@@ -8401,7 +5265,7 @@ status open
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="6">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="5col%">
 <column alignment="left" valignment="top" width="15col%">
 <column alignment="center" valignment="top">
@@ -8513,7 +5377,7 @@ D-1
 \begin_layout Plain Layout
 
 \size scriptsize
-Dokumentations\SpecialChar \-
+Dokumentations\SpecialChar softhyphen
 vorlage
 \end_layout
 
@@ -8578,7 +5442,7 @@ D-2
 \begin_layout Plain Layout
 
 \size scriptsize
-Projekt\SpecialChar \-
+Projekt\SpecialChar softhyphen
 dokumentation
 \end_layout
 
@@ -8644,7 +5508,7 @@ D-3
 \begin_layout Plain Layout
 
 \size scriptsize
-Quelltext\SpecialChar \-
+Quelltext\SpecialChar softhyphen
 dokumentation
 \end_layout
 
@@ -8960,8 +5824,8 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="14" columns="6">
-<features rotate="0" tabularvalignment="middle">
+<lyxtabular version="3" rows="11" columns="6">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="5col%">
 <column alignment="left" valignment="top" width="15col%">
 <column alignment="center" valignment="top" width="0pt">
@@ -9261,14 +6125,14 @@ Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Implementierung
  (siehe Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Parameterisierungskonzept"
+reference "subsec:Parameterisierungskonzept"
 
 \end_inset
 
 ).
  Weitere Werte zur Verhaltensbeeinflussung, wurden jedoch als Konstanten
  in der Klasse SnakeGameController realisiert, so dass diese an zentraler
- Stelle -- jedoch nur mit Änderung des Quellcodes --- geändert werden können.
+ Stelle – jedoch nur mit Änderung des Quellcodes — geändert werden können.
 \end_layout
 
 \end_inset
@@ -9399,202 +6263,6 @@ x
 \size scriptsize
 Die Logik des Spiels ist mittels der Programmiersprache Dart realisiert
  worden.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-6
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Storagelogic in Dart 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Da SnakeGame nur als Anschauungsgegenstand dient, wurde auf die Dart-Implementie
-rung des Storageservice verzichtet.
- 
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Storage Referenz
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-SnakeGame nutzt nur die Referenzimplementierung des Storageservice.
- Da die Eigenrealisierung des Storageservice jedoch in Dart nicht vorgenommen
- wurde, kann dieser Teil der Anforderung nicht nachgewiesen werden.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-TF-8
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Storage Referenztest
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Es wurde keine Dart Implementierung der Referenz Storage Services vorgenommen.
 \end_layout
 
 \end_inset
@@ -10035,8 +6703,8 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="19" columns="7">
-<features rotate="0" tabularvalignment="middle">
+<lyxtabular version="3" rows="12" columns="7">
+<features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="0pt">
 <column alignment="left" valignment="top" width="0col%">
 <column alignment="left" valignment="top" width="0col%">
@@ -10891,85 +7559,7 @@ nicht umgesetzt
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-GameKey API
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-REST Anbindung
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size scriptsize
-lib/src/gamekey.dart
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-V
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-U
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-beinhaltelt Inline Dokumentation
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10980,7 +7570,7 @@ Documentation
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10991,7 +7581,7 @@ SnakeGame Report
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -11003,7 +7593,7 @@ doc/*.*
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -11014,7 +7604,7 @@ V
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -11023,7 +7613,7 @@ V
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -11032,454 +7622,13 @@ V
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size scriptsize
 Lyx/Latex Report
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-GameKey Service (Ruby)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Command Line Client
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size scriptsize
-bin/gamekey
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-V
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-U
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-test command von Heinzel Frau
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Dockerization
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size scriptsize
-Dockerfile
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-V
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-U
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Gamekey Server
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size scriptsize
-lib/*.rb
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-V
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-beinhaltelt Inline Dokumentation
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Referencetests
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size scriptsize
-lib/reference.rb
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-V
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-U
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-beinhaltet inline Dokumentation
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Dokumentation
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\size scriptsize
-README.md
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-V
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Online Dokumentation
 \end_layout
 
 \end_inset
@@ -11574,8 +7723,8 @@ begin{framed}
 
 \backslash
 textbf{Hinweis: } Wenn Sie eine Aufgabenzuordnung wählen, die im wesentlichen
- besagt, dass alle alles gemacht haben, zeigt das eigentlich nur, dass sie
- recht planlos agiert haben.
+ besagt, dass alle alles gemacht haben, zeigt das eigentlich nur, dass recht
+ planlos vorgegangen wurde.
  Achten Sie darauf, dass die Verantwortlichkeiten und Unterstützungen gleichmäßi
 g und fair im Projekt verteilt werden.
  Grundsätzlich bekommen alle im Team dieselbe Note, wenn sich jedoch Verantwortl

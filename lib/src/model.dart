@@ -16,7 +16,7 @@ class Snake {
   /**
    * List of body elements of this snake.
    */
-  var _body = [];
+  List<Map<String, int>> _body = [];
 
   /**
    * Actual vertical row movement of this snake. Can be -1, 0, 1.
@@ -218,7 +218,7 @@ class SnakeGame {
   Snake _snake;
 
   // List of mice.
-  var _mice = [];
+  List<Mouse> _mice = [];
 
   // The field size of the game (nxn field)
   final int _size;
@@ -227,7 +227,7 @@ class SnakeGame {
   Symbol _gamestate;
 
   // Holds how many mice the snake has already eaten.
-  var _miceCounter = 0;
+  int _miceCounter = 0;
 
   /**
    * Indicates whether game is stopped.
@@ -284,15 +284,15 @@ class SnakeGame {
    * #empty, #mouse or #snake
    */
   List<List<Symbol>> get field {
-    var _field = new Iterable.generate(_size, (row) {
+    List<List<Symbol>> _field = new Iterable.generate(_size, (row) {
       return new Iterable.generate(_size, (col) => #empty).toList();
     }).toList();
-    mice.forEach((m) {
+    for (Mouse m in mice) {
       if (m.row < size && m.col < size)
         _field[m.row][m.col] = #mouse;
       else
         print (m);
-    });
+    };
     snake.body.forEach((s) {
       final r = s['row'];
       final c = s['col'];

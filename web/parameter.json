@@ -1,0 +1,5 @@
+{
+  "snakeSpeed": 250, 
+  "miceSpeed": 750,
+  "acceleration": 0.05
+}
