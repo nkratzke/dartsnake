@@ -6,4 +6,4 @@ Lübeck University of Applied Sciences (Computer Science Study Program).
 
 You can play a live version [here][dartsnake-live].
 
-[dartsnake-live]: http://www.nkode.io/static/dartsnake
+[dartsnake-live]: http://webtech.mylab.th-luebeck.de/hall-of-fame/games/snakedart
