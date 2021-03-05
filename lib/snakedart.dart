@@ -4,8 +4,7 @@ import 'dart:html';
 import 'dart:async';
 import 'dart:math';
 import 'dart:convert';
-import 'package:http/browser_client.dart';
-
+import 'package:http/http.dart' as http;
 
 part 'src/model.dart';
 part 'src/control.dart';

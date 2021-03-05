@@ -95,8 +95,7 @@ class SnakeGameController {
    * Loads the game parameters.
    */
   void _loadParameter() async {
-    final client = new BrowserClient();
-    var response = await client.get("parameter.json");
+    var response = await http.get(Uri.http(window.location.host, "/parameter.json"));
     var parameters = jsonDecode(response.body);
     snakeSpeed = Duration(milliseconds: parameters['snakeSpeed'] as int);
     miceSpeed = Duration(milliseconds: parameters['miceSpeed'] as int);
